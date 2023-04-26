@@ -1,0 +1,132 @@
+plugins {
+    id 'com.android.application'
+    id 'org.jetbrains.kotlin.android'
+    id 'kotlin-android'
+}
+
+android {
+
+//    signingConfigs {
+//        debug {
+//            storeFile file('D:\\BansiStudioWorkSpace\\Android\\ProductApp\\Mitashi Ltd\\jks_details\\PlayStore\\bitcoinminer.jks')
+//            storePassword 'Bit@123CoinMiner'
+//            keyPassword 'Bit@123CoinMiner'
+//            keyAlias 'Bitcoin Miner'
+//        }
+//        release {
+//            storeFile file('D:\\BansiStudioWorkSpace\\Android\\ProductApp\\Mitashi Ltd\\jks_details\\PlayStore\\bitcoinminer.jks')
+//            keyAlias 'Bitcoin Miner'
+//            storePassword 'Bit@123CoinMiner'
+//            keyPassword 'Bit@123CoinMiner'
+//        }
+//    }
+
+
+    namespace 'com.example.allvideodownloaderrevolt'
+    compileSdk 33
+
+    defaultConfig {
+        applicationId "com.example.allvideodownloaderrevolt"
+        minSdk 24
+        targetSdk 33
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+buildTypes {
+//    release {
+//        minifyEnabled true
+//        shrinkResources true
+//        signingConfig signingConfigs.release
+//        proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+//        proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+//
+//    }
+//    debug {
+//        minifyEnabled true
+//        shrinkResources true
+//        signingConfig signingConfigs.release
+//        proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+//        proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+//    }
+}
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    kotlinOptions {
+        jvmTarget = '1.8'
+    }
+    buildFeatures {
+        viewBinding true
+    }
+
+    externalNativeBuild {
+        cmake {
+            path 'CMakeLists.txt'
+            version '3.22.1'
+        }
+    }
+    ndkVersion "23.1.7779620"
+}
+
+dependencies {
+
+    implementation 'androidx.core:core-ktx:1.7.0'
+    implementation 'androidx.appcompat:appcompat:1.6.1'
+    implementation 'com.google.android.material:material:1.8.0'
+    implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
+    implementation project(path: ':AdsModulUpdate')
+    implementation 'androidx.navigation:navigation-fragment-ktx:2.5.3'
+    implementation 'androidx.navigation:navigation-ui-ktx:2.5.3'
+    implementation 'androidx.constraintlayout:constraintlayout-core:1.0.4'
+    testImplementation 'junit:junit:4.13.2'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.5'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.1'
+    implementation 'com.google.android.exoplayer:exoplayer:2.18.0'
+
+    implementation 'com.intuit.sdp:sdp-android:1.1.0'
+    implementation 'com.intuit.ssp:ssp-android:1.1.0'
+    //lottie json
+    implementation 'com.airbnb.android:lottie:5.2.0'
+    //font
+    implementation 'com.intuit.sdp:sdp-android:1.1.0'
+    implementation 'com.intuit.ssp:ssp-android:1.1.0'
+    //swipe refresh layout
+    implementation "androidx.swiperefreshlayout:swiperefreshlayout:1.1.0"
+    //glide
+    implementation 'com.github.bumptech.glide:glide:4.14.2'
+    annotationProcessor 'com.github.bumptech.glide:compiler:4.14.2'
+    //Rounded Imageview
+    implementation 'com.makeramen:roundedimageview:2.3.0'
+    //Video Saving
+    implementation 'commons-io:commons-io:2.11.0'
+    //Video Player
+    implementation 'com.linsea:universalvideoview:1.1.0@aar'
+    //Retrofit
+    implementation 'com.squareup.retrofit2:retrofit:2.9.0'
+    implementation 'com.squareup.retrofit2:converter-gson:2.9.0'
+    implementation 'com.google.code.gson:gson:2.9.1'
+    //Android Networking
+    implementation 'com.amitshekhar.android:android-networking:1.0.2'
+    //One Signal
+    implementation 'com.onesignal:OneSignal:[4.0.0, 4.99.99]'
+    //Video Downloading Helper
+    implementation 'org.jsoup:jsoup:1.15.3'
+    //AsyncHttpClient
+    implementation 'com.loopj.android:android-async-http:1.4.11'
+    //For Google Ads...
+    implementation 'com.google.android.gms:play-services-ads:21.5.0'
+    implementation 'androidx.lifecycle:lifecycle-process:2.5.1'
+    //Mediation
+    implementation 'com.google.ads.mediation:facebook:6.12.0.0'
+    //Analytics
+    implementation 'com.google.firebase:firebase-analytics:21.2.0'
+    //Crashlytics
+    implementation 'com.google.firebase:firebase-crashlytics:18.3.3'
+    //For Fb Event Manager...
+    implementation 'com.facebook.android:facebook-android-sdk:13.1.0'
+
+}

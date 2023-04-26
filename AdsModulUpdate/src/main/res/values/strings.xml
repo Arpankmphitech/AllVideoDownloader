@@ -1,0 +1,30 @@
+<resources>
+    <string name="app_name">AdDemo</string>
+    <string name="ad_attribution">Ad</string>
+
+    <string name="sponsored">Sponsored</string>
+
+    <string name="font_bold">font_bold.ttf</string>
+    <string name="font_light">font_light.ttf</string>
+    <string name="font_regular">font_regular.ttf</string>
+    <string name="play_quiz_win_upto_50_000_coins"><![CDATA[Play Quiz & Win Upto 50,000 Coins]]></string>
+    <string name="play_and_win_coins_daily"><![CDATA[Play & Win Coins Daily]]></string>
+    <string name="play_now">Play Now</string>
+    <string name="continue_to_app">Continue to app</string>
+    <string name="advertisement">Advertisement</string>
+    <string name="qureka_lite_play_game">Qureka Lite/Play Game</string>
+    <string name="preadchamp_play_game">Preadchamp/Play game</string>
+    <string name="bitcoin_play_game">Qureka/Play game</string>
+    <string name="play_games">MGL/Play game</string>
+    <string name="cricket_prediction_contest_is_live_npredict_now">Cricket Prediction Contest is Live!\nPredict Now</string>
+    <string name="play_game">Play Game</string>
+    <string name="mgl_play_game">MGL/Play Game</string>
+    <string name="play_mgl_games_earn_upto_1_00_000_coins_daily"><![CDATA[Play MGL Games & Earn Upto 1,00,000 Coins Daily]]></string>
+    <string name="quiz_for_15_000_coins_calling_you">Quiz for 15,000 Coins calling you!???</string>
+    <string name="play_bollywood_prediction_win_coins_daily"><![CDATA[Play Bollywood Prediction & win coins daily]]></string>
+    <string name="play_car_racing_game_earn_upto_50_000_coins"><![CDATA[Play Car Racing Game & Earn Upto 50,000 Coins]]></string>
+    <string name="close">Close</string>
+    <string name="ad">AD</string>
+    <string name="ok">OK</string>
+    <string name="no_ad_show">No ads to show.</string>
+</resources>

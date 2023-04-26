@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".activitys.HomeAct">
+
+    <include
+        android:id="@+id/includeHomeBottomBar"
+        layout="@layout/bottom_bar_item"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true" />
+
+
+    <FrameLayout
+        android:id="@+id/HomeFrame"
+        android:layout_above="@+id/includeHomeBottomBar"
+        android:layout_width="match_parent"
+        android:layout_marginBottom="@dimen/_minus2sdp"
+        android:layout_height="match_parent"
+        android:layout_marginTop="@dimen/_10sdp" />
+
+    <ImageView
+        android:id="@+id/imgHome"
+        android:layout_width="@dimen/_80sdp"
+        android:layout_height="@dimen/_80sdp"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="@dimen/_23sdp"
+        android:src="@drawable/ic_slc_home"
+        tools:ignore="ContentDescription" />
+    <!--    android:background="@drawable/orange_red_gradient_with_shadow_365sdp"-->
+    <!--    android:padding="@dimen/_20sdp"-->
+
+</RelativeLayout>

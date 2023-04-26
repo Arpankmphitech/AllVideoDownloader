@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="yellow">#FFD300</color>
+    <color name="blue">#6FC1F4</color>
+    <color name="facebook">#584399</color>
+    <color name="adv_light_gray">#EAEAEA</color>
+    <color name="gray">#E7E7E7</color>
+    <color name="light_white">#ffe9e9e9</color>
+    <color name="white">#ffffffff</color>
+    <color name="darkgray">#777777</color>
+    <color name="mediumdarkgray">#939292</color>
+    <color name="black">#000000</color>
+    <color name="background_gray">#D5D4D4</color>
+    <color name="advertise_bg">#FFB62E</color>
+    <color name="default_gray">#FAFAFA</color>
+    <color name="advertise_green">#46D901</color>
+    <color name="red">#FFDE84</color>
+    <color name="dark_brown">#FFFFFF</color>
+
+    <color name="btnColor">#C1272D</color>
+    <color name="adsBgColor">#4F39C6</color>
+    <color name="adv_blue_new">#6FC1F4</color>
+
+</resources>

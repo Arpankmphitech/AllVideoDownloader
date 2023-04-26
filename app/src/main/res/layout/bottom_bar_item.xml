@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/colorWhite">
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_15sdp"
+        android:background="@drawable/shadow_white_box"
+        tools:ignore="ContentDescription" />
+
+    <LinearLayout
+        android:id="@+id/layoutBottom"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_3sdp"
+        android:background="@drawable/white_top_15sdp_bg"
+        android:orientation="horizontal"
+        android:paddingHorizontal="@dimen/_10sdp"
+        android:paddingVertical="@dimen/_15sdp"
+        tools:ignore="UselessParent">
+
+        <LinearLayout
+            android:id="@+id/layoutStatusSaver"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            tools:ignore="UseCompoundDrawables">
+
+            <ImageView
+                android:id="@+id/imgStatusSaver"
+                android:layout_width="@dimen/_25sdp"
+                android:layout_height="@dimen/_25sdp"
+                android:layout_gravity="center"
+                android:src="@drawable/ic_unslc_status_saver"
+                tools:ignore="ContentDescription" />
+
+            <TextView
+                android:id="@+id/txtStatusSaver"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_2sdp"
+                android:fontFamily="@font/worksans_medium"
+                android:gravity="center"
+                android:includeFontPadding="false"
+                android:text="@string/status_saver"
+                android:textColor="@color/colorLightGray"
+                android:textSize="@dimen/_10ssp" />
+
+            <TextView
+                android:id="@+id/txtStatusSaver2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_2sdp"
+                android:fontFamily="@font/worksans_medium"
+                android:gravity="center"
+                android:includeFontPadding="false"
+                android:text="@string/status_saver"
+                android:textColor="@color/colorLightGray"
+                android:textSize="@dimen/_10ssp"
+                android:visibility="gone" />
+
+        </LinearLayout>
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1" />
+
+        <LinearLayout
+            android:id="@+id/layoutVideoPlayer"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            tools:ignore="UseCompoundDrawables">
+
+            <ImageView
+                android:id="@+id/imgVideoPlayer"
+                android:layout_width="@dimen/_25sdp"
+                android:layout_height="@dimen/_25sdp"
+                android:layout_gravity="center"
+                android:src="@drawable/ic_unslc_video_player"
+                tools:ignore="ContentDescription" />
+
+            <TextView
+                android:id="@+id/txtVideoPlayer"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_2sdp"
+                android:fontFamily="@font/worksans_medium"
+                android:gravity="center"
+                android:includeFontPadding="false"
+                android:text="@string/video_player"
+                android:textColor="@color/colorLightGray"
+                android:textSize="@dimen/_10ssp" />
+
+            <TextView
+                android:id="@+id/txtVideoPlayer2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_2sdp"
+                android:fontFamily="@font/worksans_medium"
+                android:gravity="center"
+                android:includeFontPadding="false"
+                android:text="@string/video_player"
+                android:textColor="@color/colorLightGray"
+                android:textSize="@dimen/_10ssp"
+                android:visibility="gone" />
+
+        </LinearLayout>
+    </LinearLayout>
+
+</RelativeLayout>
