@@ -11,14 +11,14 @@ import com.example.allvideodownloaderrevolt.models.VideoModel
 
 class AllVideoPlayerAct : BaseAct() {
 
-    lateinit var binding: ActAllVideoPlayerBinding
+    lateinit var actAlPlayerBinding: ActAllVideoPlayerBinding
     private var list: List<VideoModel>? = null
     private var position = 0
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = ActAllVideoPlayerBinding.inflate(layoutInflater)
-        setContentView(binding.root)
+        actAlPlayerBinding = ActAllVideoPlayerBinding.inflate(layoutInflater)
+        setContentView(actAlPlayerBinding.root)
         activity = this@AllVideoPlayerAct
         Utils.setStatusBarSkyBlueGradientActivity(activity as AllVideoPlayerAct)
         initVideoPlayerToolBar()
@@ -26,8 +26,9 @@ class AllVideoPlayerAct : BaseAct() {
     }
 
     private fun initVideoPlayerToolBar() {
-        binding.toolBar.txtTitleName.text = activity.resources.getString(R.string.video_player)
-        binding.toolBar.ivBackArrow.setOnClickListener { onBackPressed() }
+        actAlPlayerBinding.toolBar.txtTitleName.text =
+            activity.resources.getString(R.string.video_player)
+        actAlPlayerBinding.toolBar.ivBackArrow.setOnClickListener { onBackPressed() }
     }
 
     private fun initVideoPlayerViewID() {
@@ -36,18 +37,26 @@ class AllVideoPlayerAct : BaseAct() {
             val list2: List<VideoModel>? = intent.getSerializableExtra("list") as List<VideoModel>?
             list = list2
             if (list2 == null || list2.isEmpty()) {
-                Toast.makeText(activity, activity.resources.getString(R.string.toast_stg_wrong), Toast.LENGTH_SHORT).show()
+                Toast.makeText(
+                    activity,
+                    activity.resources.getString(R.string.toast_stg_wrong),
+                    Toast.LENGTH_SHORT
+                ).show()
                 return
             }
             val mediaController = MediaController(this)
-            mediaController.setAnchorView(binding.vwVideoPlayer)
-            binding.vwVideoPlayer.setMediaController(mediaController)
-            binding.vwVideoPlayer.setVideoURI(Uri.parse(list!![position].data))
-            binding.vwVideoPlayer.requestFocus()
-            binding.vwVideoPlayer.start()
+            mediaController.setAnchorView(actAlPlayerBinding.vwVideoPlayer)
+            actAlPlayerBinding.vwVideoPlayer.setMediaController(mediaController)
+            actAlPlayerBinding.vwVideoPlayer.setVideoURI(Uri.parse(list!![position].data))
+            actAlPlayerBinding.vwVideoPlayer.requestFocus()
+            actAlPlayerBinding.vwVideoPlayer.start()
             return
         }
-        Toast.makeText(activity, activity.resources.getString(R.string.toast_stg_wrong), Toast.LENGTH_SHORT).show()
+        Toast.makeText(
+            activity,
+            activity.resources.getString(R.string.toast_stg_wrong),
+            Toast.LENGTH_SHORT
+        ).show()
     }
 
     override fun onBackPressed() {

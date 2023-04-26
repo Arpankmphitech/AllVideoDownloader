@@ -16,24 +16,24 @@ import com.universalvideoview.UniversalVideoView
 
 class DownloadVideoPlayerAct : AppCompatActivity() {
 
-    lateinit var binding: ActDownloadVideoPlayerBinding
+    lateinit var actAlDwPlayerBinding: ActDownloadVideoPlayerBinding
     var mBottomLayout: View? = null
     var mVideoLayout: View? = null
     var isFullScreen = false
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = ActDownloadVideoPlayerBinding.inflate(layoutInflater)
-        setContentView(binding.root)
+        actAlDwPlayerBinding = ActDownloadVideoPlayerBinding.inflate(layoutInflater)
+        setContentView(actAlDwPlayerBinding.root)
 
         Utils.setStatusBarBlackColorActivity(this)
-        binding.universalVideoView.setMediaController(binding.universalMediaController)
+        actAlDwPlayerBinding.universalVideoView.setMediaController(actAlDwPlayerBinding.universalMediaController)
         val fileUri = intent.getParcelableExtra(Intent.EXTRA_STREAM) as Uri?
 
         if (fileUri != null) {
-            binding.universalVideoView.setVideoURI(fileUri)
+            actAlDwPlayerBinding.universalVideoView.setVideoURI(fileUri)
         } else {
-            binding.universalVideoView.setVideoURI(Uri.parse(intent.getStringExtra("path")))
+            actAlDwPlayerBinding.universalVideoView.setVideoURI(Uri.parse(intent.getStringExtra("path")))
         }
 
         initView()
@@ -48,7 +48,7 @@ class DownloadVideoPlayerAct : AppCompatActivity() {
                 )
             }
         }
-        binding.universalVideoView.setVideoViewCallback(object :
+        actAlDwPlayerBinding.universalVideoView.setVideoViewCallback(object :
             UniversalVideoView.VideoViewCallback {
             override fun onScaleChange(isFullscreen: Boolean) {
                 isFullScreen = isFullscreen
@@ -73,7 +73,7 @@ class DownloadVideoPlayerAct : AppCompatActivity() {
             }
 
             override fun onStart(mediaPlayer: MediaPlayer) { // Video start/resume to play
-                binding.progressCircle.visibility = View.GONE
+                actAlDwPlayerBinding.progressCircle.visibility = View.GONE
                 Log.d("2122", "onStart UniversalVideoView callback")
             }
 
@@ -85,8 +85,8 @@ class DownloadVideoPlayerAct : AppCompatActivity() {
                 Log.d("2122", "onBufferingEnd UniversalVideoView callback")
             }
         })
-        binding.universalVideoView.setOnPreparedListener {
-            binding.universalVideoView.start()
+        actAlDwPlayerBinding.universalVideoView.setOnPreparedListener {
+            actAlDwPlayerBinding.universalVideoView.start()
         }
     }
 
@@ -104,11 +104,11 @@ class DownloadVideoPlayerAct : AppCompatActivity() {
 
     override fun onDestroy() {
         super.onDestroy()
-        binding.universalVideoView.suspend()
+        actAlDwPlayerBinding.universalVideoView.suspend()
     }
 
     override fun onBackPressed() {
-        binding.universalVideoView.suspend()
+        actAlDwPlayerBinding.universalVideoView.suspend()
         finish()
     }
 

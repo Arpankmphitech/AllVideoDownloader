@@ -12,27 +12,29 @@ import com.example.allvideodownloaderrevolt.databinding.ActExitBinding
 
 class ExitAct : BaseAct() {
 
-    lateinit var binding: ActExitBinding
+    lateinit var actExitBinding: ActExitBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = ActExitBinding.inflate(layoutInflater)
-        setContentView(binding.root)
+        actExitBinding = ActExitBinding.inflate(layoutInflater)
+        setContentView(actExitBinding.root)
         activity = this@ExitAct
         initView()
         initClick()
     }
 
     private fun initClick() {
-        binding.btnAppNo.setOnClickListener {
+        actExitBinding.btnAppNo.setOnClickListener {
             Utils.displayInter(activity, {
-                startActivity(Intent(activity,  HomeAct::class.java)
-                    .putExtra("pos", 2))
-            },true)
+                startActivity(
+                    Intent(activity, HomeAct::class.java)
+                        .putExtra("pos", 2)
+                )
+            }, true)
 
         }
 
-        binding.btnAppYes.setOnClickListener {
+        actExitBinding.btnAppYes.setOnClickListener {
             Constant.isNotificationClicked = true
             AppOpenManager.appOpenAd = null
             try {
@@ -47,7 +49,7 @@ class ExitAct : BaseAct() {
             }
         }
 
-        binding.btnRateNowApp.setOnClickListener {
+        actExitBinding.btnRateNowApp.setOnClickListener {
             Utils.openUrl(
                 this@ExitAct,
                 "http://play.google.com/store/apps/details?id=$packageName"
@@ -56,10 +58,10 @@ class ExitAct : BaseAct() {
     }
 
     private fun initView() {
-        val gradientDrawable = binding.btnAppYes.background as GradientDrawable
+        val gradientDrawable = actExitBinding.btnAppYes.background as GradientDrawable
         gradientDrawable.setStroke(5, activity.resources.getColor(R.color.colorDodgerBlue))
 
-        val gradientDrawable2 = binding.btnAppNo.background as GradientDrawable
+        val gradientDrawable2 = actExitBinding.btnAppNo.background as GradientDrawable
         gradientDrawable2.setStroke(5, activity.resources.getColor(R.color.colorDodgerBlue))
     }
 

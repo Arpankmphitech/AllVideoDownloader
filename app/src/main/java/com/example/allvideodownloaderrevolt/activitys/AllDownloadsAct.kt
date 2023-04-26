@@ -39,7 +39,7 @@ import java.net.URL
 
 class AllDownloadsAct : BaseAct() {
 
-    lateinit var binding: ActAllDownloadsBinding
+    lateinit var actAlDwBinding: ActAllDownloadsBinding
     private var intFrom = 0
     private var method: InstaMethodDwClass? = null
     private var permission = arrayOf(
@@ -50,8 +50,8 @@ class AllDownloadsAct : BaseAct() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = ActAllDownloadsBinding.inflate(layoutInflater)
-        setContentView(binding.root)
+        actAlDwBinding = ActAllDownloadsBinding.inflate(layoutInflater)
+        setContentView(actAlDwBinding.root)
 
         activity = this@AllDownloadsAct
         val policy = StrictMode.ThreadPolicy.Builder().permitAll().build()
@@ -69,40 +69,40 @@ class AllDownloadsAct : BaseAct() {
     }
 
     private fun initToolBar() {
-        binding.toolBar.ivBackArrow.setOnClickListener { onBackPressed() }
+        actAlDwBinding.toolBar.ivBackArrow.setOnClickListener { onBackPressed() }
         when (intFrom) {
             0 -> {
-                binding.toolBar.txtTitleName.text = activity.resources.getString(R.string.sharechat)
+                actAlDwBinding.toolBar.txtTitleName.text = activity.resources.getString(R.string.sharechat)
             }
             1 -> {
-                binding.toolBar.txtTitleName.text = activity.resources.getString(R.string.twitter)
+                actAlDwBinding.toolBar.txtTitleName.text = activity.resources.getString(R.string.twitter)
             }
             2 -> {
-                binding.toolBar.txtTitleName.text = activity.resources.getString(R.string.facebook)
+                actAlDwBinding.toolBar.txtTitleName.text = activity.resources.getString(R.string.facebook)
             }
             3 -> {
-                binding.toolBar.txtTitleName.text = activity.resources.getString(R.string.josh)
+                actAlDwBinding.toolBar.txtTitleName.text = activity.resources.getString(R.string.josh)
             }
             4 -> {
-                binding.toolBar.txtTitleName.text = activity.resources.getString(R.string.instagram)
+                actAlDwBinding.toolBar.txtTitleName.text = activity.resources.getString(R.string.instagram)
             }
             5 -> {
-                binding.toolBar.txtTitleName.text = activity.resources.getString(R.string.chingari)
+                actAlDwBinding.toolBar.txtTitleName.text = activity.resources.getString(R.string.chingari)
             }
             6 -> {
-                binding.toolBar.txtTitleName.text = activity.resources.getString(R.string.tiki)
+                actAlDwBinding.toolBar.txtTitleName.text = activity.resources.getString(R.string.tiki)
             }
             7 -> {
-                binding.toolBar.txtTitleName.text = activity.resources.getString(R.string.roposo)
+                actAlDwBinding.toolBar.txtTitleName.text = activity.resources.getString(R.string.roposo)
             }
             8 -> {
-                binding.toolBar.txtTitleName.text = activity.resources.getString(R.string.vimeo)
+                actAlDwBinding.toolBar.txtTitleName.text = activity.resources.getString(R.string.vimeo)
             }
         }
     }
 
     private fun initClick() {
-        binding.btnUriDataDownloads.setOnClickListener {
+        actAlDwBinding.btnUriDataDownloads.setOnClickListener {
             if (Build.VERSION.SDK_INT > 31) {
                 if (ContextCompat.checkSelfPermission(
                         this,
@@ -111,7 +111,7 @@ class AllDownloadsAct : BaseAct() {
                 ) {
                     ActivityCompat.requestPermissions(activity, permission, 101)
                 } else {
-//                    if (!Utils.isValidationUrl(binding.edtWebURL.text.toString())) {
+//                    if (!Utils.isValidationUrl(actAlDwBinding.edtWebURL.text.toString())) {
 //                        Toast.makeText(activity, getString(R.string.valid_url), Toast.LENGTH_SHORT)
 //                            .show()
 //                    }
@@ -177,7 +177,7 @@ class AllDownloadsAct : BaseAct() {
                         101
                     )
                 } else {
-//                    if (!Utils.isValidationUrl(binding.edtWebURL.text.toString())) {
+//                    if (!Utils.isValidationUrl(actAlDwBinding.edtWebURL.text.toString())) {
 //                        Toast.makeText(activity, getString(R.string.valid_url), Toast.LENGTH_SHORT)
 //                            .show()
 //                    }
@@ -233,12 +233,12 @@ class AllDownloadsAct : BaseAct() {
                 }
             }
         }
-        binding.btnUriDataPaste.setOnClickListener {
+        actAlDwBinding.btnUriDataPaste.setOnClickListener {
             val clipboard =
                 getSystemService(CLIPBOARD_SERVICE) as ClipboardManager
             try {
                 val text = clipboard.primaryClip!!.getItemAt(0).text
-                binding.edtWebURL.setText(text)
+                actAlDwBinding.edtWebURL.setText(text)
             } catch (e: Exception) {
                 return@setOnClickListener
             }
@@ -246,7 +246,7 @@ class AllDownloadsAct : BaseAct() {
     }
 
     private fun initSetData() {
-        val gradientDrawable = binding.btnUriDataDownloads.background as GradientDrawable
+        val gradientDrawable = actAlDwBinding.btnUriDataDownloads.background as GradientDrawable
         when (intFrom) {
             0 -> {
                 setChangeData(
@@ -352,16 +352,16 @@ class AllDownloadsAct : BaseAct() {
         stateList: ColorStateList?, drawable2: Drawable?,
         drawable: Drawable?, gradientDrawable: GradientDrawable,
     ) {
-        binding.txtDownloadTitle.text = string
-        binding.txtFrImageTitle.text =
+        actAlDwBinding.txtDownloadTitle.text = string
+        actAlDwBinding.txtFrImageTitle.text =
             activity.resources.getString(R.string._1_copy_video_link_from_sharechat, string)
-//        binding.txtDownloadTitle.setTextColor(color)
-//        binding.btnUriDataDownloads.setTextColor(color)
-        binding.imgDownloadLogo.backgroundTintList = colorStateList
-//        binding.btnUriDataPaste.backgroundTintList = colorStateList
-//        binding.linkDownloadBoxBg.backgroundTintList = stateList
-        binding.imgDownloadLogo.setImageDrawable(drawable2)
-        binding.imgLogoDefault.setImageDrawable(drawable)
+//        actAlDwBinding.txtDownloadTitle.setTextColor(color)
+//        actAlDwBinding.btnUriDataDownloads.setTextColor(color)
+        actAlDwBinding.imgDownloadLogo.backgroundTintList = colorStateList
+//        actAlDwBinding.btnUriDataPaste.backgroundTintList = colorStateList
+//        actAlDwBinding.linkDownloadBoxBg.backgroundTintList = stateList
+        actAlDwBinding.imgDownloadLogo.setImageDrawable(drawable2)
+        actAlDwBinding.imgLogoDefault.setImageDrawable(drawable)
 //        gradientDrawable.setStroke(5, color)
     }
 
@@ -381,17 +381,17 @@ class AllDownloadsAct : BaseAct() {
             }
 
         }
-//        val url = binding.edtWebURL.text.toString().trim { it <= ' ' }
-//        if (!Utils.isValidatEmpty(binding.edtWebURL.text.toString().trim { it <= ' ' })) {
+//        val url = actAlDwBinding.edtWebURL.text.toString().trim { it <= ' ' }
+//        if (!Utils.isValidatEmpty(actAlDwBinding.edtWebURL.text.toString().trim { it <= ' ' })) {
 //            method!!.onClick(0, "getData", url)
 //        } else {
 //            Toast.makeText(activity, getString(R.string.enter_url), Toast.LENGTH_SHORT).show()
 //        }
 
-        val url = binding.edtWebURL.text.toString().trim { it <= ' ' }
-        if (Utils.isValidatEmpty(binding.edtWebURL.text.toString().trim { it <= ' ' })) {
+        val url = actAlDwBinding.edtWebURL.text.toString().trim { it <= ' ' }
+        if (Utils.isValidatEmpty(actAlDwBinding.edtWebURL.text.toString().trim { it <= ' ' })) {
             Toast.makeText(activity, getString(R.string.enter_url), Toast.LENGTH_SHORT).show()
-        } else if (!Utils.isValidationUrl(binding.edtWebURL.text.toString().trim { it <= ' ' })) {
+        } else if (!Utils.isValidationUrl(actAlDwBinding.edtWebURL.text.toString().trim { it <= ' ' })) {
             Toast.makeText(activity, getString(R.string.valid_url), Toast.LENGTH_SHORT).show()
         } else {
             method!!.onClick(0, "getData", url)
@@ -399,9 +399,9 @@ class AllDownloadsAct : BaseAct() {
     }
 
     private fun roposoDownloads() {
-        if (!Utils.isValidatEmpty(binding.edtWebURL.text.toString().trim { it <= ' ' })) {
-            if (binding.edtWebURL.text.toString().trim { it <= ' ' }.contains("roposo")) {
-                val url = binding.edtWebURL.text.toString().trim { it <= ' ' }
+        if (!Utils.isValidatEmpty(actAlDwBinding.edtWebURL.text.toString().trim { it <= ' ' })) {
+            if (actAlDwBinding.edtWebURL.text.toString().trim { it <= ' ' }.contains("roposo")) {
+                val url = actAlDwBinding.edtWebURL.text.toString().trim { it <= ' ' }
                 Log.e("17/01", "roposoDownloads:$url")
                 Utils.ShowProgressbarDialog(
                     activity,
@@ -417,9 +417,9 @@ class AllDownloadsAct : BaseAct() {
     }
 
     private fun chingariDownloads() {
-        if (!Utils.isValidatEmpty(binding.edtWebURL.text.toString().trim { it <= ' ' })) {
-            if (binding.edtWebURL.text.toString().trim { it <= ' ' }.contains("chingari")) {
-                val url = binding.edtWebURL.text.toString().trim { it <= ' ' }
+        if (!Utils.isValidatEmpty(actAlDwBinding.edtWebURL.text.toString().trim { it <= ' ' })) {
+            if (actAlDwBinding.edtWebURL.text.toString().trim { it <= ' ' }.contains("chingari")) {
+                val url = actAlDwBinding.edtWebURL.text.toString().trim { it <= ' ' }
                 Utils.ShowProgressbarDialog(
                     activity,
                     getString(R.string.please_wait_we_are_downloading)
@@ -434,9 +434,9 @@ class AllDownloadsAct : BaseAct() {
     }
 
     private fun tikiDownloads() {
-        if (!Utils.isValidatEmpty(binding.edtWebURL.text.toString().trim { it <= ' ' })) {
-            if (binding.edtWebURL.text.toString().contains("tiki")) {
-                val url = binding.edtWebURL.text.toString()
+        if (!Utils.isValidatEmpty(actAlDwBinding.edtWebURL.text.toString().trim { it <= ' ' })) {
+            if (actAlDwBinding.edtWebURL.text.toString().contains("tiki")) {
+                val url = actAlDwBinding.edtWebURL.text.toString()
                 Utils.ShowProgressbarDialog(
                     activity,
                     getString(R.string.please_wait_we_are_downloading)
@@ -458,9 +458,9 @@ class AllDownloadsAct : BaseAct() {
     }
 
     private fun joshDownloads() {
-        if (!Utils.isValidatEmpty(binding.edtWebURL.text.toString().trim { it <= ' ' })) {
-            if (binding.edtWebURL.text.toString().contains("myjosh")) {
-                var url = binding.edtWebURL.text.toString()
+        if (!Utils.isValidatEmpty(actAlDwBinding.edtWebURL.text.toString().trim { it <= ' ' })) {
+            if (actAlDwBinding.edtWebURL.text.toString().contains("myjosh")) {
+                var url = actAlDwBinding.edtWebURL.text.toString()
                 Log.e("13/01", "joshDownloads: $url")
                 if (url.contains("http") && url.contains("?")) {
                     url = url.substring(url.indexOf("http"), url.indexOf("?"))
@@ -488,18 +488,18 @@ class AllDownloadsAct : BaseAct() {
 
     private fun shareChatDownloads() {
         try {
-            if (Utils.isValidatEmpty(binding.edtWebURL.text.toString().trim { it <= ' ' })) {
+            if (Utils.isValidatEmpty(actAlDwBinding.edtWebURL.text.toString().trim { it <= ' ' })) {
                 Toast.makeText(activity, getString(R.string.enter_url), Toast.LENGTH_SHORT).show()
                 hideKeyBoard(activity)
 
             } else if (!Utils.isValidationUrl(
-                    binding.edtWebURL.text.toString().trim { it <= ' ' })
+                    actAlDwBinding.edtWebURL.text.toString().trim { it <= ' ' })
             ) {
                 Toast.makeText(activity, getString(R.string.valid_url), Toast.LENGTH_SHORT).show()
                 hideKeyBoard(activity)
 
             } else {
-                val url = URL(binding.edtWebURL.text.toString())
+                val url = URL(actAlDwBinding.edtWebURL.text.toString())
                 val host = url.host
                 if (host.contains("sharechat")) {
                     Utils.ShowProgressbarDialog(
@@ -509,7 +509,7 @@ class AllDownloadsAct : BaseAct() {
                     ShareChatDwClass(
                         activity,
                         Constant.SHARE_CHAT_PATH
-                    ).execute(binding.edtWebURL.text.toString()
+                    ).execute(actAlDwBinding.edtWebURL.text.toString()
                         .trim { it <= ' ' })
                     hideKeyBoard(activity)
                 } else {
@@ -524,7 +524,7 @@ class AllDownloadsAct : BaseAct() {
     }
 
     private fun twitterDownloads() {
-        if (Utils.isValidatEmpty(binding.edtWebURL.text.toString())) {
+        if (Utils.isValidatEmpty(actAlDwBinding.edtWebURL.text.toString())) {
             Toast.makeText(
                 activity,
                 activity.resources.getString(R.string.enter_url),
@@ -533,7 +533,7 @@ class AllDownloadsAct : BaseAct() {
             Log.e("0101", "twitterDownloads:23 ")
             Utils.HideProgressbarDialog()
 
-        } else if (!Utils.isValidationUrl(binding.edtWebURL.text.toString())) {
+        } else if (!Utils.isValidationUrl(actAlDwBinding.edtWebURL.text.toString())) {
             Toast.makeText(
                 activity,
                 activity.resources.getString(R.string.valid_url),
@@ -543,8 +543,8 @@ class AllDownloadsAct : BaseAct() {
             Utils.HideProgressbarDialog()
 
         } else {
-            if (!Utils.isValidatEmpty(binding.edtWebURL.text.toString().trim { it <= ' ' })
-                && URL(binding.edtWebURL.text.toString()).host
+            if (!Utils.isValidatEmpty(actAlDwBinding.edtWebURL.text.toString().trim { it <= ' ' })
+                && URL(actAlDwBinding.edtWebURL.text.toString()).host
                     .contains("twitter.com")
             ) {
                 Utils.ShowProgressbarDialog(
@@ -552,7 +552,7 @@ class AllDownloadsAct : BaseAct() {
                     getString(R.string.please_wait_we_are_downloading)
                 )
                 val tweetId =
-                    JavaHelper.getTweetId(binding.edtWebURL.text.toString().trim())
+                    JavaHelper.getTweetId(actAlDwBinding.edtWebURL.text.toString().trim())
 
                 if (tweetId != null) {
                     AndroidNetworking.post(
@@ -656,8 +656,8 @@ class AllDownloadsAct : BaseAct() {
     }
 
     private fun facebookDownloads(activity: Activity) {
-        if (!Utils.isValidatEmpty(binding.edtWebURL.text.toString().trim { it <= ' ' })) {
-            val url = binding.edtWebURL.text.toString().trim { it <= ' ' }
+        if (!Utils.isValidatEmpty(actAlDwBinding.edtWebURL.text.toString().trim { it <= ' ' })) {
+            val url = actAlDwBinding.edtWebURL.text.toString().trim { it <= ' ' }
             if (url.contains("fb")) {
                 Utils.ShowProgressbarDialog(
                     activity,
@@ -674,9 +674,9 @@ class AllDownloadsAct : BaseAct() {
     }
 
     private fun vimeoDownloads() {
-        if (!Utils.isValidatEmpty(binding.edtWebURL.text.toString().trim())) {
-            if (binding.edtWebURL.text.toString().contains("vimeo")) {
-                val url = binding.edtWebURL.text.toString()
+        if (!Utils.isValidatEmpty(actAlDwBinding.edtWebURL.text.toString().trim())) {
+            if (actAlDwBinding.edtWebURL.text.toString().contains("vimeo")) {
+                val url = actAlDwBinding.edtWebURL.text.toString()
                 Utils.ShowProgressbarDialog(
                     activity,
                     getString(R.string.please_wait_we_are_downloading)
