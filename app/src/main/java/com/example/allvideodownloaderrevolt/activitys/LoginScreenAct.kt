@@ -10,15 +10,15 @@ import com.example.allvideodownloaderrevolt.databinding.ActLoginScreenBinding
 
 class LoginScreenAct : AppCompatActivity() {
 
-    lateinit var binding: ActLoginScreenBinding
+    lateinit var actLoginBinding: ActLoginScreenBinding
     lateinit var email: String
     lateinit var password: String
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = ActLoginScreenBinding.inflate(layoutInflater)
-        setContentView(binding.root)
+        actLoginBinding = ActLoginScreenBinding.inflate(layoutInflater)
+        setContentView(actLoginBinding.root)
 
         initView()
 
@@ -37,7 +37,7 @@ class LoginScreenAct : AppCompatActivity() {
 
     private fun initView() {
 
-        binding.apply {
+        actLoginBinding.apply {
 
             btnLogin.setOnClickListener {
 

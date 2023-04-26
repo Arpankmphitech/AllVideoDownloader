@@ -19,12 +19,12 @@ class MusicPlayAct : BaseAct() {
     var position: Int = 0
     var song: MediaPlayer? = null
     private lateinit var list: List<AudioModel>
-    lateinit var binding: ActMusicPlayBinding
+    lateinit var actMusicPlayerBinding: ActMusicPlayBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = ActMusicPlayBinding.inflate(layoutInflater)
-        setContentView(binding.root)
+        actMusicPlayerBinding = ActMusicPlayBinding.inflate(layoutInflater)
+        setContentView(actMusicPlayerBinding.root)
         activity = this@MusicPlayAct
         val mWindow = window
         mWindow.decorView.systemUiVisibility = (
@@ -48,14 +48,14 @@ class MusicPlayAct : BaseAct() {
     }
 
     private fun initToolBar() {
-        binding.toolBar.ivBackArrow.setOnClickListener { onBackPressed() }
-        binding.toolBar.txtTitleName.visibility = View.INVISIBLE
+        actMusicPlayerBinding.toolBar.ivBackArrow.setOnClickListener { onBackPressed() }
+        actMusicPlayerBinding.toolBar.txtTitleName.visibility = View.INVISIBLE
     }
 
     private fun initClick() {
-        binding.imgPrevious.setOnClickListener {
+        actMusicPlayerBinding.imgPrevious.setOnClickListener {
             song!!.start()
-            binding.imgPlayStop.setImageResource(R.drawable.ic_stop)
+            actMusicPlayerBinding.imgPlayStop.setImageResource(R.drawable.ic_stop)
             flag = 1
             if (position >= 1) {
                 position--
@@ -64,21 +64,21 @@ class MusicPlayAct : BaseAct() {
             }
         }
 
-        binding.imgPlayStop.setOnClickListener {
+        actMusicPlayerBinding.imgPlayStop.setOnClickListener {
             flag = if (flag == 0) {
-                binding.imgPlayStop.setImageResource(R.drawable.ic_stop)
+                actMusicPlayerBinding.imgPlayStop.setImageResource(R.drawable.ic_stop)
                 song!!.start()
                 1
             } else {
-                binding.imgPlayStop.setImageResource(R.drawable.ic_play)
+                actMusicPlayerBinding.imgPlayStop.setImageResource(R.drawable.ic_play)
                 song!!.pause()
                 0
             }
         }
 
-        binding.imgNext.setOnClickListener {
+        actMusicPlayerBinding.imgNext.setOnClickListener {
             song!!.start()
-            binding.imgPlayStop.setImageResource(R.drawable.ic_stop)
+            actMusicPlayerBinding.imgPlayStop.setImageResource(R.drawable.ic_stop)
             flag = 1
             if (list.size - 1 > position) {
                 position++
@@ -89,8 +89,8 @@ class MusicPlayAct : BaseAct() {
     }
 
     private fun videoPlayer() {
-        binding.txtArtisName.text = list[position].getaArtist()
-        binding.txtName.text = list[position].getaName()
+        actMusicPlayerBinding.txtArtisName.text = list[position].getaArtist()
+        actMusicPlayerBinding.txtName.text = list[position].getaName()
 
         song = MediaPlayer()
         try {
@@ -99,13 +99,13 @@ class MusicPlayAct : BaseAct() {
         } catch (e: IOException) {
         }
 
-        binding.seekBar1.progress = song!!.duration
+        actMusicPlayerBinding.seekBar1.progress = song!!.duration
         Timer().scheduleAtFixedRate(object : TimerTask() {
             override fun run() {
-                binding.seekBar1.progress = song!!.currentPosition
+                actMusicPlayerBinding.seekBar1.progress = song!!.currentPosition
             }
         }, 0, 100)
-        binding.seekBar1.max = song!!.duration
+        actMusicPlayerBinding.seekBar1.max = song!!.duration
         song!!.start()
     }
 

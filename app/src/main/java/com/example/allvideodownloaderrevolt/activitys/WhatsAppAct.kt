@@ -21,21 +21,22 @@ import com.example.allvideodownloaderrevolt.databinding.ActWhatsAppBinding
 
 class WhatsAppAct : BaseAct() {
 
-    lateinit var binding: ActWhatsAppBinding
+    lateinit var actWAppBinding: ActWhatsAppBinding
     var adapter: ViewPagerWhatsApp? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         try {
-            binding = ActWhatsAppBinding.inflate(layoutInflater)
+            actWAppBinding = ActWhatsAppBinding.inflate(layoutInflater)
         } catch (e: Exception) {
         }
-        setContentView(binding.root)
+        setContentView(actWAppBinding.root)
         activity = this
         Utils.setStatusBarSkyGradientActivity(activity as WhatsAppAct)
 
 
-        binding.listViewPager.addOnPageChangeListener(object : ViewPager.OnPageChangeListener {
+        actWAppBinding.listViewPager.addOnPageChangeListener(object :
+            ViewPager.OnPageChangeListener {
             override fun onPageScrolled(
                 position: Int,
                 positionOffset: Float,
@@ -43,33 +44,36 @@ class WhatsAppAct : BaseAct() {
             ) {
                 when (position) {
                     0 -> {
-                        binding.txtImages.setTextColor(resources.getColor(R.color.colorWhite))
-                        binding.txtImages.background = getDrawable(R.drawable.sky_gradient_8sdp_bg)
+                        actWAppBinding.txtImages.setTextColor(resources.getColor(R.color.colorWhite))
+                        actWAppBinding.txtImages.background =
+                            getDrawable(R.drawable.sky_gradient_8sdp_bg)
 
-                        binding.tvVideos.setTextColor(resources.getColor(R.color.colorSilver))
-                        binding.tvVideos.background = null
-                        binding.txtSave.setTextColor(resources.getColor(R.color.colorSilver))
-                        binding.txtSave.background = null
+                        actWAppBinding.tvVideos.setTextColor(resources.getColor(R.color.colorSilver))
+                        actWAppBinding.tvVideos.background = null
+                        actWAppBinding.txtSave.setTextColor(resources.getColor(R.color.colorSilver))
+                        actWAppBinding.txtSave.background = null
 
                     }
                     1 -> {
-                        binding.tvVideos.setTextColor(resources.getColor(R.color.colorWhite))
-                        binding.tvVideos.background = getDrawable(R.drawable.sky_gradient_8sdp_bg)
+                        actWAppBinding.tvVideos.setTextColor(resources.getColor(R.color.colorWhite))
+                        actWAppBinding.tvVideos.background =
+                            getDrawable(R.drawable.sky_gradient_8sdp_bg)
 
-                        binding.txtSave.setTextColor(resources.getColor(R.color.colorSilver))
-                        binding.txtSave.background = null
-                        binding.txtImages.setTextColor(resources.getColor(R.color.colorSilver))
-                        binding.txtImages.background = null
+                        actWAppBinding.txtSave.setTextColor(resources.getColor(R.color.colorSilver))
+                        actWAppBinding.txtSave.background = null
+                        actWAppBinding.txtImages.setTextColor(resources.getColor(R.color.colorSilver))
+                        actWAppBinding.txtImages.background = null
 
                     }
                     else -> {
-                        binding.txtSave.setTextColor(resources.getColor(R.color.colorWhite))
-                        binding.txtSave.background = getDrawable(R.drawable.sky_gradient_8sdp_bg)
+                        actWAppBinding.txtSave.setTextColor(resources.getColor(R.color.colorWhite))
+                        actWAppBinding.txtSave.background =
+                            getDrawable(R.drawable.sky_gradient_8sdp_bg)
 
-                        binding.tvVideos.setTextColor(resources.getColor(R.color.colorSilver))
-                        binding.tvVideos.background = null
-                        binding.txtImages.setTextColor(resources.getColor(R.color.colorSilver))
-                        binding.txtImages.background = null
+                        actWAppBinding.tvVideos.setTextColor(resources.getColor(R.color.colorSilver))
+                        actWAppBinding.tvVideos.background = null
+                        actWAppBinding.txtImages.setTextColor(resources.getColor(R.color.colorSilver))
+                        actWAppBinding.txtImages.background = null
                     }
                 }
             }
@@ -81,11 +85,11 @@ class WhatsAppAct : BaseAct() {
             }
 
         })
-        binding.toolBar.ivBackArrow.setOnClickListener { onBackPressed() }
-        binding.toolBar.txtTitleName.text = "Status Saver"
-        binding.toolBar.imgApp.setImageDrawable(getDrawable(R.drawable.ic_wa_go))
-        binding.toolBar.imgApp.visibility = View.VISIBLE
-        binding.toolBar.imgApp.setOnClickListener {
+        actWAppBinding.toolBar.ivBackArrow.setOnClickListener { onBackPressed() }
+        actWAppBinding.toolBar.txtTitleName.text = "Status Saver"
+        actWAppBinding.toolBar.imgApp.setImageDrawable(getDrawable(R.drawable.ic_wa_go))
+        actWAppBinding.toolBar.imgApp.visibility = View.VISIBLE
+        actWAppBinding.toolBar.imgApp.setOnClickListener {
             if (isPackageExisted(Constant.WHATSAPP_PACKAGE)) {
                 val launchIntent = Constant.WHATSAPP_PACKAGE.let { it1 ->
                     packageManager.getLaunchIntentForPackage(
@@ -103,16 +107,16 @@ class WhatsAppAct : BaseAct() {
 
         }
 
-        binding.txtImages.setOnClickListener {
-            binding.listViewPager.currentItem = 0
+        actWAppBinding.txtImages.setOnClickListener {
+            actWAppBinding.listViewPager.currentItem = 0
         }
 
-        binding.tvVideos.setOnClickListener {
-            binding.listViewPager.currentItem = 1
+        actWAppBinding.tvVideos.setOnClickListener {
+            actWAppBinding.listViewPager.currentItem = 1
         }
 
-        binding.txtSave.setOnClickListener {
-            binding.listViewPager.currentItem = 2
+        actWAppBinding.txtSave.setOnClickListener {
+            actWAppBinding.listViewPager.currentItem = 2
         }
 
         if (Build.VERSION.SDK_INT > 31) {
@@ -134,7 +138,7 @@ class WhatsAppAct : BaseAct() {
                     Constant.WHATSAPP_VIDEO_R,
                     intent.getIntExtra("pos", 1)
                 )
-                binding.listViewPager.adapter = adapter
+                actWAppBinding.listViewPager.adapter = adapter
             }
         } else {
             if (ContextCompat.checkSelfPermission(
@@ -159,7 +163,7 @@ class WhatsAppAct : BaseAct() {
                     Constant.WHATSAPP_VIDEO_R,
                     intent.getIntExtra("pos", 1)
                 )
-                binding.listViewPager.adapter = adapter
+                actWAppBinding.listViewPager.adapter = adapter
             }
         }
 
@@ -200,7 +204,7 @@ class WhatsAppAct : BaseAct() {
                         Constant.WHATSAPP_VIDEO_R,
                         intent.getIntExtra("pos", 1)
                     )
-                    binding.listViewPager.adapter = adapter
+                    actWAppBinding.listViewPager.adapter = adapter
 
                 } else {
                     val intent = Intent(Settings.ACTION_APPLICATION_DETAILS_SETTINGS)

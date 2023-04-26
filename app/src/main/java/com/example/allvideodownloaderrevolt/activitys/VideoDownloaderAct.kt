@@ -8,12 +8,12 @@ import com.example.allvideodownloaderrevolt.databinding.ActVideoDownloaderBindin
 
 class VideoDownloaderAct : BaseAct() {
 
-    lateinit var binding: ActVideoDownloaderBinding
+    lateinit var actVideoDwBinding: ActVideoDownloaderBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = ActVideoDownloaderBinding.inflate(layoutInflater)
-        setContentView(binding.root)
+        actVideoDwBinding = ActVideoDownloaderBinding.inflate(layoutInflater)
+        setContentView(actVideoDwBinding.root)
         activity = this@VideoDownloaderAct
         Utils.setStatusBarSkyGradientActivity(activity)
         initToolBar()
@@ -21,13 +21,13 @@ class VideoDownloaderAct : BaseAct() {
     }
 
     private fun initToolBar() {
-        binding.toolBar.ivBackArrow.setOnClickListener { onBackPressed() }
-        binding.toolBar.txtTitleName.text =
+        actVideoDwBinding.toolBar.ivBackArrow.setOnClickListener { onBackPressed() }
+        actVideoDwBinding.toolBar.txtTitleName.text =
             activity.resources.getString(R.string.video_downloader_title)
     }
 
     private fun initClick() {
-        binding.layoutWA.setOnClickListener {
+        actVideoDwBinding.layoutWA.setOnClickListener {
             Utils.displayInter(activity, {
                 startActivity(
                     Intent(
@@ -38,7 +38,7 @@ class VideoDownloaderAct : BaseAct() {
             }, true)
         }
 
-        binding.layoutShareChat.setOnClickListener {
+        actVideoDwBinding.layoutShareChat.setOnClickListener {
             Utils.displayInter(activity, {
                 startActivity(
                     Intent(
@@ -49,7 +49,7 @@ class VideoDownloaderAct : BaseAct() {
             }, true)
         }
 
-        binding.layoutTwitter.setOnClickListener {
+        actVideoDwBinding.layoutTwitter.setOnClickListener {
             Utils.displayInter(activity, {
                 startActivity(
                     Intent(
@@ -60,7 +60,7 @@ class VideoDownloaderAct : BaseAct() {
             }, true)
         }
 
-        binding.layoutFaceBook.setOnClickListener {
+        actVideoDwBinding.layoutFaceBook.setOnClickListener {
             Utils.displayInter(activity, {
                 startActivity(
                     Intent(
@@ -71,7 +71,7 @@ class VideoDownloaderAct : BaseAct() {
             }, true)
         }
 
-        binding.layoutJosh.setOnClickListener {
+        actVideoDwBinding.layoutJosh.setOnClickListener {
             Utils.displayInter(activity, {
                 startActivity(
                     Intent(
@@ -82,7 +82,7 @@ class VideoDownloaderAct : BaseAct() {
             }, true)
         }
 
-        binding.layoutInstagram.setOnClickListener {
+        actVideoDwBinding.layoutInstagram.setOnClickListener {
             Utils.displayInter(activity, {
                 startActivity(
                     Intent(
@@ -93,7 +93,7 @@ class VideoDownloaderAct : BaseAct() {
             }, true)
         }
 
-        binding.layoutChingari.setOnClickListener {
+        actVideoDwBinding.layoutChingari.setOnClickListener {
             Utils.displayInter(activity, {
                 startActivity(
                     Intent(
@@ -104,7 +104,7 @@ class VideoDownloaderAct : BaseAct() {
             }, true)
         }
 
-        binding.layoutTiki.setOnClickListener {
+        actVideoDwBinding.layoutTiki.setOnClickListener {
             Utils.displayInter(activity, {
                 startActivity(
                     Intent(
@@ -115,7 +115,7 @@ class VideoDownloaderAct : BaseAct() {
             }, true)
         }
 
-        binding.layoutRoposo.setOnClickListener {
+        actVideoDwBinding.layoutRoposo.setOnClickListener {
             Utils.displayInter(activity, {
                 startActivity(
                     Intent(

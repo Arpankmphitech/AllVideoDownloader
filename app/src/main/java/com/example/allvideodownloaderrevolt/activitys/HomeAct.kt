@@ -37,7 +37,7 @@ import com.makeramen.roundedimageview.RoundedImageView
 
 class HomeAct : BaseAct() {
 
-    lateinit var binding: ActHomeBinding
+    lateinit var actHomeBinding: ActHomeBinding
     var home: Int = 0
     private var strDialogUpdateText = ""
     private var homeDialog: Dialog? = null
@@ -53,8 +53,8 @@ class HomeAct : BaseAct() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = ActHomeBinding.inflate(layoutInflater)
-        setContentView(binding.root)
+        actHomeBinding = ActHomeBinding.inflate(layoutInflater)
+        setContentView(actHomeBinding.root)
         activity = this@HomeAct
         if (intent.getIntExtra("pos", 0) == 1) {
             showUpdateOrDownloadDialog()
@@ -274,7 +274,7 @@ class HomeAct : BaseAct() {
 
     private fun iniClick() {
 
-        binding.imgHome.setOnClickListener {
+        actHomeBinding.imgHome.setOnClickListener {
             if (home == 1) {
             } else {
                 home = 1
@@ -283,7 +283,7 @@ class HomeAct : BaseAct() {
             }
         }
 
-        binding.includeHomeBottomBar.layoutStatusSaver.setOnClickListener {
+        actHomeBinding.includeHomeBottomBar.layoutStatusSaver.setOnClickListener {
             home = 0
             bottomBarSelectOption(1)
             if (isPackageExisted(Constant.WHATSAPP_PACKAGE)) {
@@ -321,15 +321,15 @@ class HomeAct : BaseAct() {
                     }
                 }
             } else {
-                binding.imgHome.setImageDrawable(activity.resources.getDrawable(R.drawable.ic_unslc_home))
+                actHomeBinding.imgHome.setImageDrawable(activity.resources.getDrawable(R.drawable.ic_unslc_home))
 
-                binding.includeHomeBottomBar.imgStatusSaver.setImageDrawable(activity.resources.getDrawable(R.drawable.ic_unslc_status_saver))
-                binding.includeHomeBottomBar.txtStatusSaver.visibility = View.VISIBLE
-                binding.includeHomeBottomBar.txtStatusSaver2.visibility = View.GONE
+                actHomeBinding.includeHomeBottomBar.imgStatusSaver.setImageDrawable(activity.resources.getDrawable(R.drawable.ic_unslc_status_saver))
+                actHomeBinding.includeHomeBottomBar.txtStatusSaver.visibility = View.VISIBLE
+                actHomeBinding.includeHomeBottomBar.txtStatusSaver2.visibility = View.GONE
 
-                binding.includeHomeBottomBar.imgVideoPlayer.setImageDrawable(activity.resources.getDrawable(R.drawable.ic_unslc_video_player))
-                binding.includeHomeBottomBar.txtVideoPlayer.visibility = View.VISIBLE
-                binding.includeHomeBottomBar.txtVideoPlayer2.visibility = View.GONE
+                actHomeBinding.includeHomeBottomBar.imgVideoPlayer.setImageDrawable(activity.resources.getDrawable(R.drawable.ic_unslc_video_player))
+                actHomeBinding.includeHomeBottomBar.txtVideoPlayer.visibility = View.VISIBLE
+                actHomeBinding.includeHomeBottomBar.txtVideoPlayer2.visibility = View.GONE
                 Toast.makeText(
                     activity,
                     activity!!.resources.getString(R.string.app_not_installed2),
@@ -338,7 +338,7 @@ class HomeAct : BaseAct() {
             }
         }
 
-        binding.includeHomeBottomBar.layoutVideoPlayer.setOnClickListener {
+        actHomeBinding.includeHomeBottomBar.layoutVideoPlayer.setOnClickListener {
             home = 0
             bottomBarSelectOption(2)
             loadFragmentView(VideoPlayerFrag())
@@ -347,37 +347,37 @@ class HomeAct : BaseAct() {
 
     @SuppressLint("UseCompatLoadingForDrawables")
     private fun bottomBarSelectOption(i: Int) {
-        binding.includeHomeBottomBar.imgStatusSaver.setImageDrawable(activity.resources.getDrawable(R.drawable.ic_unslc_status_saver))
-        binding.includeHomeBottomBar.txtStatusSaver.visibility = View.VISIBLE
-        binding.includeHomeBottomBar.txtStatusSaver2.visibility = View.GONE
-        binding.includeHomeBottomBar.imgVideoPlayer.setImageDrawable(activity.resources.getDrawable(R.drawable.ic_unslc_video_player))
-        binding.includeHomeBottomBar.txtVideoPlayer.visibility = View.VISIBLE
-        binding.includeHomeBottomBar.txtVideoPlayer2.visibility = View.GONE
-        binding.imgHome.setImageDrawable(activity.resources.getDrawable(R.drawable.ic_unslc_home))
+        actHomeBinding.includeHomeBottomBar.imgStatusSaver.setImageDrawable(activity.resources.getDrawable(R.drawable.ic_unslc_status_saver))
+        actHomeBinding.includeHomeBottomBar.txtStatusSaver.visibility = View.VISIBLE
+        actHomeBinding.includeHomeBottomBar.txtStatusSaver2.visibility = View.GONE
+        actHomeBinding.includeHomeBottomBar.imgVideoPlayer.setImageDrawable(activity.resources.getDrawable(R.drawable.ic_unslc_video_player))
+        actHomeBinding.includeHomeBottomBar.txtVideoPlayer.visibility = View.VISIBLE
+        actHomeBinding.includeHomeBottomBar.txtVideoPlayer2.visibility = View.GONE
+        actHomeBinding.imgHome.setImageDrawable(activity.resources.getDrawable(R.drawable.ic_unslc_home))
 
         when (i) {
             1 -> {
-                binding.includeHomeBottomBar.imgStatusSaver.setImageDrawable(activity.resources.getDrawable(R.drawable.ic_slc_status_saver))
-                binding.includeHomeBottomBar.txtStatusSaver2.visibility = View.VISIBLE
-                binding.includeHomeBottomBar.txtStatusSaver.visibility = View.GONE
+                actHomeBinding.includeHomeBottomBar.imgStatusSaver.setImageDrawable(activity.resources.getDrawable(R.drawable.ic_slc_status_saver))
+                actHomeBinding.includeHomeBottomBar.txtStatusSaver2.visibility = View.VISIBLE
+                actHomeBinding.includeHomeBottomBar.txtStatusSaver.visibility = View.GONE
 
             }
             2 -> {
-                binding.includeHomeBottomBar.imgVideoPlayer.setImageDrawable(activity.resources.getDrawable(R.drawable.ic_slc_video_player))
-                binding.includeHomeBottomBar.txtVideoPlayer2.visibility = View.VISIBLE
-                binding.includeHomeBottomBar.txtVideoPlayer.visibility = View.GONE
+                actHomeBinding.includeHomeBottomBar.imgVideoPlayer.setImageDrawable(activity.resources.getDrawable(R.drawable.ic_slc_video_player))
+                actHomeBinding.includeHomeBottomBar.txtVideoPlayer2.visibility = View.VISIBLE
+                actHomeBinding.includeHomeBottomBar.txtVideoPlayer.visibility = View.GONE
 
             }
             else -> {
-                binding.imgHome.setImageDrawable(activity.resources.getDrawable(R.drawable.ic_slc_home))
+                actHomeBinding.imgHome.setImageDrawable(activity.resources.getDrawable(R.drawable.ic_slc_home))
 
-                binding.includeHomeBottomBar.imgStatusSaver.setImageDrawable(activity.resources.getDrawable(R.drawable.ic_unslc_status_saver))
-                binding.includeHomeBottomBar.txtStatusSaver.visibility = View.VISIBLE
-                binding.includeHomeBottomBar.txtStatusSaver2.visibility = View.GONE
+                actHomeBinding.includeHomeBottomBar.imgStatusSaver.setImageDrawable(activity.resources.getDrawable(R.drawable.ic_unslc_status_saver))
+                actHomeBinding.includeHomeBottomBar.txtStatusSaver.visibility = View.VISIBLE
+                actHomeBinding.includeHomeBottomBar.txtStatusSaver2.visibility = View.GONE
 
-                binding.includeHomeBottomBar.imgVideoPlayer.setImageDrawable(activity.resources.getDrawable(R.drawable.ic_unslc_video_player))
-                binding.includeHomeBottomBar.txtVideoPlayer.visibility = View.VISIBLE
-                binding.includeHomeBottomBar.txtVideoPlayer2.visibility = View.GONE
+                actHomeBinding.includeHomeBottomBar.imgVideoPlayer.setImageDrawable(activity.resources.getDrawable(R.drawable.ic_unslc_video_player))
+                actHomeBinding.includeHomeBottomBar.txtVideoPlayer.visibility = View.VISIBLE
+                actHomeBinding.includeHomeBottomBar.txtVideoPlayer2.visibility = View.GONE
 
             }
         }
@@ -398,14 +398,14 @@ class HomeAct : BaseAct() {
         Utils.gradientTextViewColor(
             activity.resources.getColor(R.color.colorSpringGreen),
             activity.resources.getColor(R.color.colorMalachite),
-            binding.includeHomeBottomBar.txtStatusSaver2,
+            actHomeBinding.includeHomeBottomBar.txtStatusSaver2,
             activity.resources.getString(R.string.status_saver)
         )
 
         Utils.gradientTextViewColor(
             activity.resources.getColor(R.color.colorSpringGreen),
             activity.resources.getColor(R.color.colorMalachite),
-            binding.includeHomeBottomBar.txtVideoPlayer2,
+            actHomeBinding.includeHomeBottomBar.txtVideoPlayer2,
             activity!!.resources.getString(R.string.video_player)
         )
 

@@ -16,7 +16,7 @@ import java.util.ArrayList
 class VideoListAct : BaseAct() {
 
     companion object {
-        lateinit var binding: ActVideoListBinding
+        lateinit var actVideoListBinding: ActVideoListBinding
         var adapter: AdapterVideoList? = null
         var mGetMedia: GetMedia? = null
         var videoModelList: List<VideoModel>? = null
@@ -25,32 +25,32 @@ class VideoListAct : BaseAct() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = ActVideoListBinding.inflate(layoutInflater)
-        setContentView(binding.root)
+        actVideoListBinding = ActVideoListBinding.inflate(layoutInflater)
+        setContentView(actVideoListBinding.root)
         videoActivity = this@VideoListAct
         Utils.setStatusBarSkyGradientActivity(activity)
         initToolBar()
         initView()
         LoadVideos().execute()
-        binding.LayoutRefersh.setOnRefreshListener { LoadVideos().execute(*arrayOfNulls<String>(0)) }
+        actVideoListBinding.LayoutRefersh.setOnRefreshListener { LoadVideos().execute(*arrayOfNulls<String>(0)) }
     }
 
 
     private fun initView() {
-        binding.rcvFolderList.layoutManager = GridLayoutManager(this, 1)
+        actVideoListBinding.rcvFolderList.layoutManager = GridLayoutManager(this, 1)
         mGetMedia = GetMedia(this)
     }
 
     private fun initToolBar() {
-        binding.toolBar.ivBackArrow.setOnClickListener { onBackPressed() }
-        binding.toolBar.txtTitleName.text = videoActivity.resources.getString(R.string.videos)
+        actVideoListBinding.toolBar.ivBackArrow.setOnClickListener { onBackPressed() }
+        actVideoListBinding.toolBar.txtTitleName.text = videoActivity.resources.getString(R.string.videos)
     }
 
     internal class LoadVideos :
         AsyncTask<String?, String?, List<VideoModel>>() {
         public override fun onPreExecute() {
             super.onPreExecute()
-            binding.txtNoDataFound.visibility = View.GONE
+            actVideoListBinding.txtNoDataFound.visibility = View.GONE
         }
 
         override fun doInBackground(vararg strArr: String?): List<VideoModel>? {
@@ -66,14 +66,14 @@ class VideoListAct : BaseAct() {
         public override fun onPostExecute(list: List<VideoModel>) {
             super.onPostExecute(list)
             if (videoModelList?.size != 0) {
-                binding.rcvFolderList.layoutManager = GridLayoutManager(videoActivity,
+                actVideoListBinding.rcvFolderList.layoutManager = GridLayoutManager(videoActivity,
                     1)
                 adapter = AdapterVideoList(videoActivity, videoModelList!!)
-                binding.rcvFolderList.adapter = adapter
+                actVideoListBinding.rcvFolderList.adapter = adapter
             } else {
-                binding.txtNoDataFound.visibility = View.VISIBLE
+                actVideoListBinding.txtNoDataFound.visibility = View.VISIBLE
             }
-            binding.LayoutRefersh.isRefreshing = false
+            actVideoListBinding.LayoutRefersh.isRefreshing = false
         }
     }
 

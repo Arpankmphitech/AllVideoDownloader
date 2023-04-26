@@ -46,7 +46,7 @@ import java.security.NoSuchAlgorithmException
 
 class SplashScreenAct : AppCompatActivity() {
 
-    lateinit var binding: ActSplashScreenBinding
+    lateinit var actSplashBinding: ActSplashScreenBinding
     lateinit var splashScreenActivity: Activity
     private val splashTimeOut = 6000
     var strSplashAdsAvailable: String? = null
@@ -54,8 +54,8 @@ class SplashScreenAct : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = ActSplashScreenBinding.inflate(layoutInflater)
-        setContentView(binding.root)
+        actSplashBinding = ActSplashScreenBinding.inflate(layoutInflater)
+        setContentView(actSplashBinding.root)
 
         val mWindow = window
         mWindow.decorView.systemUiVisibility =

@@ -15,7 +15,7 @@ import com.example.allvideodownloaderrevolt.models.GalleyPhotosListModel
 class ImageListAct : BaseAct() {
 
     companion object {
-        lateinit var binding: ActImageListBinding
+        lateinit var actImgListBinding: ActImageListBinding
         lateinit var imageActivity: Activity
         var getMedia: GetMedia? = null
     }
@@ -23,31 +23,31 @@ class ImageListAct : BaseAct() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = ActImageListBinding.inflate(layoutInflater)
-        setContentView(binding.root)
+        actImgListBinding = ActImageListBinding.inflate(layoutInflater)
+        setContentView(actImgListBinding.root)
         imageActivity = this@ImageListAct
         Utils.setStatusBarSkyGradientActivity(imageActivity as ImageListAct)
         initToolBar()
         initView()
         LoadVideos().execute()
-        binding.LayoutRefersh.setOnRefreshListener { LoadVideos().execute(*arrayOfNulls<String>(0)) }
+        actImgListBinding.LayoutRefersh.setOnRefreshListener { LoadVideos().execute(*arrayOfNulls<String>(0)) }
     }
 
     private fun initView() {
-        binding.rcvFolderList.layoutManager = GridLayoutManager(this, 1)
+        actImgListBinding.rcvFolderList.layoutManager = GridLayoutManager(this, 1)
         getMedia = GetMedia(this)
     }
 
 
     private fun initToolBar() {
-        binding.toolBar.ivBackArrow.setOnClickListener { onBackPressed() }
-        binding.toolBar.txtTitleName.text = imageActivity.resources.getString(R.string.photo)
+        actImgListBinding.toolBar.ivBackArrow.setOnClickListener { onBackPressed() }
+        actImgListBinding.toolBar.txtTitleName.text = imageActivity.resources.getString(R.string.photo)
     }
 
     internal class LoadVideos : AsyncTask<String?, String?, List<GalleyPhotosListModel>>() {
         public override fun onPreExecute() {
             super.onPreExecute()
-            binding.txtNoDataFound.visibility = View.GONE
+            actImgListBinding.txtNoDataFound.visibility = View.GONE
         }
 
         override fun doInBackground(vararg strArr: String?): List<GalleyPhotosListModel>? {
@@ -59,12 +59,12 @@ class ImageListAct : BaseAct() {
         public override fun onPostExecute(list: List<GalleyPhotosListModel>) {
             super.onPostExecute(list)
             if (list.isNotEmpty()) {
-                binding.rcvFolderList.layoutManager = GridLayoutManager(imageActivity, 3)
-                binding.rcvFolderList.adapter = AdapterImageList(imageActivity, list)
+                actImgListBinding.rcvFolderList.layoutManager = GridLayoutManager(imageActivity, 3)
+                actImgListBinding.rcvFolderList.adapter = AdapterImageList(imageActivity, list)
             } else {
-                binding.txtNoDataFound.visibility = View.VISIBLE
+                actImgListBinding.txtNoDataFound.visibility = View.VISIBLE
             }
-            binding.LayoutRefersh.isRefreshing = false
+            actImgListBinding.LayoutRefersh.isRefreshing = false
         }
     }
 

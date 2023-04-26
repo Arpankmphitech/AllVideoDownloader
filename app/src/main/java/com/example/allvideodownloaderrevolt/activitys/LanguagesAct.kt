@@ -6,25 +6,25 @@ import com.example.allvideodownloaderrevolt.databinding.ActLanguagesBinding
 
 class LanguagesAct : BaseAct() {
 
-    lateinit var binding: ActLanguagesBinding
+    lateinit var actLanguageBinding: ActLanguagesBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = ActLanguagesBinding.inflate(layoutInflater)
-        setContentView(binding.root)
+        actLanguageBinding = ActLanguagesBinding.inflate(layoutInflater)
+        setContentView(actLanguageBinding.root)
         activity = this@LanguagesAct
         Utils.setStatusBarBlueGradientActivity(activity as LanguagesAct)
         initView()
     }
 
     private fun initView() {
-        binding.allEnglish.setOnClickListener {
+        actLanguageBinding.allEnglish.setOnClickListener {
             Utils.displayInter(activity, {
                 move(FreePremiumAct::class.java, 1)
             }, true)
         }
 
-        binding.allHindi.setOnClickListener {
+        actLanguageBinding.allHindi.setOnClickListener {
             Utils.displayInter(activity, {
                 move(FreePremiumAct::class.java, 1)
             }, true)

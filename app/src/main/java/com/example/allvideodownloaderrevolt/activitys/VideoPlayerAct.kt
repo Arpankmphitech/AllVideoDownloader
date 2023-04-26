@@ -11,12 +11,12 @@ import com.example.allvideodownloaderrevolt.fragment.VideoFrag
 
 class VideoPlayerAct : BaseAct() {
 
-    lateinit var binding: ActVideoPlayerBinding
+    lateinit var actVideoPlayerBinding: ActVideoPlayerBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = ActVideoPlayerBinding.inflate(layoutInflater)
-        setContentView(binding.root)
+        actVideoPlayerBinding = ActVideoPlayerBinding.inflate(layoutInflater)
+        setContentView(actVideoPlayerBinding.root)
         activity = this@VideoPlayerAct
         Utils.setStatusBarSkyGradientActivity(activity as VideoPlayerAct)
         initToolBar()
@@ -25,39 +25,39 @@ class VideoPlayerAct : BaseAct() {
     }
 
     private fun initToolBar() {
-        binding.toolBar.ivBackArrow.setOnClickListener { onBackPressed() }
-        binding.toolBar.txtTitleName.text = activity.resources.getString(R.string.video_player)
+        actVideoPlayerBinding.toolBar.ivBackArrow.setOnClickListener { onBackPressed() }
+        actVideoPlayerBinding.toolBar.txtTitleName.text = activity.resources.getString(R.string.video_player)
     }
 
     private fun initClick() {
-        binding.txtVideo.setOnClickListener { bottomBarSelectOption(1) }
-        binding.txtMusic.setOnClickListener { bottomBarSelectOption(2) }
-        binding.txtGallery.setOnClickListener { bottomBarSelectOption(3) }
+        actVideoPlayerBinding.txtVideo.setOnClickListener { bottomBarSelectOption(1) }
+        actVideoPlayerBinding.txtMusic.setOnClickListener { bottomBarSelectOption(2) }
+        actVideoPlayerBinding.txtGallery.setOnClickListener { bottomBarSelectOption(3) }
     }
 
     private fun bottomBarSelectOption(i: Int) {
-        binding.txtVideo.setTextColor(activity.resources.getColor(R.color.colorSilver))
-        binding.txtMusic.setTextColor(activity.resources.getColor(R.color.colorSilver))
-        binding.txtGallery.setTextColor(activity.resources.getColor(R.color.colorSilver))
-        binding.txtVideo.background = null
-        binding.txtMusic.background = null
-        binding.txtGallery.background = null
+        actVideoPlayerBinding.txtVideo.setTextColor(activity.resources.getColor(R.color.colorSilver))
+        actVideoPlayerBinding.txtMusic.setTextColor(activity.resources.getColor(R.color.colorSilver))
+        actVideoPlayerBinding.txtGallery.setTextColor(activity.resources.getColor(R.color.colorSilver))
+        actVideoPlayerBinding.txtVideo.background = null
+        actVideoPlayerBinding.txtMusic.background = null
+        actVideoPlayerBinding.txtGallery.background = null
         when (i) {
             1 -> {
-                binding.txtVideo.setTextColor(activity.resources.getColor(R.color.colorWhite))
-                binding.txtVideo.background =
+                actVideoPlayerBinding.txtVideo.setTextColor(activity.resources.getColor(R.color.colorWhite))
+                actVideoPlayerBinding.txtVideo.background =
                     activity.resources.getDrawable(R.drawable.sky_gradient_8sdp_bg)
                 loadFragmentView(VideoFrag())
             }
             2 -> {
-                binding.txtMusic.setTextColor(activity.resources.getColor(R.color.colorWhite))
-                binding.txtMusic.background =
+                actVideoPlayerBinding.txtMusic.setTextColor(activity.resources.getColor(R.color.colorWhite))
+                actVideoPlayerBinding.txtMusic.background =
                     activity.resources.getDrawable(R.drawable.sky_gradient_8sdp_bg)
                 loadFragmentView(MusicFrag())
             }
             else -> {
-                binding.txtGallery.setTextColor(activity.resources.getColor(R.color.colorWhite))
-                binding.txtGallery.background =
+                actVideoPlayerBinding.txtGallery.setTextColor(activity.resources.getColor(R.color.colorWhite))
+                actVideoPlayerBinding.txtGallery.background =
                     activity.resources.getDrawable(R.drawable.sky_gradient_8sdp_bg)
                 loadFragmentView(GalleryFrag())
             }

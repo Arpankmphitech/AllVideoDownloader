@@ -16,7 +16,7 @@ import com.example.allvideodownloaderrevolt.models.GalleyPhotosListModel
 class FullImageViewAct : BaseAct() {
 
     companion object {
-        lateinit var binding: ActFullImageViewBinding
+        lateinit var actFullImgBinding: ActFullImageViewBinding
         var listGalleryAlbums: List<GalleyPhotosListModel>? = null
         lateinit var fullImageActivity: Activity
     }
@@ -24,8 +24,8 @@ class FullImageViewAct : BaseAct() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = ActFullImageViewBinding.inflate(layoutInflater)
-        setContentView(binding.root)
+        actFullImgBinding = ActFullImageViewBinding.inflate(layoutInflater)
+        setContentView(actFullImgBinding.root)
         fullImageActivity = this@FullImageViewAct
         Utils.setStatusBarSkyBlueGradientActivity(fullImageActivity as FullImageViewAct)
         getIntentData()
@@ -38,13 +38,14 @@ class FullImageViewAct : BaseAct() {
     }
 
     private fun initToolBar() {
-        binding.toolBar.ivBackArrow.setOnClickListener { onBackPressed() }
-        binding.toolBar.txtTitleName.text = fullImageActivity.resources.getString(R.string.roundImage)
+        actFullImgBinding.toolBar.ivBackArrow.setOnClickListener { onBackPressed() }
+        actFullImgBinding.toolBar.txtTitleName.text =
+            fullImageActivity.resources.getString(R.string.roundImage)
     }
 
     private fun initView() {
-        binding.listViewPager.adapter = ImageAdapter(listGalleryAlbums)
-        binding.listViewPager.currentItem = intent.getIntExtra("pos", 0)
+        actFullImgBinding.listViewPager.adapter = ImageAdapter(listGalleryAlbums)
+        actFullImgBinding.listViewPager.currentItem = intent.getIntExtra("pos", 0)
     }
 
     internal class ImageAdapter(list: List<GalleyPhotosListModel>?) :

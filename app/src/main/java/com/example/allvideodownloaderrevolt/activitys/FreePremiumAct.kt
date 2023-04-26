@@ -26,13 +26,13 @@ import kotlin.collections.ArrayList
 
 class FreePremiumAct : BaseAct() {
 
-    lateinit var binding: ActFreePremiumBinding
+    lateinit var actFreePreBinding: ActFreePremiumBinding
     var a = 0
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = ActFreePremiumBinding.inflate(layoutInflater)
-        setContentView(binding.root)
+        actFreePreBinding = ActFreePremiumBinding.inflate(layoutInflater)
+        setContentView(actFreePreBinding.root)
         activity = this@FreePremiumAct
         Utils.setStatusBarBlueGradientActivity(activity as FreePremiumAct)
 
@@ -236,7 +236,7 @@ class FreePremiumAct : BaseAct() {
     }
 
     private fun initView() {
-        binding.allFreeLayout.setOnClickListener {
+        actFreePreBinding.allFreeLayout.setOnClickListener {
             if (Build.VERSION.SDK_INT > Build.VERSION_CODES.Q) {
 
                 if (arePermissionDenied(a)) {
@@ -335,7 +335,7 @@ class FreePremiumAct : BaseAct() {
             }
         }
 
-        binding.allPremiumLayout.setOnClickListener {
+        actFreePreBinding.allPremiumLayout.setOnClickListener {
             if (Build.VERSION.SDK_INT > Build.VERSION_CODES.Q) {
 
                 if (arePermissionDenied(a)) {
