@@ -266,7 +266,7 @@ class FreePremiumAct : BaseAct() {
                                 102
                             )
                         } else {
-                            Utils.displayInter(activity, {
+                            Utils.displayInter(activity!!, {
                                 move(HomeAct::class.java, 1)
                             }, true)
                         }
@@ -286,7 +286,7 @@ class FreePremiumAct : BaseAct() {
                                 102
                             )
                         } else {
-                            Utils.displayInter(activity, {
+                            Utils.displayInter(activity!!, {
                                 move(HomeAct::class.java, 1)
                             }, true)
                         }
@@ -307,7 +307,7 @@ class FreePremiumAct : BaseAct() {
                             102
                         )
                     } else {
-                        Utils.displayInter(activity, {
+                        Utils.displayInter(activity!!, {
                             move(HomeAct::class.java, 1)
                         }, true)
                     }
@@ -327,7 +327,7 @@ class FreePremiumAct : BaseAct() {
                             102
                         )
                     } else {
-                        Utils.displayInter(activity, {
+                        Utils.displayInter(activity!!, {
                             move(HomeAct::class.java, 1)
                         }, true)
                     }
@@ -364,7 +364,7 @@ class FreePremiumAct : BaseAct() {
                                 102
                             )
                         } else {
-                            Utils.displayInter(activity, {
+                            Utils.displayInter(activity!!, {
                                 move(HomeAct::class.java, 1)
                             }, true)
                         }
@@ -384,7 +384,7 @@ class FreePremiumAct : BaseAct() {
                                 102
                             )
                         } else {
-                            Utils.displayInter(activity, {
+                            Utils.displayInter(activity!!, {
                                 move(HomeAct::class.java, 1)
                             }, true)
                         }
@@ -407,7 +407,7 @@ class FreePremiumAct : BaseAct() {
 
                         )
                     } else {
-                        Utils.displayInter(activity, {
+                        Utils.displayInter(activity!!, {
                             move(HomeAct::class.java, 1)
                         }, true)
                     }
@@ -427,7 +427,7 @@ class FreePremiumAct : BaseAct() {
                             102
                         )
                     } else {
-                        Utils.displayInter(activity, {
+                        Utils.displayInter(activity!! , {
                             move(HomeAct::class.java, 1)
                         }, true)
                     }

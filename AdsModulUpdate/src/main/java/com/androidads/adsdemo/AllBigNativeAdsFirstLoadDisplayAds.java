@@ -493,7 +493,7 @@ public class AllBigNativeAdsFirstLoadDisplayAds {
                         .withAdListener(nativeAdListener)
                         .build());
 
-        Log.e("01/10 facebook native request -====>", "nativeAdsFb");
+        Log.e("01/10", "nativeAdsFb");
 
 
     }
@@ -596,7 +596,7 @@ public class AllBigNativeAdsFirstLoadDisplayAds {
                         .withAdListener(nativeAdListener)
                         .build());
 
-        Log.e("01/10 facebook native request -====>", "nativeAdsFb");
+        Log.e("01/10 ", "nativeAdsFb");
 
 
     }
@@ -701,7 +701,7 @@ public class AllBigNativeAdsFirstLoadDisplayAds {
                         .withAdListener(nativeAdListener)
                         .build());
 
-        Log.e("01/10 facebook native request -====>", "nativeAdsFb");
+        Log.e("01/10 ", "nativeAdsFb");
 
 
     }
@@ -759,7 +759,7 @@ public class AllBigNativeAdsFirstLoadDisplayAds {
 
                     @Override
                     public void onAdFailedToLoad(@NonNull LoadAdError loadAdError) {
-                        Log.e("06/10 onAdFailedToLoad- ", loadAdError.getMessage() + " ");
+                        Log.e("06/10 ", loadAdError.getMessage() + " ");
                         isLodingGoogleAds = false;
                         googlenativeAd = null;
                         /*if (myCallback != null) {
@@ -832,7 +832,7 @@ public class AllBigNativeAdsFirstLoadDisplayAds {
                         .build();
                 adLoader.loadAd(adRequest);
 
-                Log.e("01/10 google native request -====>", "adRequest");
+                Log.e("01/10 ", "adRequest");
 
             } catch (Exception e) {
                 e.printStackTrace();
@@ -897,7 +897,7 @@ public class AllBigNativeAdsFirstLoadDisplayAds {
 
                     @Override
                     public void onAdFailedToLoad(@NonNull LoadAdError loadAdError) {
-                        Log.e("06/10 onAdFailedToLoad- ", loadAdError.getMessage() + " ");
+                        Log.e("06/10 ", loadAdError.getMessage() + " ");
                         Log.d("19/12", "big -- getF().getN2()--->" + loadAdError.getMessage());
                         isLodingGoogleAds = false;
                         googlenativeAd = null;
@@ -972,7 +972,7 @@ public class AllBigNativeAdsFirstLoadDisplayAds {
                         .build();
                 adLoader.loadAd(adRequest);
 
-                Log.e("01/10 google native request -====>", "adRequest");
+                Log.e("01/10 ", "adRequest");
 
             } catch (Exception e) {
                 e.printStackTrace();

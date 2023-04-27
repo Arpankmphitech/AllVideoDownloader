@@ -15,7 +15,7 @@ class VideoDownloaderAct : BaseAct() {
         actVideoDwBinding = ActVideoDownloaderBinding.inflate(layoutInflater)
         setContentView(actVideoDwBinding.root)
         activity = this@VideoDownloaderAct
-        Utils.setStatusBarSkyGradientActivity(activity)
+        Utils.setStatusBarSkyGradientActivity(activity!!)
         vdInitToolBar()
         vdInitClick()
     }
@@ -23,12 +23,12 @@ class VideoDownloaderAct : BaseAct() {
     private fun vdInitToolBar() {
         actVideoDwBinding.toolBar.ivBackArrow.setOnClickListener { onBackPressed() }
         actVideoDwBinding.toolBar.txtTitleName.text =
-            activity.resources.getString(R.string.video_downloader_title)
+            activity!!.resources.getString(R.string.video_downloader_title)
     }
 
     private fun vdInitClick() {
         actVideoDwBinding.layoutWA.setOnClickListener {
-            Utils.displayInter(activity, {
+            Utils.displayInter(activity!!, {
                 startActivity(
                     Intent(
                         activity,
@@ -39,7 +39,7 @@ class VideoDownloaderAct : BaseAct() {
         }
 
         actVideoDwBinding.layoutShareChat.setOnClickListener {
-            Utils.displayInter(activity, {
+            Utils.displayInter(activity!!, {
                 startActivity(
                     Intent(
                         activity,
@@ -50,7 +50,7 @@ class VideoDownloaderAct : BaseAct() {
         }
 
         actVideoDwBinding.layoutTwitter.setOnClickListener {
-            Utils.displayInter(activity, {
+            Utils.displayInter(activity!!, {
                 startActivity(
                     Intent(
                         activity,
@@ -61,7 +61,7 @@ class VideoDownloaderAct : BaseAct() {
         }
 
         actVideoDwBinding.layoutFaceBook.setOnClickListener {
-            Utils.displayInter(activity, {
+            Utils.displayInter(activity!!, {
                 startActivity(
                     Intent(
                         activity,
@@ -72,7 +72,7 @@ class VideoDownloaderAct : BaseAct() {
         }
 
         actVideoDwBinding.layoutJosh.setOnClickListener {
-            Utils.displayInter(activity, {
+            Utils.displayInter(activity!!, {
                 startActivity(
                     Intent(
                         activity,
@@ -83,7 +83,7 @@ class VideoDownloaderAct : BaseAct() {
         }
 
         actVideoDwBinding.layoutInstagram.setOnClickListener {
-            Utils.displayInter(activity, {
+            Utils.displayInter(activity!!, {
                 startActivity(
                     Intent(
                         activity,
@@ -94,7 +94,7 @@ class VideoDownloaderAct : BaseAct() {
         }
 
         actVideoDwBinding.layoutChingari.setOnClickListener {
-            Utils.displayInter(activity, {
+            Utils.displayInter(activity!!, {
                 startActivity(
                     Intent(
                         activity,
@@ -105,7 +105,7 @@ class VideoDownloaderAct : BaseAct() {
         }
 
         actVideoDwBinding.layoutTiki.setOnClickListener {
-            Utils.displayInter(activity, {
+            Utils.displayInter(activity!!, {
                 startActivity(
                     Intent(
                         activity,
@@ -116,7 +116,7 @@ class VideoDownloaderAct : BaseAct() {
         }
 
         actVideoDwBinding.layoutRoposo.setOnClickListener {
-            Utils.displayInter(activity, {
+            Utils.displayInter(activity!!, {
                 startActivity(
                     Intent(
                         activity,

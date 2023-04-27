@@ -19,13 +19,13 @@ class LanguagesAct : BaseAct() {
 
     private fun languageInitView() {
         actLanguageBinding.allEnglish.setOnClickListener {
-            Utils.displayInter(activity, {
+            Utils.displayInter(activity!!, {
                 move(FreePremiumAct::class.java, 1)
             }, true)
         }
 
         actLanguageBinding.allHindi.setOnClickListener {
-            Utils.displayInter(activity, {
+            Utils.displayInter(activity!!, {
                 move(FreePremiumAct::class.java, 1)
             }, true)
         }

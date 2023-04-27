@@ -28,7 +28,7 @@ class VideoListAct : BaseAct() {
         actVideoListBinding = ActVideoListBinding.inflate(layoutInflater)
         setContentView(actVideoListBinding.root)
         videoActivity = this@VideoListAct
-        Utils.setStatusBarSkyGradientActivity(activity)
+        Utils.setStatusBarSkyGradientActivity(activity!!)
         videoListToolBar()
         videoListInitView()
         LoadVideos().execute()

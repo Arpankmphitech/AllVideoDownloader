@@ -27,7 +27,7 @@ class AllVideoPlayerAct : BaseAct() {
 
     private fun videoPlayerToolBar() {
         actAlPlayerBinding.toolBar.txtTitleName.text =
-            activity.resources.getString(R.string.video_player)
+            activity!!.resources.getString(R.string.video_player)
         actAlPlayerBinding.toolBar.ivBackArrow.setOnClickListener { onBackPressed() }
     }
 
@@ -39,7 +39,7 @@ class AllVideoPlayerAct : BaseAct() {
             if (videoList2 == null || videoList2.isEmpty()) {
                 Toast.makeText(
                     activity,
-                    activity.resources.getString(R.string.toast_stg_wrong),
+                    activity!!.resources.getString(R.string.toast_stg_wrong),
                     Toast.LENGTH_SHORT
                 ).show()
                 return
@@ -54,7 +54,7 @@ class AllVideoPlayerAct : BaseAct() {
         }
         Toast.makeText(
             activity,
-            activity.resources.getString(R.string.toast_stg_wrong),
+            activity!!.resources.getString(R.string.toast_stg_wrong),
             Toast.LENGTH_SHORT
         ).show()
     }

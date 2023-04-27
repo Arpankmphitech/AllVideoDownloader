@@ -97,7 +97,7 @@ class WhatsAppAct : BaseAct() {
                     )
                 }
 
-                Utils.displayInter(activity, {
+                Utils.displayInter(activity!!, {
                     launchIntent?.let { startActivity(it) }
                 }, true)
 

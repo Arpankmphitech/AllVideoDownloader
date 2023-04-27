@@ -25,7 +25,7 @@ class ExitAct : BaseAct() {
 
     private fun initAVDClick() {
         actExitBinding.btnAppNo.setOnClickListener {
-            Utils.displayInter(activity, {
+            Utils.displayInter(activity!!, {
                 startActivity(
                     Intent(activity, HomeAct::class.java)
                         .putExtra("pos", 2)
@@ -59,10 +59,10 @@ class ExitAct : BaseAct() {
 
     private fun initAVDView() {
         val drawableGradientYes = actExitBinding.btnAppYes.background as GradientDrawable
-        drawableGradientYes.setStroke(5, activity.resources.getColor(R.color.colorDodgerBlue))
+        drawableGradientYes.setStroke(5, activity!!.resources.getColor(R.color.colorDodgerBlue))
 
         val drawableGradientNo = actExitBinding.btnAppNo.background as GradientDrawable
-        drawableGradientNo.setStroke(5, activity.resources.getColor(R.color.colorDodgerBlue))
+        drawableGradientNo.setStroke(5, activity!!.resources.getColor(R.color.colorDodgerBlue))
     }
 
     override fun onStart() {

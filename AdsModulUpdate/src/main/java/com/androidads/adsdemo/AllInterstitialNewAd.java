@@ -78,10 +78,10 @@ public class AllInterstitialNewAd {
 
         SharedPrefrences.get(activity);
 
-        Log.e("01/02 AllInterstitialNewAd call -=-=-=>", "AllInterstitialNewAd");
+        Log.e("01/02 ", "AllInterstitialNewAd");
 
         if (isOpenQureka) {
-            Log.e("01/02 isOpenQureka call -=-=-=>", isOpenQureka + "");
+            Log.e("01/02 ", isOpenQureka + "");
             return;
         }
 
@@ -124,10 +124,10 @@ public class AllInterstitialNewAd {
         myCallback = callback;
         SharedPrefrences.get(activity);
 
-        Log.e("01/02 AllInterstitialNewAd call -=-=-=>", "AllInterstitialNewAd");
+        Log.e("01/02 ", "AllInterstitialNewAd");
 
         if (isOpenQureka) {
-            Log.e("01/02 isOpenQureka call -=-=-=>", isOpenQureka + "");
+            Log.e("01/02 ", isOpenQureka + "");
             return;
         }
 
@@ -171,7 +171,7 @@ public class AllInterstitialNewAd {
                                     String qurekaorPredChampType) {
 
         SharedPrefrences.get(activity);
-        Log.e("01/02 displayInterstitial call -=-=-=>", "displayInterstitial");
+        Log.e("01/02 ", "displayInterstitial");
         isShowDirectDisplyaFb = true;
 //        isShowDirectDisplya = true;
         myCallback = _myCallback;
@@ -262,7 +262,7 @@ public class AllInterstitialNewAd {
 
     public static void CallOpenQureka(final Activity activity, final String qurekaorPredChampType) {
 
-        Log.e("01/02 CallOpenQureka call -=-=-=>", "CallOpenQureka");
+        Log.e("01/02 ", "CallOpenQureka");
 
         isOpenQureka = true;
 
@@ -352,9 +352,9 @@ public class AllInterstitialNewAd {
             btnPlayNow.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    Log.e("01/02 btnPlayNow call -=-=-=>", "btnPlayNow");
+                    Log.e("01/02 ", "btnPlayNow");
                     if (dialog[0] != null && dialog[0].isShowing()) {
-                        Log.e("01/02 btnClose dialog[0].dismiss() -=-=-=>", "dialog[0].dismiss()");
+                        Log.e("01/02 ", "dialog[0].dismiss()");
                         dialog[0].dismiss();
                     }
                     if (myCallback != null) {
@@ -393,7 +393,7 @@ public class AllInterstitialNewAd {
             llMain.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    Log.e("01/02 llMain call -=-=-=>", "llMain");
+                    Log.e("01/02 ", "llMain");
 
                     btnPlayNow.performClick();
                 }
@@ -402,10 +402,10 @@ public class AllInterstitialNewAd {
         dialog[0].findViewById(R.id.ivClose).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Log.e("01/02 ivClose call -=-=-=>", "ivClose");
+                Log.e("01/02 ", "ivClose");
                 isOpenQureka = false;
                 if (dialog[0] != null && dialog[0].isShowing()) {
-                    Log.e("01/02 dialog[0].dismiss() -=-=-=>", "dialog[0].dismiss()");
+                    Log.e("01/02 ", "dialog[0].dismiss()");
                     dialog[0].dismiss();
                 }
                 dialog[0] = null;
@@ -419,10 +419,10 @@ public class AllInterstitialNewAd {
         dialog[0].findViewById(R.id.btnClose).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Log.e("01/02 btnClose call -=-=-=>", "btnClose");
+                Log.e("01/02 ", "btnClose");
                 isOpenQureka = false;
                 if (dialog[0] != null && dialog[0].isShowing()) {
-                    Log.e("01/02 btnClose dialog[0].dismiss() -=-=-=>", "dialog[0].dismiss()");
+                    Log.e("01/02 ", "dialog[0].dismiss()");
                     dialog[0].dismiss();
                 }
                 dialog[0] = null;
@@ -454,7 +454,7 @@ public class AllInterstitialNewAd {
     public static void CallOpenQureka(final Activity activity, final String qurekaorPredChampType, MyCallback myCallBack) {
 
         myCallback = myCallBack;
-        Log.e("01/02 CallOpenQureka call -=-=-=>", "CallOpenQureka");
+        Log.e("01/02 ", "CallOpenQureka");
 
         isOpenQureka = true;
 
@@ -544,9 +544,9 @@ public class AllInterstitialNewAd {
             btnPlayNow.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    Log.e("01/02 btnPlayNow call -=-=-=>", "btnPlayNow");
+                    Log.e("01/02 ", "btnPlayNow");
                     if (dialog[0] != null && dialog[0].isShowing()) {
-                        Log.e("01/02 btnClose dialog[0].dismiss() -=-=-=>", "dialog[0].dismiss()");
+                        Log.e("01/02", "dialog[0].dismiss()");
                         dialog[0].dismiss();
                     }
                     if (myCallback != null) {
@@ -585,7 +585,7 @@ public class AllInterstitialNewAd {
             llMain.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    Log.e("01/02 llMain call -=-=-=>", "llMain");
+                    Log.e("01/02 ", "llMain");
 
                     btnPlayNow.performClick();
                 }
@@ -594,10 +594,10 @@ public class AllInterstitialNewAd {
         dialog[0].findViewById(R.id.ivClose).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Log.e("01/02 ivClose call -=-=-=>", "ivClose");
+                Log.e("01/02 ", "ivClose");
                 isOpenQureka = false;
                 if (dialog[0] != null && dialog[0].isShowing()) {
-                    Log.e("01/02 dialog[0].dismiss() -=-=-=>", "dialog[0].dismiss()");
+                    Log.e("01/02 ", "dialog[0].dismiss()");
                     dialog[0].dismiss();
                 }
                 dialog[0] = null;
@@ -611,10 +611,10 @@ public class AllInterstitialNewAd {
         dialog[0].findViewById(R.id.btnClose).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Log.e("01/02 btnClose call -=-=-=>", "btnClose");
+                Log.e("01/02 ", "btnClose");
                 isOpenQureka = false;
                 if (dialog[0] != null && dialog[0].isShowing()) {
-                    Log.e("01/02 btnClose dialog[0].dismiss() -=-=-=>", "dialog[0].dismiss()");
+                    Log.e("01/02 ", "dialog[0].dismiss()");
                     dialog[0].dismiss();
                 }
                 dialog[0] = null;
@@ -768,7 +768,7 @@ public class AllInterstitialNewAd {
                             .withAdListener(interstitialAdListener)
                             .build());
 
-            Log.e("01/10 facebook interstitialAd request -====>", "interstitialAd");
+            Log.e("01/10 ", "interstitialAd");
 
 
         }
@@ -921,7 +921,7 @@ public class AllInterstitialNewAd {
                             .withAdListener(interstitialAdListener)
                             .build());
 
-            Log.e("01/10 facebook interstitialAd request -====>", "interstitialAd");
+            Log.e("01/10 ", "interstitialAd");
 
 
         }
@@ -945,7 +945,7 @@ public class AllInterstitialNewAd {
                         @Override
                         public void onAdLoaded(@NonNull InterstitialAd interstitialAd) {
 
-                            Log.e("01/10 google interstitialAdsGoogel request -====>", "onAdLoaded");
+                            Log.e("01/10 ", "onAdLoaded");
 
                             interstitialAdsGoogel = interstitialAd;
                             if (isShowDirectDisplya) {
@@ -989,7 +989,7 @@ public class AllInterstitialNewAd {
                         @Override
                         public void onAdFailedToLoad(@NonNull LoadAdError loadAdError) {
                             Log.d("20/12", loadAdError.getMessage());
-                            Log.e("01/10 google interstitialAdsGoogel request -====>", "onAdFailedToLoad");
+                            Log.e("01/10 ", "onAdFailedToLoad");
 
                             interstitialAdsGoogel = null;
                             /*if (myCallback != null) {

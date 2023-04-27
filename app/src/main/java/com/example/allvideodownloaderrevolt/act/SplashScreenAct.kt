@@ -34,12 +34,12 @@ import com.example.allvideodownloaderrevolt.commonClass.Constant
 import com.example.allvideodownloaderrevolt.commonClass.SharedPreferences
 import com.example.allvideodownloaderrevolt.commonClass.Utils
 import com.example.allvideodownloaderrevolt.databinding.ActSplashScreenBinding
+import com.example.allvideodownloaderrevolt.models.adsmodule.AdsResponseModel
+import com.example.allvideodownloaderrevolt.models.adsmodule.DataModel
+import com.example.allvideodownloaderrevolt.models.adsmodule.PredchampAppOpenManager
 import com.example.allvideodownloaderrevolt.modelsClass.adsmoduls.SubAppOpenManager
 import com.example.allvideodownloaderrevolt.securityClass.Crypto
 import com.google.gson.Gson
-import com.video.downloader.free.allvideo.media.download.social.videos.hd.models.adsmodule.AdsResponseModel
-import com.video.downloader.free.allvideo.media.download.social.videos.hd.models.adsmodule.DataModel
-import com.video.downloader.free.allvideo.media.download.social.videos.hd.models.adsmodule.PredchampAppOpenManager
 import org.json.JSONObject
 import java.security.MessageDigest
 import java.security.NoSuchAlgorithmException

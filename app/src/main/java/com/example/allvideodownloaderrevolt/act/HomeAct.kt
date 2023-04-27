@@ -75,7 +75,7 @@ class HomeAct : BaseAct() {
         }
         try {
             // check if available
-            activity.packageManager.getPackageInfo(name.trim { it <= ' ' }, 0)
+            activity!!.packageManager.getPackageInfo(name.trim { it <= ' ' }, 0)
         } catch (e: PackageManager.NameNotFoundException) {
             // if not available set
             // available as false
@@ -118,7 +118,7 @@ class HomeAct : BaseAct() {
         intent.data = Uri.parse(updateUrl)
         intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
         activity.let {
-            val activityInfo = intent.resolveActivityInfo(it.packageManager, intent.flags)
+            val activityInfo = intent.resolveActivityInfo(it!!.packageManager, intent.flags)
             if (activityInfo != null && activityInfo.exported) {
                 ActivityCompat.startActivity(it, intent, null)
             }
@@ -200,7 +200,7 @@ class HomeAct : BaseAct() {
         ClickUrl: String,
     ) {
         try {
-            homeIntDialog = Dialog(activity, R.style.DialogTheme)
+            homeIntDialog = Dialog(activity!!, R.style.DialogTheme)
             homeIntDialog!!.requestWindowFeature(Window.FEATURE_NO_TITLE)
             homeIntDialog!!.window!!.setBackgroundDrawable(null)
             homeIntDialog!!.setContentView(R.layout.download_update_dialog_item)
@@ -292,12 +292,12 @@ class HomeAct : BaseAct() {
             if (isPackageExisted(Constant.WHATSAPP_PACKAGE_PATH)) {
                 if (Build.VERSION.SDK_INT > 31) {
                     if (ContextCompat.checkSelfPermission(
-                            activity,
+                            activity!!,
                             Manifest.permission.READ_MEDIA_VIDEO
                         ) != PackageManager.PERMISSION_GRANTED
                     ) {
                         ActivityCompat.requestPermissions(
-                            activity,
+                            activity!!,
                             permission,
                             101
                         )
@@ -306,16 +306,16 @@ class HomeAct : BaseAct() {
                     }
                 } else {
                     if (ContextCompat.checkSelfPermission(
-                            activity,
+                            activity!!,
                             Manifest.permission.WRITE_EXTERNAL_STORAGE
                         ) != PackageManager.PERMISSION_GRANTED
                         || ContextCompat.checkSelfPermission(
-                            activity,
+                            activity!!,
                             Manifest.permission.READ_EXTERNAL_STORAGE
                         ) != PackageManager.PERMISSION_GRANTED
                     ) {
                         ActivityCompat.requestPermissions(
-                            activity,
+                            activity!!,
                             permission,
                             101
                         )
@@ -324,10 +324,10 @@ class HomeAct : BaseAct() {
                     }
                 }
             } else {
-                actHomeBinding.imgHome.setImageDrawable(activity.resources.getDrawable(R.drawable.icon_home_gray))
+                actHomeBinding.imgHome.setImageDrawable(activity!!.resources.getDrawable(R.drawable.icon_home_gray))
 
                 actHomeBinding.includeHomeBottomBar.imgStatusSaver.setImageDrawable(
-                    activity.resources.getDrawable(
+                    activity!!.resources.getDrawable(
                         R.drawable.icon_status_saver_gray
                     )
                 )
@@ -335,7 +335,7 @@ class HomeAct : BaseAct() {
                 actHomeBinding.includeHomeBottomBar.txtStatusSaver2.visibility = View.GONE
 
                 actHomeBinding.includeHomeBottomBar.imgVideoPlayer.setImageDrawable(
-                    activity.resources.getDrawable(
+                    activity!!.resources.getDrawable(
                         R.drawable.ic_unslc_video_player_gray
                     )
                 )
@@ -359,25 +359,25 @@ class HomeAct : BaseAct() {
     @SuppressLint("UseCompatLoadingForDrawables")
     private fun bottomBarSelectOption(i: Int) {
         actHomeBinding.includeHomeBottomBar.imgStatusSaver.setImageDrawable(
-            activity.resources.getDrawable(
+            activity!!.resources.getDrawable(
                 R.drawable.icon_status_saver_gray
             )
         )
         actHomeBinding.includeHomeBottomBar.txtStatusSaver.visibility = View.VISIBLE
         actHomeBinding.includeHomeBottomBar.txtStatusSaver2.visibility = View.GONE
         actHomeBinding.includeHomeBottomBar.imgVideoPlayer.setImageDrawable(
-            activity.resources.getDrawable(
+            activity!!.resources.getDrawable(
                 R.drawable.ic_unslc_video_player_gray
             )
         )
         actHomeBinding.includeHomeBottomBar.txtVideoPlayer.visibility = View.VISIBLE
         actHomeBinding.includeHomeBottomBar.txtVideoPlayer2.visibility = View.GONE
-        actHomeBinding.imgHome.setImageDrawable(activity.resources.getDrawable(R.drawable.icon_home_gray))
+        actHomeBinding.imgHome.setImageDrawable(activity!!.resources.getDrawable(R.drawable.icon_home_gray))
 
         when (i) {
             1 -> {
                 actHomeBinding.includeHomeBottomBar.imgStatusSaver.setImageDrawable(
-                    activity.resources.getDrawable(
+                    activity!!.resources.getDrawable(
                         R.drawable.ic_status_saver_blue
                     )
                 )
@@ -387,7 +387,7 @@ class HomeAct : BaseAct() {
             }
             2 -> {
                 actHomeBinding.includeHomeBottomBar.imgVideoPlayer.setImageDrawable(
-                    activity.resources.getDrawable(
+                    activity!!.resources.getDrawable(
                         R.drawable.ic_video_player_blue
                     )
                 )
@@ -396,10 +396,10 @@ class HomeAct : BaseAct() {
 
             }
             else -> {
-                actHomeBinding.imgHome.setImageDrawable(activity.resources.getDrawable(R.drawable.ic_gradient_home))
+                actHomeBinding.imgHome.setImageDrawable(activity!!.resources.getDrawable(R.drawable.ic_gradient_home))
 
                 actHomeBinding.includeHomeBottomBar.imgStatusSaver.setImageDrawable(
-                    activity.resources.getDrawable(
+                    activity!!.resources.getDrawable(
                         R.drawable.icon_status_saver_gray
                     )
                 )
@@ -407,7 +407,7 @@ class HomeAct : BaseAct() {
                 actHomeBinding.includeHomeBottomBar.txtStatusSaver2.visibility = View.GONE
 
                 actHomeBinding.includeHomeBottomBar.imgVideoPlayer.setImageDrawable(
-                    activity.resources.getDrawable(
+                    activity!!.resources.getDrawable(
                         R.drawable.ic_unslc_video_player_gray
                     )
                 )
@@ -431,15 +431,15 @@ class HomeAct : BaseAct() {
 
     private fun homeInitView() {
         Utils.gradientTextViewColor(
-            activity.resources.getColor(R.color.colorSpringGreen),
-            activity.resources.getColor(R.color.colorMalachite),
+            activity!!.resources.getColor(R.color.colorSpringGreen),
+            activity!!.resources.getColor(R.color.colorMalachite),
             actHomeBinding.includeHomeBottomBar.txtStatusSaver2,
-            activity.resources.getString(R.string.status_saver)
+            activity!!.resources.getString(R.string.status_saver)
         )
 
         Utils.gradientTextViewColor(
-            activity.resources.getColor(R.color.colorSpringGreen),
-            activity.resources.getColor(R.color.colorMalachite),
+            activity!!.resources.getColor(R.color.colorSpringGreen),
+            activity!!.resources.getColor(R.color.colorMalachite),
             actHomeBinding.includeHomeBottomBar.txtVideoPlayer2,
             activity!!.resources.getString(R.string.video_player)
         )
@@ -492,7 +492,7 @@ class HomeAct : BaseAct() {
 
     override fun onStart() {
         super.onStart()
-        Utils.loadInter(activity)
+        Utils.loadInter(activity!!)
     }
 
     override fun onBackPressed() {

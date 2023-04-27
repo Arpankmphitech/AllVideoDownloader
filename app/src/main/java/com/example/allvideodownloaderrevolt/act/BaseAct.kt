@@ -6,7 +6,7 @@ import androidx.appcompat.app.AppCompatActivity
 import com.bumptech.glide.Glide
 
 open class BaseAct : AppCompatActivity() {
-    lateinit var activity: Activity
+    var activity: Activity ?= null
 
     fun move(go: Class<*>?, i: Int) {
         startActivity(Intent(applicationContext, go).putExtra("pos", i))

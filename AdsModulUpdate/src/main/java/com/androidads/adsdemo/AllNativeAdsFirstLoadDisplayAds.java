@@ -482,8 +482,8 @@ public class AllNativeAdsFirstLoadDisplayAds {
                     myCallback.callbackCallFail("Error lib Fb Nativ==>" + adError.getErrorMessage());
                     // myCallback = null;
                 }*/
-                Log.e("14/04/2022 Big NAtive nativeAdsFb error", "Error");
-                Log.e("14/04/2022 Big NAtive nativeAdsFb error", adError.getErrorMessage());
+                Log.e("14/04/2022 ", "Error");
+                Log.e("14/04/2022 ", adError.getErrorMessage());
 
                /* if (FbNativAdsLayout != null) {
                     FbNativAdsLayout.removeAllViews();
@@ -534,14 +534,14 @@ public class AllNativeAdsFirstLoadDisplayAds {
             public void onAdLoaded(Ad ad) {
                 // Native ad is loaded and ready to be displayed
 
-                Log.e("14/04/2022 Big NAtive nativeAdsFb onAdLoaded", "onAdLoaded");
+                Log.e("14/04/2022", "onAdLoaded");
 
                 /*if (FbNativAdsLayout != null) {
                     FbNativAdsLayout.removeAllViews();
                 }*/
 
                 if (nativeAdsFb == null) {
-                    Log.e("14/04/2022 Big NAtive nativeAdsFb onAdLoaded nativeAdsFb == null", "nativeAdsFb == null");
+                    Log.e("14/04/2022", "nativeAdsFb == null");
 
                     isLodingFacebookAds = false;
                     if (myCallback != null) {
@@ -574,7 +574,7 @@ public class AllNativeAdsFirstLoadDisplayAds {
                         .withAdListener(nativeAdListener)
                         .build());
 
-        Log.e("01/10 facebook native request -====>", "nativeAdsFb");
+        Log.e("01/10 ", "nativeAdsFb");
 
 
     }
@@ -692,7 +692,7 @@ public class AllNativeAdsFirstLoadDisplayAds {
                         .withAdListener(nativeAdListener)
                         .build());
 
-        Log.e("01/10 facebook nativeBannerAd request -====>", "nativeBannerAd");
+        Log.e("01/10", "nativeBannerAd");
 
 
     }
@@ -822,7 +822,7 @@ public class AllNativeAdsFirstLoadDisplayAds {
                         .build();
                 adLoader.loadAd(adRequest);
 
-                Log.e("01/10 google native request -====>", "adRequest");
+                Log.e("01/10 ", "adRequest");
 
             } catch (Exception e) {
                 e.printStackTrace();
@@ -838,19 +838,19 @@ public class AllNativeAdsFirstLoadDisplayAds {
                                                   final FrameLayout GoogleNativAds,
                                                   final String QurekaorPredChampType) {
 
-        Log.e("14/04/2022 Big NAtive call DisplayFacebookNatviCallFunction", "DisplayFacebookNatviCallFunction");
+        Log.e("14/04/2022", "DisplayFacebookNatviCallFunction");
 
 
         try {
             if (nativeAdsFb != null && nativeAdsFb.isAdLoaded()) {
-                Log.e("14/04/2022 DisplayFacebookNatviCallFunction nativeAdsFb !=null ", "nativeAdsFb");
+                Log.e("14/04/2022", "nativeAdsFb");
 
                 inflateAdFb(nativeAdsFb, activity, fbNativAdsLayout, AdsSize);
                 if (myCallbackDisplay != null) {
                     myCallbackDisplay.callbackCallSuccess("OnResumeSuc" + "Ok" + "Ok");
                 }
             } else {
-                Log.e("14/04/2022 DisplayFacebookNatviCallFunction nativeAdsFb ==null else", "else");
+                Log.e("14/04/2022", "else");
 
                 if (isLodingFacebookAds) {
                     new Handler().postDelayed(new Runnable() {
@@ -894,8 +894,8 @@ public class AllNativeAdsFirstLoadDisplayAds {
 
         } catch (Exception e) {
             e.printStackTrace();
-            Log.e("14/04/2022 DisplayFacebookNatviCallFunction Exception e", e.getLocalizedMessage());
-            Log.e("14/04/2022 DisplayFacebookNatviCallFunction Exception e getMessage", e.getMessage());
+            Log.e("14/04/2022", e.getLocalizedMessage());
+            Log.e("14/04/2022", e.getMessage());
 
         }
     }

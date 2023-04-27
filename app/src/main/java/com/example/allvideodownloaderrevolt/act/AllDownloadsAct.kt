@@ -28,11 +28,11 @@ import com.example.allvideodownloaderrevolt.commonClass.videoDownloadsClass.Chin
 import com.example.allvideodownloaderrevolt.commonClass.videoDownloadsClass.InstaMethodDwClass
 import com.example.allvideodownloaderrevolt.commonClass.videoDownloadsClass.InstagramDwClass
 import com.example.allvideodownloaderrevolt.commonClass.videoDownloadsClass.RoposoDwClass
+import com.example.allvideodownloaderrevolt.commonClass.videodownload.*
+import com.example.allvideodownloaderrevolt.commonClass.videodownload.JoshDwClass
+import com.example.allvideodownloaderrevolt.commonClass.videodownload.ShareChatDwClass
 import com.example.allvideodownloaderrevolt.databinding.ActAllDownloadsBinding
 import com.example.allvideodownloaderrevolt.securityClass.Crypto
-import com.video.downloader.free.allvideo.media.download.social.videos.hd.common.videodownload.*
-import com.video.downloader.free.allvideo.media.download.social.videos.hd.common.videodownload.JoshDwClass
-import com.video.downloader.free.allvideo.media.download.social.videos.hd.common.videodownload.ShareChatDwClass
 import org.json.JSONObject
 import java.net.MalformedURLException
 import java.net.URL
@@ -73,39 +73,39 @@ class AllDownloadsAct : BaseAct() {
         when (fromInt) {
             0 -> {
                 actAlDwBinding.toolBar.txtTitleName.text =
-                    activity.resources.getString(R.string.sharechat)
+                    activity!!.resources.getString(R.string.sharechat)
             }
             1 -> {
                 actAlDwBinding.toolBar.txtTitleName.text =
-                    activity.resources.getString(R.string.twitter)
+                    activity!!.resources.getString(R.string.twitter)
             }
             2 -> {
                 actAlDwBinding.toolBar.txtTitleName.text =
-                    activity.resources.getString(R.string.facebook)
+                    activity!!.resources.getString(R.string.facebook)
             }
             3 -> {
                 actAlDwBinding.toolBar.txtTitleName.text =
-                    activity.resources.getString(R.string.josh)
+                    activity!!.resources.getString(R.string.josh)
             }
             4 -> {
                 actAlDwBinding.toolBar.txtTitleName.text =
-                    activity.resources.getString(R.string.instagram)
+                    activity!!.resources.getString(R.string.instagram)
             }
             5 -> {
                 actAlDwBinding.toolBar.txtTitleName.text =
-                    activity.resources.getString(R.string.chingari)
+                    activity!!.resources.getString(R.string.chingari)
             }
             6 -> {
                 actAlDwBinding.toolBar.txtTitleName.text =
-                    activity.resources.getString(R.string.tiki)
+                    activity!!.resources.getString(R.string.tiki)
             }
             7 -> {
                 actAlDwBinding.toolBar.txtTitleName.text =
-                    activity.resources.getString(R.string.roposo)
+                    activity!!.resources.getString(R.string.roposo)
             }
             8 -> {
                 actAlDwBinding.toolBar.txtTitleName.text =
-                    activity.resources.getString(R.string.vimeo)
+                    activity!!.resources.getString(R.string.vimeo)
             }
         }
     }
@@ -117,7 +117,7 @@ class AllDownloadsAct : BaseAct() {
                         this, Manifest.permission.READ_MEDIA_VIDEO
                     ) != PackageManager.PERMISSION_GRANTED
                 ) {
-                    ActivityCompat.requestPermissions(activity, accessPermission, 101)
+                    ActivityCompat.requestPermissions(activity!!, accessPermission, 101)
                 } else {
 //                    if (!Utils.isValidationUrl(actAlDwBinding.edtWebURL.text.toString())) {
 //                        Toast.makeText(activity, getString(R.string.valid_url), Toast.LENGTH_SHORT)
@@ -125,7 +125,7 @@ class AllDownloadsAct : BaseAct() {
 //                    }
                     Constant.createFolder()
                     if (Utils.isNetworkAvailable(
-                            activity, canShowErrorDialogOnFail = true, isFinish = true
+                            activity!!, canShowErrorDialogOnFail = true, isFinish = true
                         )
                     ) {
                         when (fromInt) {
@@ -139,7 +139,7 @@ class AllDownloadsAct : BaseAct() {
                             }
                             2 -> {
                                 //fb
-                                facebookVideoDownloads(activity)
+                                facebookVideoDownloads(activity!!)
                             }
                             3 -> {
                                 //josh
@@ -186,7 +186,7 @@ class AllDownloadsAct : BaseAct() {
 //                    }
                     Constant.createFolder()
                     if (Utils.isNetworkAvailable(
-                            activity, canShowErrorDialogOnFail = true, isFinish = true
+                            activity!!, canShowErrorDialogOnFail = true, isFinish = true
                         )
                     ) {
                         when (fromInt) {
@@ -200,7 +200,7 @@ class AllDownloadsAct : BaseAct() {
                             }
                             2 -> {
                                 //fb
-                                facebookVideoDownloads(activity)
+                                facebookVideoDownloads(activity!!)
                             }
                             3 -> {
                                 //josh
@@ -250,101 +250,101 @@ class AllDownloadsAct : BaseAct() {
         when (fromInt) {
             0 -> {
                 setDataChange(
-                    activity.resources.getString(R.string.sharechat),
-                    activity.resources.getColor(R.color.colorRose),
-                    activity.resources.getColorStateList(R.color.colorRose),
-                    activity.resources.getColorStateList(R.color.colorLavenderBlush),
-                    activity.resources.getDrawable(R.drawable.sharechat_logo),
-                    activity.resources.getDrawable(R.drawable.ic_share_download),
+                    activity!!.resources.getString(R.string.sharechat),
+                    activity!!.resources.getColor(R.color.colorRose),
+                    activity!!.resources.getColorStateList(R.color.colorRose),
+                    activity!!.resources.getColorStateList(R.color.colorLavenderBlush),
+                    activity!!.resources.getDrawable(R.drawable.sharechat_logo),
+                    activity!!.resources.getDrawable(R.drawable.ic_share_download),
                     gradientDrawable
                 )
             }
             1 -> {
                 setDataChange(
-                    activity.resources.getString(R.string.twitter),
-                    activity.resources.getColor(R.color.colorDeepSky),
-                    activity.resources.getColorStateList(R.color.colorDeepSky),
-                    activity.resources.getColorStateList(R.color.colorAlicBlue),
-                    activity.resources.getDrawable(R.drawable.twitter_logo),
-                    activity.resources.getDrawable(R.drawable.ic_twitter_download),
+                    activity!!.resources.getString(R.string.twitter),
+                    activity!!.resources.getColor(R.color.colorDeepSky),
+                    activity!!.resources.getColorStateList(R.color.colorDeepSky),
+                    activity!!.resources.getColorStateList(R.color.colorAlicBlue),
+                    activity!!.resources.getDrawable(R.drawable.twitter_logo),
+                    activity!!.resources.getDrawable(R.drawable.ic_twitter_download),
                     gradientDrawable
                 )
             }
             2 -> {
                 setDataChange(
-                    activity.resources.getString(R.string.facebook),
-                    activity.resources.getColor(R.color.colorMariner),
-                    activity.resources.getColorStateList(R.color.colorMariner),
-                    activity.resources.getColorStateList(R.color.colorLavender),
-                    activity.resources.getDrawable(R.drawable.ic_icon_facebook),
-                    activity.resources.getDrawable(R.drawable.ic_facebook_download),
+                    activity!!.resources.getString(R.string.facebook),
+                    activity!!.resources.getColor(R.color.colorMariner),
+                    activity!!.resources.getColorStateList(R.color.colorMariner),
+                    activity!!.resources.getColorStateList(R.color.colorLavender),
+                    activity!!.resources.getDrawable(R.drawable.ic_icon_facebook),
+                    activity!!.resources.getDrawable(R.drawable.ic_facebook_download),
                     gradientDrawable
                 )
             }
             3 -> {
                 setDataChange(
-                    activity.resources.getString(R.string.josh),
-                    activity.resources.getColor(R.color.colorDarkTurquoise),
-                    activity.resources.getColorStateList(R.color.colorDarkTurquoise),
-                    activity.resources.getColorStateList(R.color.colorLightCyan),
-                    activity.resources.getDrawable(R.drawable.icon_josh),
-                    activity.resources.getDrawable(R.drawable.ic_josh_download),
+                    activity!!.resources.getString(R.string.josh),
+                    activity!!.resources.getColor(R.color.colorDarkTurquoise),
+                    activity!!.resources.getColorStateList(R.color.colorDarkTurquoise),
+                    activity!!.resources.getColorStateList(R.color.colorLightCyan),
+                    activity!!.resources.getDrawable(R.drawable.icon_josh),
+                    activity!!.resources.getDrawable(R.drawable.ic_josh_download),
                     gradientDrawable
                 )
             }
             4 -> {
                 setDataChange(
-                    activity.resources.getString(R.string.instagram),
-                    activity.resources.getColor(R.color.colorRadicalRed),
-                    activity.resources.getColorStateList(R.color.colorRadicalRed),
-                    activity.resources.getColorStateList(R.color.colorAmour),
-                    activity.resources.getDrawable(R.drawable.icon_instagram),
-                    activity.resources.getDrawable(R.drawable.ic_instagram_download),
+                    activity!!.resources.getString(R.string.instagram),
+                    activity!!.resources.getColor(R.color.colorRadicalRed),
+                    activity!!.resources.getColorStateList(R.color.colorRadicalRed),
+                    activity!!.resources.getColorStateList(R.color.colorAmour),
+                    activity!!.resources.getDrawable(R.drawable.icon_instagram),
+                    activity!!.resources.getDrawable(R.drawable.ic_instagram_download),
                     gradientDrawable
                 )
             }
             5 -> {
                 setDataChange(
-                    activity.resources.getString(R.string.chingari),
-                    activity.resources.getColor(R.color.colorBlackCurrent),
-                    activity.resources.getColorStateList(R.color.colorBlackCurrent),
-                    activity.resources.getColorStateList(R.color.colorThistle),
-                    activity.resources.getDrawable(R.drawable.chingari_logo),
-                    activity.resources.getDrawable(R.drawable.ic_chingari_download),
+                    activity!!.resources.getString(R.string.chingari),
+                    activity!!.resources.getColor(R.color.colorBlackCurrent),
+                    activity!!.resources.getColorStateList(R.color.colorBlackCurrent),
+                    activity!!.resources.getColorStateList(R.color.colorThistle),
+                    activity!!.resources.getDrawable(R.drawable.chingari_logo),
+                    activity!!.resources.getDrawable(R.drawable.ic_chingari_download),
                     gradientDrawable
                 )
             }
             6 -> {
                 setDataChange(
-                    activity.resources.getString(R.string.tiki),
-                    activity.resources.getColor(R.color.colorCorn),
-                    activity.resources.getColorStateList(R.color.colorCorn),
-                    activity.resources.getColorStateList(R.color.colorCornSilk),
-                    activity.resources.getDrawable(R.drawable.ic_tiki_logo),
-                    activity.resources.getDrawable(R.drawable.ic_tiki_download),
+                    activity!!.resources.getString(R.string.tiki),
+                    activity!!.resources.getColor(R.color.colorCorn),
+                    activity!!.resources.getColorStateList(R.color.colorCorn),
+                    activity!!.resources.getColorStateList(R.color.colorCornSilk),
+                    activity!!.resources.getDrawable(R.drawable.ic_tiki_logo),
+                    activity!!.resources.getDrawable(R.drawable.ic_tiki_download),
                     gradientDrawable
                 )
             }
             7 -> {
                 setDataChange(
-                    activity.resources.getString(R.string.roposo),
-                    activity.resources.getColor(R.color.colorHeliotrope),
-                    activity.resources.getColorStateList(R.color.colorHeliotrope),
-                    activity.resources.getColorStateList(R.color.colorMagnolia),
-                    activity.resources.getDrawable(R.drawable.ic_roposo_logo),
-                    activity.resources.getDrawable(R.drawable.ic_roposo_download),
+                    activity!!.resources.getString(R.string.roposo),
+                    activity!!.resources.getColor(R.color.colorHeliotrope),
+                    activity!!.resources.getColorStateList(R.color.colorHeliotrope),
+                    activity!!.resources.getColorStateList(R.color.colorMagnolia),
+                    activity!!.resources.getDrawable(R.drawable.ic_roposo_logo),
+                    activity!!.resources.getDrawable(R.drawable.ic_roposo_download),
                     gradientDrawable
                 )
 
             }
             8 -> {
                 setDataChange(
-                    activity.resources.getString(R.string.vimeo),
-                    activity.resources.getColor(R.color.colorSummerSky),
-                    activity.resources.getColorStateList(R.color.colorSummerSky),
-                    activity.resources.getColorStateList(R.color.colorAliceBlue),
-                    activity.resources.getDrawable(R.drawable.ic_vimeo_logo),
-                    activity.resources.getDrawable(R.drawable.ic_vimeo_download),
+                    activity!!.resources.getString(R.string.vimeo),
+                    activity!!.resources.getColor(R.color.colorSummerSky),
+                    activity!!.resources.getColorStateList(R.color.colorSummerSky),
+                    activity!!.resources.getColorStateList(R.color.colorAliceBlue),
+                    activity!!.resources.getDrawable(R.drawable.ic_vimeo_logo),
+                    activity!!.resources.getDrawable(R.drawable.ic_vimeo_download),
                     gradientDrawable
                 )
             }
@@ -359,7 +359,7 @@ class AllDownloadsAct : BaseAct() {
     ) {
         actAlDwBinding.txtDownloadTitle.text = string
         actAlDwBinding.txtFrImageTitle.text =
-            activity.resources.getString(R.string._1_copy_video_link_from_sharechat, string)
+            activity!!.resources.getString(R.string._1_copy_video_link_from_sharechat, string)
 //        actAlDwBinding.txtDownloadTitle.setTextColor(color)
 //        actAlDwBinding.btnUriDataDownloads.setTextColor(color)
         actAlDwBinding.imgDownloadLogo.backgroundTintList = colorStateList
@@ -375,7 +375,7 @@ class AllDownloadsAct : BaseAct() {
 
             if (type.equals("getData")) {
                 Utils.ShowProgressbarDialog(
-                    activity, getString(R.string.please_wait_we_are_downloading)
+                    activity!!, getString(R.string.please_wait_we_are_downloading)
                 )
                 val findData = InstagramDwClass(
                     applicationContext
@@ -409,9 +409,9 @@ class AllDownloadsAct : BaseAct() {
                 val url = actAlDwBinding.edtWebURL.text.toString().trim { it <= ' ' }
                 Log.e("17/01", "roposoVideoDownloads:$url")
                 Utils.ShowProgressbarDialog(
-                    activity, getString(R.string.please_wait_we_are_downloading)
+                    activity!!, getString(R.string.please_wait_we_are_downloading)
                 )
-                RoposoDwClass(activity, Constant.ROPOSO_PATH, url).execute(url)
+                RoposoDwClass(activity!!, Constant.ROPOSO_PATH, url).execute(url)
             } else {
                 Toast.makeText(activity, getString(R.string.valid_url), Toast.LENGTH_SHORT).show()
             }
@@ -425,9 +425,9 @@ class AllDownloadsAct : BaseAct() {
             if (actAlDwBinding.edtWebURL.text.toString().trim { it <= ' ' }.contains("chingari")) {
                 val url = actAlDwBinding.edtWebURL.text.toString().trim { it <= ' ' }
                 Utils.ShowProgressbarDialog(
-                    activity, getString(R.string.please_wait_we_are_downloading)
+                    activity!!, getString(R.string.please_wait_we_are_downloading)
                 )
-                ChingariDwClass(activity, Constant.CHINGARI_PATH).execute(url)
+                ChingariDwClass(activity!!, Constant.CHINGARI_PATH).execute(url)
             } else {
                 Toast.makeText(activity, getString(R.string.valid_url), Toast.LENGTH_SHORT).show()
             }
@@ -441,10 +441,10 @@ class AllDownloadsAct : BaseAct() {
             if (actAlDwBinding.edtWebURL.text.toString().contains("tiki")) {
                 val url = actAlDwBinding.edtWebURL.text.toString()
                 Utils.ShowProgressbarDialog(
-                    activity, getString(R.string.please_wait_we_are_downloading)
+                    activity!!, getString(R.string.please_wait_we_are_downloading)
                 )
                 TikiDwClass(
-                    activity, Constant.TIKI_PATH
+                    activity!!, Constant.TIKI_PATH
                 ).execute(url)
             } else {
                 Toast.makeText(
@@ -465,10 +465,10 @@ class AllDownloadsAct : BaseAct() {
                     url = url.substring(url.indexOf("http"), url.indexOf("?"))
                     if (URLUtil.isValidUrl(url)) {
                         Utils.ShowProgressbarDialog(
-                            activity,
-                            activity.resources.getString(R.string.please_wait_we_are_downloading)
+                            activity!!,
+                            activity!!.resources.getString(R.string.please_wait_we_are_downloading)
                         )
-                        JoshDwClass(activity, Constant.JOSH_PATH).execute(url)
+                        JoshDwClass(activity!!, Constant.JOSH_PATH).execute(url)
                     } else {
                         Toast.makeText(activity, getString(R.string.valid_url), Toast.LENGTH_SHORT)
                             .show()
@@ -502,11 +502,11 @@ class AllDownloadsAct : BaseAct() {
                 val host = url.host
                 if (host.contains("sharechat")) {
                     Utils.ShowProgressbarDialog(
-                        activity,
-                        activity.resources.getString(R.string.please_wait_we_are_downloading)
+                        activity!!,
+                        activity!!.resources.getString(R.string.please_wait_we_are_downloading)
                     )
                     ShareChatDwClass(
-                        activity, Constant.SHARE_CHAT_PATH
+                        activity!!, Constant.SHARE_CHAT_PATH
                     ).execute(actAlDwBinding.edtWebURL.text.toString().trim { it <= ' ' })
                     hideKeyBoard(activity)
                 } else {
@@ -523,14 +523,14 @@ class AllDownloadsAct : BaseAct() {
     private fun twitterVideoDownloads() {
         if (Utils.isValidatEmpty(actAlDwBinding.edtWebURL.text.toString())) {
             Toast.makeText(
-                activity, activity.resources.getString(R.string.enter_url), Toast.LENGTH_SHORT
+                activity, activity!!.resources.getString(R.string.enter_url), Toast.LENGTH_SHORT
             ).show()
             Log.e("0101", "twitterVideoDownloads:23 ")
             Utils.HideProgressbarDialog()
 
         } else if (!Utils.isValidationUrl(actAlDwBinding.edtWebURL.text.toString())) {
             Toast.makeText(
-                activity, activity.resources.getString(R.string.valid_url), Toast.LENGTH_SHORT
+                activity, activity!!.resources.getString(R.string.valid_url), Toast.LENGTH_SHORT
             ).show()
             Log.e("0101", "twitterVideoDownloads:2 ")
             Utils.HideProgressbarDialog()
@@ -542,7 +542,7 @@ class AllDownloadsAct : BaseAct() {
                 ).host.contains("twitter.com")
             ) {
                 Utils.ShowProgressbarDialog(
-                    activity, getString(R.string.please_wait_we_are_downloading)
+                    activity!!, getString(R.string.please_wait_we_are_downloading)
                 )
                 val tweetId = JavaHelper.getTweetId(actAlDwBinding.edtWebURL.text.toString().trim())
 
@@ -570,7 +570,7 @@ class AllDownloadsAct : BaseAct() {
                                                 Utils.newDownload(
                                                     response.optJSONArray("videos")!!
                                                         .optJSONObject(0).get("url").toString(),
-                                                    activity
+                                                    activity!!
                                                 )
                                             }
                                         } else if (response.optJSONArray("videos")!!
@@ -584,7 +584,7 @@ class AllDownloadsAct : BaseAct() {
                                                 Utils.newDownload(
                                                     response.optJSONArray("videos")!!
                                                         .optJSONObject(1).get("url").toString(),
-                                                    activity
+                                                    activity!!
                                                 )
                                             }
                                         } else if (response.optJSONArray("videos")!!
@@ -598,7 +598,7 @@ class AllDownloadsAct : BaseAct() {
                                                 Utils.newDownload(
                                                     response.optJSONArray("videos")!!
                                                         .optJSONObject(2).get("url").toString(),
-                                                    activity
+                                                    activity!!
                                                 )
                                             }
 
@@ -611,7 +611,7 @@ class AllDownloadsAct : BaseAct() {
                                 Utils.HideProgressbarDialog()
                                 Toast.makeText(
                                     activity,
-                                    activity.getString(R.string.valid_url),
+                                    activity!!.getString(R.string.valid_url),
                                     Toast.LENGTH_SHORT
                                 ).show()
                                 Log.e("0101", "twitterVideoDownloads:3 ")
@@ -621,7 +621,7 @@ class AllDownloadsAct : BaseAct() {
                 } else {
                     (activity as? Activity)?.runOnUiThread {
                         Toast.makeText(
-                            activity, activity.getString(R.string.valid_url), Toast.LENGTH_SHORT
+                            activity, activity!!.getString(R.string.valid_url), Toast.LENGTH_SHORT
                         ).show()
                         Log.e("0101", "twitterVideoDownloads: ")
                         Utils.HideProgressbarDialog()
@@ -656,7 +656,7 @@ class AllDownloadsAct : BaseAct() {
             if (actAlDwBinding.edtWebURL.text.toString().contains("vimeo")) {
                 val url = actAlDwBinding.edtWebURL.text.toString()
                 Utils.ShowProgressbarDialog(
-                    activity, getString(R.string.please_wait_we_are_downloading)
+                    activity!!, getString(R.string.please_wait_we_are_downloading)
                 )
                 VimeoDwClass(
                     applicationContext, Constant.VIMEO_PATH

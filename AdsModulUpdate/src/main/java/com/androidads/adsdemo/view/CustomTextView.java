@@ -54,7 +54,7 @@ public class CustomTextView extends TextView {
                 e.printStackTrace();
             }
 
-            a.rcvVideoList();
+            a.recycle();
         } else {
 
         }

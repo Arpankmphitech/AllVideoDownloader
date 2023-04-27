@@ -7,7 +7,6 @@ package com.androidads.adsdemo.view;
 import android.annotation.TargetApi;
 import android.content.Context;
 import android.content.res.TypedArray;
-import android.graphics.Typeface;
 import android.os.Build;
 import android.util.AttributeSet;
 import android.widget.Button;
@@ -53,7 +52,7 @@ public class CustomButton extends Button {
                 e.printStackTrace();
             }
 
-            a.rcvVideoList();
+            a.recycle();
         } else {
 
         }

@@ -26,7 +26,7 @@ class VideoPlayerAct : BaseAct() {
 
     private fun videoPlayerInitToolBar() {
         actVideoPlayerBinding.toolBar.ivBackArrow.setOnClickListener { onBackPressed() }
-        actVideoPlayerBinding.toolBar.txtTitleName.text = activity.resources.getString(R.string.video_player)
+        actVideoPlayerBinding.toolBar.txtTitleName.text = activity!!.resources.getString(R.string.video_player)
     }
 
     private fun videoPlayerInitClick() {
@@ -36,29 +36,29 @@ class VideoPlayerAct : BaseAct() {
     }
 
     private fun bottomBarSelectOption(i: Int) {
-        actVideoPlayerBinding.txtVideo.setTextColor(activity.resources.getColor(R.color.colorSilver))
-        actVideoPlayerBinding.txtMusic.setTextColor(activity.resources.getColor(R.color.colorSilver))
-        actVideoPlayerBinding.txtGallery.setTextColor(activity.resources.getColor(R.color.colorSilver))
+        actVideoPlayerBinding.txtVideo.setTextColor(activity!!.resources.getColor(R.color.colorSilver))
+        actVideoPlayerBinding.txtMusic.setTextColor(activity!!.resources.getColor(R.color.colorSilver))
+        actVideoPlayerBinding.txtGallery.setTextColor(activity!!.resources.getColor(R.color.colorSilver))
         actVideoPlayerBinding.txtVideo.background = null
         actVideoPlayerBinding.txtMusic.background = null
         actVideoPlayerBinding.txtGallery.background = null
         when (i) {
             1 -> {
-                actVideoPlayerBinding.txtVideo.setTextColor(activity.resources.getColor(R.color.colorWhite))
+                actVideoPlayerBinding.txtVideo.setTextColor(activity!!.resources.getColor(R.color.colorWhite))
                 actVideoPlayerBinding.txtVideo.background =
-                    activity.resources.getDrawable(R.drawable.blue_gradient_8sdp_bg)
+                    activity!!.resources.getDrawable(R.drawable.blue_gradient_8sdp_bg)
                 loadFragmentView(VideoFrag())
             }
             2 -> {
-                actVideoPlayerBinding.txtMusic.setTextColor(activity.resources.getColor(R.color.colorWhite))
+                actVideoPlayerBinding.txtMusic.setTextColor(activity!!.resources.getColor(R.color.colorWhite))
                 actVideoPlayerBinding.txtMusic.background =
-                    activity.resources.getDrawable(R.drawable.blue_gradient_8sdp_bg)
+                    activity!!.resources.getDrawable(R.drawable.blue_gradient_8sdp_bg)
                 loadFragmentView(MusicFrag())
             }
             else -> {
-                actVideoPlayerBinding.txtGallery.setTextColor(activity.resources.getColor(R.color.colorWhite))
+                actVideoPlayerBinding.txtGallery.setTextColor(activity!!.resources.getColor(R.color.colorWhite))
                 actVideoPlayerBinding.txtGallery.background =
-                    activity.resources.getDrawable(R.drawable.blue_gradient_8sdp_bg)
+                    activity!!.resources.getDrawable(R.drawable.blue_gradient_8sdp_bg)
                 loadFragmentView(GalleryFrag())
             }
         }
