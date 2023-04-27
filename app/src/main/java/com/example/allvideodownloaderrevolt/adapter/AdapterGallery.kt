@@ -15,26 +15,26 @@ import com.example.allvideodownloaderrevolt.commonClass.Utils
 import com.example.allvideodownloaderrevolt.modelsClass.GalleyAlbumModel
 import com.makeramen.roundedimageview.RoundedImageView
 
-class AdapterGallery(var context: Activity, var listGalleryAlbums: List<GalleyAlbumModel>) :
+class AdapterGallery(var activity : Activity, var galleryAlbumsList: List<GalleyAlbumModel>) :
     RecyclerView.Adapter<AdapterGallery.MyImage>() {
     override fun onCreateViewHolder(viewGroup: ViewGroup, i: Int): MyImage {
         return MyImage(
             LayoutInflater.from(
-            context).inflate(R.layout.row_gallery_folder_item, viewGroup, false))
+                activity).inflate(R.layout.row_gallery_folder_item, viewGroup, false))
     }
 
     override fun onBindViewHolder(myImage: MyImage, @SuppressLint("RecyclerView") i: Int) {
-        val galleyAlbumModel = listGalleryAlbums[i]
+        val galleyAlbumModel = galleryAlbumsList[i]
         myImage.txtSize.visibility = View.GONE
-        Glide.with(context).load(listGalleryAlbums[i].albumPhotos!![0].photoUri)
+        Glide.with(activity).load(galleryAlbumsList[i].albumPhotos!![0].photoUri)
             .into(myImage.roundImgfolder)
         val textView = myImage.txtCount
         textView.text = galleyAlbumModel.albumPhotos!!.size.toString() + " Media"
         myImage.tvTitle.text = galleyAlbumModel.name
         myImage.itemView.setOnClickListener {
-            Utils.displayInter(context, {
-                context.startActivity(
-                    Intent(context,
+            Utils.displayInter(activity, {
+                activity.startActivity(
+                    Intent(activity,
                     ImageListAct::class.java).setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
                     .putExtra("pos", i)
                     .putExtra("name", galleyAlbumModel.name))
@@ -45,7 +45,7 @@ class AdapterGallery(var context: Activity, var listGalleryAlbums: List<GalleyAl
     }
 
     override fun getItemCount(): Int {
-        return listGalleryAlbums.size
+        return galleryAlbumsList.size
     }
 
     inner class MyImage(view: View) : RecyclerView.ViewHolder(view) {

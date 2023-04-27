@@ -86,7 +86,7 @@ class HomeAct : BaseAct() {
 
     private fun getPackgeName(): String? {
         var packageName: String? = ""
-        val url: String? = SharedPreferences.getStringName(Constant.USER_DIALOG_URL)
+        val url: String? = SharedPreferences.getStringName(Constant.URL_USER_DIALOG)
         if (!isValidationEmpty(url!!)
             && Utils.isValidationUrl(url)
         ) {
@@ -129,7 +129,7 @@ class HomeAct : BaseAct() {
         var currentVersionCode = 0
         val versionCodeApi: Int
 
-        versionCodeApi = SharedPreferences.getInteger(Constant.App_VERSION_CODE)
+        versionCodeApi = SharedPreferences.getInteger(Constant.VERSION_CODE_App)
         try {
             val pInfo = packageManager.getPackageInfo(packageName, 0)
             currentVersionCode = pInfo.versionCode
@@ -137,14 +137,14 @@ class HomeAct : BaseAct() {
             e.printStackTrace()
         }
 
-        strDialogText = SharedPreferences.getStringName(Constant.USER_DIALOG_TEXT)
+        strDialogText = SharedPreferences.getStringName(Constant.TEXT_USER_DIALOG)
         strDialogUpdateText =
-            SharedPreferences.getStringName(Constant.USER_DIALOG_UPDATE_TEXT).toString()
+            SharedPreferences.getStringName(Constant.UPDATE_USER_DIALOG_TEXT).toString()
         val imageUserDialog: String =
-            SharedPreferences.getStringName(Constant.USER_DIALOG_IMG).toString()
+            SharedPreferences.getStringName(Constant.IMG_USER_DIALOG).toString()
         val isUserDialogChkUrl: String =
-            SharedPreferences.getStringName(Constant.USER_DIALOG_URL).toString()
-        strDialogBtnText = SharedPreferences.getStringName(Constant.USER_DIALOG_BTN)
+            SharedPreferences.getStringName(Constant.URL_USER_DIALOG).toString()
+        strDialogBtnText = SharedPreferences.getStringName(Constant.BTN_USER_DIALOG)
         if (isValidationEmpty(strDialogUpdateText)) {
             strDialogUpdateText = getString(R.string.An_update)
         }
@@ -162,7 +162,7 @@ class HomeAct : BaseAct() {
                     strDialogUpdateText,
                     "",
                     getString(R.string.update),
-                    Constant.PLAYSTORE_URL + packageName
+                    Constant.URL_PLAYSTORE + packageName
                 )
             }
         } else {
@@ -170,9 +170,9 @@ class HomeAct : BaseAct() {
                     "",
                     ignoreCase = true
                 ) && SharedPreferences.getBoolenValue(Constant.IS_USER_DIALOG)
-                && Constant.dialogTrue && !available(getPackgeName())
+                && Constant.trueDialog && !available(getPackgeName())
             ) {
-                Constant.dialogTrue = false
+                Constant.trueDialog = false
                 val apiPackageName = isUserDialogChkUrl.substring(46)
                 if (Utils.appAlreadyInstalled(
                         applicationContext, apiPackageName
@@ -222,15 +222,15 @@ class HomeAct : BaseAct() {
                 txtDialogMainTitle.text = "Download the app"
             } else {
                 txtDialogMainTitle.text = "Update the app"
-                if (!isValidationEmpty(SharedPreferences.getStringName(Constant.USER_DIALOG_UPDATE_TEXT)!!)) {
+                if (!isValidationEmpty(SharedPreferences.getStringName(Constant.UPDATE_USER_DIALOG_TEXT)!!)) {
                     if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
                         txtDialogDes.text = Html.fromHtml(
-                            "" + SharedPreferences.getStringName(Constant.USER_DIALOG_UPDATE_TEXT),
+                            "" + SharedPreferences.getStringName(Constant.UPDATE_USER_DIALOG_TEXT),
                             Html.FROM_HTML_MODE_COMPACT
                         )
                     } else {
                         txtDialogDes.text =
-                            Html.fromHtml("" + SharedPreferences.getStringName(Constant.USER_DIALOG_UPDATE_TEXT))
+                            Html.fromHtml("" + SharedPreferences.getStringName(Constant.UPDATE_USER_DIALOG_TEXT))
                     }
 
                 }
@@ -289,7 +289,7 @@ class HomeAct : BaseAct() {
         actHomeBinding.includeHomeBottomBar.layoutStatusSaver.setOnClickListener {
             homeInt = 0
             bottomBarSelectOption(1)
-            if (isPackageExisted(Constant.WHATSAPP_PACKAGE)) {
+            if (isPackageExisted(Constant.WHATSAPP_PACKAGE_PATH)) {
                 if (Build.VERSION.SDK_INT > 31) {
                     if (ContextCompat.checkSelfPermission(
                             activity,

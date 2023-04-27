@@ -101,7 +101,7 @@ public class AppOpenManager implements Application.ActivityLifecycleCallbacks, L
                 if (!isOpenAd) {
                     isOpenAd = true;
 
-                    if (/*!Utils.isValidatEmpty(Constants.AppOpenAdId) &&*/ (!Utils.isValidatEmpty(AdvertiseUtils.PredChampURL)
+                    if (/*!Utils.isValidatEmpty(Constants.OpenAppAdId) &&*/ (!Utils.isValidatEmpty(AdvertiseUtils.PredChampURL)
                             || !Utils.isValidatEmpty(AdvertiseUtils.GameURL)
                             || !Utils.isValidatEmpty(AdvertiseUtils.BitcoinURL))) {
 
@@ -239,9 +239,9 @@ public class AppOpenManager implements Application.ActivityLifecycleCallbacks, L
      */
     public void showAdIfAvailable() {
 
-        appOpenAdValue = SharedPrefrences.getInteger(currentActivity,SharedPrefrences.APP_OPEN_AD);
+        appOpenAdValue = SharedPrefrences.getInteger(currentActivity,SharedPrefrences.AD_APP_OPEN);
         if (appOpenAdValue == 1) {
-            SharedPrefrences.setInteger(currentActivity,SharedPrefrences.APP_OPEN_AD, 0);
+            SharedPrefrences.setInteger(currentActivity,SharedPrefrences.AD_APP_OPEN, 0);
             Log.e("TAG__1__1", "showAdIfAvailable: ");
             return;
         }

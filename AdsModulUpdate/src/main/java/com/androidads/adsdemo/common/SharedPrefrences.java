@@ -14,7 +14,7 @@ import com.google.gson.Gson;
 public class SharedPrefrences {
     public static final String AdvertiseObject = "AdvertiseObject";
     public static final String IsFirstTimeAppOpenAd = "IsFirstTimeAppOpenAd";
-    public static String APP_OPEN_AD = "APP_OPEN_AD";
+    public static String AD_APP_OPEN = "AD_APP_OPEN";
     private static android.content.SharedPreferences sharedPreference;
 
     public static android.content.SharedPreferences get(Activity activity) {

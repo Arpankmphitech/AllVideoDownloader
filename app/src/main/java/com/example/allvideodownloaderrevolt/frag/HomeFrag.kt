@@ -57,7 +57,7 @@ class HomeFrag : Fragment() {
 
         binding.layoutSaveStatus.setOnClickListener {
 
-            if (isPackageExisted(Constant.WHATSAPP_PACKAGE)) {
+            if (isPackageExisted(Constant.WHATSAPP_PACKAGE_PATH)) {
                 if (Build.VERSION.SDK_INT > 31) {
                     if (ContextCompat.checkSelfPermission(
                             homeActivity,

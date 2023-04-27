@@ -19,20 +19,20 @@ import java.io.File
 import java.io.Serializable
 
 class AdapterVideoList(
-    var context: Activity, var modelList: List<VideoModel>
+    var activity : Activity, var videoModelList: List<VideoModel>
 ) : RecyclerView.Adapter<AdapterVideoList.MyFolder>() {
     var tvTitle: TextView? = null
     override fun onCreateViewHolder(viewGroup: ViewGroup, i: Int): MyFolder {
         return MyFolder(
             LayoutInflater.from(
-                context
+                activity
             ).inflate(R.layout.row_video_list_item, viewGroup, false)
         )
     }
 
     override fun onBindViewHolder(myFolder: MyFolder, @SuppressLint("RecyclerView") i: Int) {
-        val videoModel = modelList[i]
-        ((Glide.with(context).load(File(videoModel.data))
+        val videoModel = videoModelList[i]
+        ((Glide.with(activity).load(File(videoModel.data))
             .centerCrop() as RequestBuilder<*>).placeholder(
             R.color.colorWhite
         ) as RequestBuilder<*>).into(myFolder.imgThumbnail)
@@ -49,12 +49,12 @@ class AdapterVideoList(
             myFolder.txtSize.visibility = View.GONE
         }
         myFolder.itemView.setOnClickListener {
-            Utils.displayInter(context, {
-                val intent = Intent(context, AllVideoPlayerAct::class.java)
-                intent.putExtra("list", modelList as Serializable)
+            Utils.displayInter(activity, {
+                val intent = Intent(activity, AllVideoPlayerAct::class.java)
+                intent.putExtra("list", videoModelList as Serializable)
                 intent.putExtra("position", i)
                 intent.addFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP)
-                context.startActivity(intent)
+                activity.startActivity(intent)
             }, true)
 
 
@@ -62,7 +62,7 @@ class AdapterVideoList(
     }
 
     override fun getItemCount(): Int {
-        return modelList.size
+        return videoModelList.size
     }
 
     inner class MyFolder(view: View) : RecyclerView.ViewHolder(view) {

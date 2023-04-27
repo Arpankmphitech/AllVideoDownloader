@@ -60,7 +60,7 @@ class LoginScreenAct : AppCompatActivity() {
 
                 } else {
                     Utils.setDataFromSharedPrefrences(
-                        Constant.LOGIN_TABLE_NAME,
+                        Constant.TABLE_NAME_LOGIN,
                         MODE_PRIVATE,
                         txtEmail,
                         txtPassword,

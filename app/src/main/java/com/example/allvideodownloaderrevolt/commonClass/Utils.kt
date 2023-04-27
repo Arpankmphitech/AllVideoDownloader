@@ -237,7 +237,7 @@ object Utils {
             interstitialAdsId.id,
             interstitialAdsId.accountNo,
             true,
-            Constant.PredChampInsideType
+            Constant.TypePredChampInside
         )
     }
 
@@ -246,7 +246,7 @@ object Utils {
 
 //        loadMediumNativeAds(
 //            Constant.SmallNative,
-//            Constant.PredChampInsideType,
+//            Constant.TypePredChampInside,
 //            activity!!,
 //            activity.findViewById<View>(R.id.allMainSelection_medium_bottom)
 //                .findViewById(R.id.nativeAdContainer),
@@ -293,7 +293,7 @@ object Utils {
                     view.visibility = View.VISIBLE
 //                    showMediumNativeAds(
 //                        Constant.SmallNative,
-//                        Constant.PredChampInsideType,
+//                        Constant.TypePredChampInside,
 //                        activity,
 //                        activity.findViewById(R.id.allMainSelection_medium_bottom),
 //                        activity.findViewById<View>(R.id.allMainSelection_medium_bottom)
@@ -385,8 +385,8 @@ object Utils {
 
     fun displayInterOnBack(activity: Activity) {
 
-        if (Constant.backCount == Constant.isBackAdCount) {
-            Constant.backCount = 1
+        if (Constant.countBack == Constant.isAdBackCount) {
+            Constant.countBack = 1
             val interstitialAdsId: SplashCommonModel = AdsIdOnDeviceStore.GetInterstitial(activity)
             AllInterstitialNewAd.getInstance().displayInterstitial(
                 activity,
@@ -398,10 +398,10 @@ object Utils {
                 },
                 true,
                 true,
-                Constant.PredChampInsideType
+                Constant.TypePredChampInside
             )
         } else {
-            Constant.backCount++
+            Constant.countBack++
             activity.finish()
         }
 
@@ -431,14 +431,14 @@ object Utils {
             myCallback,
             true,
             true,
-            Constant.PredChampInsideType
+            Constant.TypePredChampInside
         )
     }
 
     fun loadBigNative(activity: Activity) {
 //        loadBigNativeAd(
 //            Constant.BigNative,
-//            Constant.PredChampInsideType,
+//            Constant.TypePredChampInside,
 //            activity,
 //            activity.findViewById<View>(R.id.allMainSelectionInclude).findViewById(R.id.nativeAdContainer),
 //            activity.findViewById<View>(R.id.allMainSelectionInclude).findViewById(R.id.frameLayoutPlaceholder),

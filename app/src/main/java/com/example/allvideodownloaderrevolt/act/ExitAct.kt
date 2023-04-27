@@ -35,7 +35,7 @@ class ExitAct : BaseAct() {
         }
 
         actExitBinding.btnAppYes.setOnClickListener {
-            Constant.isNotificationClicked = true
+            Constant.isClickedNotification = true
             AppOpenManager.appOpenAd = null
             try {
                 val intentYes = Intent(Intent.ACTION_MAIN)

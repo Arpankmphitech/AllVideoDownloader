@@ -67,13 +67,13 @@ class PredchampAppOpenManager(myApplication: AVDApplicationClass) :
                                 isShowingAd = false
                                 fetchAd()
 
-//                                    if (!Utils.isValidationEmpty(Constants.AppOpenAdId) && (!Utils.isValidationEmpty(AdvertiseUtils.PredChampURL)
+//                                    if (!Utils.isValidationEmpty(Constants.OpenAppAdId) && (!Utils.isValidationEmpty(AdvertiseUtils.PredChampURL)
 //                                            || !Utils.isValidationEmpty(AdvertiseUtils.GameURL)
 //                                            || !Utils.isValidationEmpty(AdvertiseUtils.QurekaURL))) {
 //
 //                                        AdsOpenInterstitialNewAd adsOpenInterstitialNewAd = new AdsOpenInterstitialNewAd();
 //                                        adsOpenInterstitialNewAd.CallOpenAdsOpenQureka(currentActivity,
-//                                                Constants.PredChampInsideType, str -> isOpenAd = false);
+//                                                Constants.TypePredChampInside, str -> isOpenAd = false);
 //                                    }
                             }
 
@@ -107,7 +107,7 @@ class PredchampAppOpenManager(myApplication: AVDApplicationClass) :
                 if (!isShowingAd) {
                     isShowingAd = true
                     Log.d("09/12", "onAdFail--isOpen")
-                    if (!Utils.isValidatEmpty(Constant.AppOpenAdId) && (!Utils.isValidatEmpty(
+                    if (!Utils.isValidatEmpty(Constant.OpenAppAdId) && (!Utils.isValidatEmpty(
                             AdvertiseUtils.PredChampURL
                         )
                                 || !Utils.isValidatEmpty(AdvertiseUtils.GameURL)
@@ -115,7 +115,7 @@ class PredchampAppOpenManager(myApplication: AVDApplicationClass) :
                     ) {
                         val adsOpenInterstitialNewAd = AdsOpenInterstitialNewAd()
                         adsOpenInterstitialNewAd.CallOpenAdsOpenQureka(currentActivity,
-                            Constant.PredChampInsideType,
+                            Constant.TypePredChampInside,
                             AdsOpenInterstitialNewAd.MyCallback { str: String? ->
                                 isShowingAd = false
                             })
@@ -123,12 +123,12 @@ class PredchampAppOpenManager(myApplication: AVDApplicationClass) :
                 }
             }
         }
-        if (!Utils.isValidatEmpty(Constant.AppOpenAdId)) {
+        if (!Utils.isValidatEmpty(Constant.OpenAppAdId)) {
             val request = adRequest
             if (Utils.isValidaEmptyWithZero(SharedPreferences.getStringName(SharedPreferences.IsFirstTimeAppOpenAd))) {
                 isShowingAd = false
             }
-            Constant.AppOpenAdId?.let {
+            Constant.OpenAppAdId?.let {
                 AppOpenAd.load(
                     myApplication,
                     it,
@@ -152,9 +152,9 @@ class PredchampAppOpenManager(myApplication: AVDApplicationClass) :
      * Shows the ad if one isn't already showing.
      */
     fun showAdIfAvailable() {
-        appOpenAdValue = SharedPreferences.getInteger(Constant.APP_OPEN_AD)
+        appOpenAdValue = SharedPreferences.getInteger(Constant.AD_APP_OPEN)
         if (appOpenAdValue == 1) {
-            SharedPreferences.setInteger(Constant.APP_OPEN_AD, 0)
+            SharedPreferences.setInteger(Constant.AD_APP_OPEN, 0)
             Log.e("TAG__1__1", "showAdIfAvailable: ")
             return
         }
@@ -205,7 +205,7 @@ class PredchampAppOpenManager(myApplication: AVDApplicationClass) :
     @OnLifecycleEvent(Lifecycle.Event.ON_START)
     fun onStart() {
         Log.d(LOG_TAG, "onStart")
-        if (!isFirstTime && !isShowingAd && !Constant.isNotificationClicked) {
+        if (!isFirstTime && !isShowingAd && !Constant.isClickedNotification) {
             showAdIfAvailable()
             Log.d("09/12", "onStart")
         } else {

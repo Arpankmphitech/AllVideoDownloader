@@ -12,59 +12,48 @@ import java.io.File
 import java.io.IOException
 
 class RoposoDwClass(
-    var applicationContext: Context,
-    var filePath: File,
-    var url: String
-) :
-    AsyncTask<String?, Void?, Document?>() {
-    var roposoDoc: Document? = null
+    var context: Context, var filePath: File, var url: String
+) : AsyncTask<String?, Void?, Document?>() {
+    var documentRoposo: Document? = null
     var videoUrl: String? = ""
     var f11758d = ArrayList<String>()
 
     override fun doInBackground(vararg strArr: String?): Document? {
         try {
-            roposoDoc = Jsoup.connect(strArr[0]).get()
+            documentRoposo = Jsoup.connect(strArr[0]).get()
         } catch (e: IOException) {
             Utils.HideProgressbarDialog()
-            (applicationContext as? Activity)?.runOnUiThread {
+            (context as? Activity)?.runOnUiThread {
                 Toast.makeText(
-                    applicationContext,
-                    applicationContext.getString(R.string.valid_url),
-                    Toast.LENGTH_SHORT
+                    context, context.getString(R.string.valid_url), Toast.LENGTH_SHORT
                 ).show()
             }
             e.printStackTrace()
         }
-        return roposoDoc
+        return documentRoposo
     }
 
     public override fun onPostExecute(document: Document?) {
         try {
-        var html = ""
+            var html = ""
 
-        val m5483h =
-            Jsoup.connect(url.trim()).timeout(600000)
-                .get()
+            val m5483h = Jsoup.connect(url.trim()).timeout(600000).get()
 //                .select("div[class=css-ptw7mq]")
 //                .select("div[class=css-cssveg]")
 //                .select("div[class=css-y2dkm8]")
-                .select("video[class=css-y9nlbe]")
-                .select("video")
-                .select("source")
-                .attr("src")
+                .select("video[class=css-y9nlbe]").select("video").select("source").attr("src")
 
 
-        html = m5483h.toString()
+            html = m5483h.toString()
 
-        if (html != null && !html.equals(""))
-                Utils.newDownload(html, applicationContext)
+            if (html != null && !html.equals("")) Utils.newDownload(html, context)
 
         } catch (unused: Exception) {
             Utils.HideProgressbarDialog()
-            (applicationContext as? Activity)?.runOnUiThread {
+            (context as? Activity)?.runOnUiThread {
                 Toast.makeText(
-                    applicationContext,
-                    applicationContext.getString(R.string.valid_url),
+                    context,
+                    context.getString(R.string.valid_url),
                     Toast.LENGTH_SHORT
                 ).show()
             }

@@ -14,11 +14,11 @@ import java.io.IOException
 
 class ChingariDwClass(var applicationContext: Context, var filePath: File) :
     AsyncTask<String?, Void?, Document?>() {
-    var roposoDoc: Document? = null
+    var docRoposo: Document? = null
     var videoUrl: String? = ""
     override fun doInBackground(vararg strArr: String?): Document? {
         try {
-            roposoDoc = Jsoup.connect(strArr[0]).get()
+            docRoposo = Jsoup.connect(strArr[0]).get()
         } catch (e: IOException) {
             Utils.HideProgressbarDialog()
             (applicationContext as? Activity)?.runOnUiThread {
@@ -30,7 +30,7 @@ class ChingariDwClass(var applicationContext: Context, var filePath: File) :
             }
             e.printStackTrace()
         }
-        return roposoDoc
+        return docRoposo
     }
 
     public override fun onPostExecute(document: Document?) {

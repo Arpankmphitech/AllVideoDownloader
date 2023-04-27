@@ -96,8 +96,8 @@ class WhatsAppsFrag : Fragment() {
         binding.toolBar.imgApp.visibility = View.VISIBLE
         binding.toolBar.ivBackArrow.visibility = View.INVISIBLE
         binding.toolBar.imgApp.setOnClickListener {
-            if (isPackageExisted(Constant.WHATSAPP_PACKAGE)) {
-                val launchIntent = Constant.WHATSAPP_PACKAGE.let { it1 ->
+            if (isPackageExisted(Constant.WHATSAPP_PACKAGE_PATH)) {
+                val launchIntent = Constant.WHATSAPP_PACKAGE_PATH.let { it1 ->
                     whatsActivity.packageManager?.getLaunchIntentForPackage(
                         it1
                     )

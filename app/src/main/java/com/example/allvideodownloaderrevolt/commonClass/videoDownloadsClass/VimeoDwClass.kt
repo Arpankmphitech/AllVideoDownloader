@@ -12,7 +12,7 @@ import org.jsoup.nodes.Document
 import java.io.File
 import java.io.IOException
 
-class VimeoDwClass(var applicationContext: Context, var vimeoPath: File) :
+class VimeoDwClass(var context: Context, var vimeoPath: File) :
     AsyncTask<String?, Void?, Document?>() {
     var roposoDoc: Document? = null
     var videoUrl: String? = ""
@@ -23,10 +23,10 @@ class VimeoDwClass(var applicationContext: Context, var vimeoPath: File) :
         } catch (e: IOException) {
             e.printStackTrace()
             HideProgressbarDialog()
-            (applicationContext as? Activity)?.runOnUiThread {
+            (context as? Activity)?.runOnUiThread {
                 Toast.makeText(
-                    applicationContext,
-                    applicationContext.getString(R.string.valid_url),
+                    context,
+                    context.getString(R.string.valid_url),
                     Toast.LENGTH_SHORT
                 ).show()
             }
@@ -39,23 +39,23 @@ class VimeoDwClass(var applicationContext: Context, var vimeoPath: File) :
             videoUrl = document!!.select("a[download]").first()!!.attr("href")
             if (videoUrl != "" && videoUrl != null) {
                 val str = videoUrl
-                Utils.newDownload(str!!,applicationContext)
+                Utils.newDownload(str!!,context)
                 return
             }
             HideProgressbarDialog()
-            (applicationContext as? Activity)?.runOnUiThread {
+            (context as? Activity)?.runOnUiThread {
                 Toast.makeText(
-                    applicationContext,
-                    applicationContext.getString(R.string.valid_url),
+                    context,
+                    context.getString(R.string.valid_url),
                     Toast.LENGTH_SHORT
                 ).show()
             }
         } catch (unused: Exception) {
             HideProgressbarDialog()
-            (applicationContext as? Activity)?.runOnUiThread {
+            (context as? Activity)?.runOnUiThread {
                 Toast.makeText(
-                    applicationContext,
-                    applicationContext.getString(R.string.valid_url),
+                    context,
+                    context.getString(R.string.valid_url),
                     Toast.LENGTH_SHORT
                 ).show()
             }

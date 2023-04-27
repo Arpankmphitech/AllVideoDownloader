@@ -121,7 +121,7 @@ class SplashScreenAct : AppCompatActivity() {
 
 
                     if (response != null && Utils.isValidationEmpty(response.toString())) {
-                        Constant.isNotificationClicked = false
+                        Constant.isClickedNotification = false
                         val dataObject = response.optJSONObject("data")
                         val dataModel = DataModel()
                         if (dataObject != null) {
@@ -137,17 +137,17 @@ class SplashScreenAct : AppCompatActivity() {
                             dataModel.gameUrl = (dataObject.optString("game_url"))
                             dataModel.isBackPressCount =
                                 (dataObject.optString("is_back_press_count"))
-                            dataModel.isNormalAdCount = (dataObject.optString("is_normal_ad_count"))
+                            dataModel.isAdNormalCount = (dataObject.optString("is_normal_ad_count"))
                             dataModel.isSplashAd = (dataObject.optString("is_splash_ad"))
                             dataModel.isAdvertiseAvailable =
-                                (dataObject.optString("is_advertise_available"))
+                                (dataObject.optString("is_available_advertise"))
                             dataModel.usrDialogBtn = (dataObject.optString("usr_dialog_btn"))
                             dataModel.userDialogImg = (dataObject.optString("user_dialog_img"))
                         }
 
                         try {
                             if (dataModel.developerName.equals("")) {
-                                Constant.DEVELOPER_NAME = dataModel.developerName.toString()
+                                Constant.NAME_OF_DEVELOPER = dataModel.developerName.toString()
                             }
                         } catch (e: Exception) {
                             println(e.message)
@@ -157,26 +157,26 @@ class SplashScreenAct : AppCompatActivity() {
                             Constant.IS_USER_DIALOG, dataModel.isUserDialog!!
                         )
                         SharedPreferences.setStringName(
-                            Constant.App_VERSION_CODE, dataModel.appVersionCode
+                            Constant.VERSION_CODE_App, dataModel.appVersionCode
                         )
                         SharedPreferences.setStringName(
-                            Constant.USER_DIALOG_UPDATE_TEXT, dataModel.userDialogUpdateText
+                            Constant.UPDATE_USER_DIALOG_TEXT, dataModel.userDialogUpdateText
                         )
                         SharedPreferences.setStringName(
-                            Constant.USER_DIALOG_URL, dataModel.userDialogUrl
+                            Constant.URL_USER_DIALOG, dataModel.userDialogUrl
                         )
                         SharedPreferences.setStringName(
-                            Constant.USER_DIALOG_IMG, dataModel.userDialogImg
+                            Constant.IMG_USER_DIALOG, dataModel.userDialogImg
                         )
 
                         SharedPreferences.setStringName(
-                            Constant.BACK_PRESS_COUNT, dataModel.isBackPressCount
+                            Constant.COUNT_BACK_PRESS, dataModel.isBackPressCount
                         )
                         SharedPreferences.setStringName(
-                            Constant.NORMAL_AD_COUNT, dataModel.isNormalAdCount
+                            Constant.COUNT_NORMAL_AD, dataModel.isAdNormalCount
                         )
                         SharedPreferences.setStringName(
-                            Constant.USER_DIALOG_TEXT, dataModel.userDialogText
+                            Constant.TEXT_USER_DIALOG, dataModel.userDialogText
                         )
                         if (Utils.isValidationEmpty(dataModel.predchampUrl!!) && Utils.isValidationUrl(
                                 dataModel.predchampUrl
@@ -200,21 +200,21 @@ class SplashScreenAct : AppCompatActivity() {
                         }
 
                         SharedPreferences.setStringName(
-                            Constant.is_advertise_available, dataModel.isAdvertiseAvailable
+                            Constant.is_available_advertise, dataModel.isAdvertiseAvailable
                         )
                         SharedPreferences.setStringName(
-                            Constant.IS_SPLASH_AD, dataModel.isSplashAd
+                            Constant.IS_AD_SPLASH, dataModel.isSplashAd
                         )
 
-                        if (SharedPreferences.getStringName(Constant.IS_SPLASH_AD)
+                        if (SharedPreferences.getStringName(Constant.IS_AD_SPLASH)
                                 ?.let { Utils.isValidationEmpty(it) }!!
                         ) {
-                            strAdsAvailable = SharedPreferences.getStringName(Constant.IS_SPLASH_AD)
+                            strAdsAvailable = SharedPreferences.getStringName(Constant.IS_AD_SPLASH)
                         }
-                        Constant.isNormalAdCount =
-                            SharedPreferences.getStringName(Constant.NORMAL_AD_COUNT)!!.toInt()
-                        Constant.isBackAdCount =
-                            SharedPreferences.getStringName(Constant.BACK_PRESS_COUNT)!!.toInt()
+                        Constant.isAdNormalCount =
+                            SharedPreferences.getStringName(Constant.COUNT_NORMAL_AD)!!.toInt()
+                        Constant.isAdBackCount =
+                            SharedPreferences.getStringName(Constant.COUNT_BACK_PRESS)!!.toInt()
 
 
                         //For Ads Priority...
@@ -257,11 +257,11 @@ class SplashScreenAct : AppCompatActivity() {
                         adsResponseModel.result = (response.optString("Result"))
                         adsResponseModel.serverTime = (response.optString("ServerTime"))
                         if (BuildConfig.DEBUG) {
-                            SharedPreferences.setStringName(Constant.NORMAL_AD_COUNT, "1")
+                            SharedPreferences.setStringName(Constant.COUNT_NORMAL_AD, "1")
                             SharedPreferences.setStringName(
-                                Constant.is_advertise_available, "1"
+                                Constant.is_available_advertise, "1"
                             )
-                            SharedPreferences.setStringName(Constant.IS_SPLASH_AD, "0")
+                            SharedPreferences.setStringName(Constant.IS_AD_SPLASH, "0")
                             dataModel.isUserDialog = (true)
                             dataModel.appVersionCode = ("1")
                             dataModel.isAdvertiseAvailable = ("1")
@@ -278,21 +278,21 @@ class SplashScreenAct : AppCompatActivity() {
                             Log.d("68485", " - splashAdPriority --> $splashAdPriority")
                             Log.d("68485", " - strAdsAvailable --> $strAdsAvailable")
                             if (gobject != null && !Utils.isValidationEmpty(gModel.ao)) {
-                                Constant.AppOpenAdId = gModel.ao.toString()
+                                Constant.OpenAppAdId = gModel.ao.toString()
                             }
                             if (adPriority.priority != null && strAdsAvailable.equals(
                                     "1", ignoreCase = true
                                 )
                             ) {
-                                if ((Utils.isValidationEmpty(Constant.AppOpenAdId.toString()) && Utils.isValidationEmpty(
+                                if ((Utils.isValidationEmpty(Constant.OpenAppAdId.toString()) && Utils.isValidationEmpty(
                                         SharedPreferences.getStringName(
-                                            Constant.is_advertise_available
+                                            Constant.is_available_advertise
                                         )!!
                                     ) || (Utils.isValidationEmpty(
                                         SharedPreferences.getStringName(
-                                            Constant.is_advertise_available
+                                            Constant.is_available_advertise
                                         ).toString()
-                                    ) && SharedPreferences.getStringName(Constant.is_advertise_available)
+                                    ) && SharedPreferences.getStringName(Constant.is_available_advertise)
                                         .equals("1"))) && !Utils.isValidationEmpty(splashAdPriority) && splashAdPriority.equals(
                                         "G", ignoreCase = true
                                     )
@@ -301,9 +301,9 @@ class SplashScreenAct : AppCompatActivity() {
                                     val manager = AppOpenManager(AVDApplicationClass.application!!)
                                     if (!Utils.isValidationEmpty(
                                             SharedPreferences.getStringName(
-                                                Constant.IS_SPLASH_AD
+                                                Constant.IS_AD_SPLASH
                                             )!!
-                                        ) && SharedPreferences.getStringName(Constant.IS_SPLASH_AD)
+                                        ) && SharedPreferences.getStringName(Constant.IS_AD_SPLASH)
                                             .equals("1")
                                     ) {
 
@@ -318,13 +318,13 @@ class SplashScreenAct : AppCompatActivity() {
                                     }
                                 } else if ((Utils.isValidationEmpty(
                                         SharedPreferences.getStringName(
-                                            Constant.is_advertise_available
+                                            Constant.is_available_advertise
                                         )!!
                                     ) || (!Utils.isValidationEmpty(
                                         SharedPreferences.getStringName(
-                                            Constant.is_advertise_available
+                                            Constant.is_available_advertise
                                         )!!
-                                    ) && SharedPreferences.getStringName(Constant.is_advertise_available)
+                                    ) && SharedPreferences.getStringName(Constant.is_available_advertise)
                                         .equals("1"))) && !Utils.isValidationEmpty(splashAdPriority) && splashAdPriority.equals(
                                         "G,F", ignoreCase = true
                                     )
@@ -333,9 +333,9 @@ class SplashScreenAct : AppCompatActivity() {
                                     val manager = AppOpenManager(AVDApplicationClass.application!!)
                                     if (!Utils.isValidationEmpty(
                                             SharedPreferences.getStringName(
-                                                Constant.IS_SPLASH_AD
+                                                Constant.IS_AD_SPLASH
                                             )!!
-                                        ) && SharedPreferences.getStringName(Constant.IS_SPLASH_AD)
+                                        ) && SharedPreferences.getStringName(Constant.IS_AD_SPLASH)
                                             .equals("1")
                                     ) {
                                         manager.fetchSplashAd(splashScreenActivity,
@@ -349,13 +349,13 @@ class SplashScreenAct : AppCompatActivity() {
                                     }
                                 } else if ((Utils.isValidationEmpty(
                                         SharedPreferences.getStringName(
-                                            Constant.is_advertise_available
+                                            Constant.is_available_advertise
                                         )!!
                                     ) || (!Utils.isValidationEmpty(
                                         SharedPreferences.getStringName(
-                                            Constant.is_advertise_available
+                                            Constant.is_available_advertise
                                         )!!
-                                    ) && SharedPreferences.getStringName(Constant.is_advertise_available)
+                                    ) && SharedPreferences.getStringName(Constant.is_available_advertise)
                                         .equals("1"))) && !Utils.isValidationEmpty(splashAdPriority) && splashAdPriority.equals(
                                         "F,G", ignoreCase = true
                                     )
@@ -372,7 +372,7 @@ class SplashScreenAct : AppCompatActivity() {
                                             IntAdsId.getId(),
                                             IntAdsId.getAccountNo(),
                                             true,
-                                            Constant.PredChampInsideType,
+                                            Constant.TypePredChampInside,
                                             { transactionScreen() },
                                             AVDApplicationClass.application
                                         )
@@ -381,13 +381,13 @@ class SplashScreenAct : AppCompatActivity() {
                                     }
                                 } else if ((Utils.isValidationEmpty(
                                         SharedPreferences.getStringName(
-                                            Constant.is_advertise_available
+                                            Constant.is_available_advertise
                                         )!!
                                     ) || (!Utils.isValidationEmpty(
                                         SharedPreferences.getStringName(
-                                            Constant.is_advertise_available
+                                            Constant.is_available_advertise
                                         )!!
-                                    ) && SharedPreferences.getStringName(Constant.is_advertise_available)
+                                    ) && SharedPreferences.getStringName(Constant.is_available_advertise)
                                         .equals("1"))) && !Utils.isValidationEmpty(splashAdPriority) && splashAdPriority.equals(
                                         "F", ignoreCase = true
                                     )
@@ -404,7 +404,7 @@ class SplashScreenAct : AppCompatActivity() {
                                             IntAdsId.id,
                                             IntAdsId.accountNo,
                                             true,
-                                            Constant.PredChampInsideType,
+                                            Constant.TypePredChampInside,
                                             { transactionScreen() },
                                             null
                                         )
@@ -413,13 +413,13 @@ class SplashScreenAct : AppCompatActivity() {
                                     }
                                 } else if ((Utils.isValidationEmpty(
                                         SharedPreferences.getStringName(
-                                            Constant.is_advertise_available
+                                            Constant.is_available_advertise
                                         )!!
                                     ) || (!Utils.isValidationEmpty(
                                         SharedPreferences.getStringName(
-                                            Constant.is_advertise_available
+                                            Constant.is_available_advertise
                                         )!!
-                                    ) && SharedPreferences.getStringName(Constant.is_advertise_available)
+                                    ) && SharedPreferences.getStringName(Constant.is_available_advertise)
                                         .equals("2"))) && !Utils.isValidationEmpty(splashAdPriority)
                                 ) {
                                     Log.d("68485", " - 2")
@@ -432,11 +432,11 @@ class SplashScreenAct : AppCompatActivity() {
                                                 AdvertiseUtils.GameURL
                                             ) || !Utils.isValidationEmpty(AdvertiseUtils.BitcoinURL)
                                         ) {
-                                            Constant.AppOpenAdId = "ABCD"
+                                            Constant.OpenAppAdId = "ABCD"
                                             val adsOpenInterstitialNewAd =
                                                 AdsOpenInterstitialNewAd()
                                             adsOpenInterstitialNewAd.CallOpenAdsOpenQureka(
-                                                splashScreenActivity, Constant.PredChampInsideType
+                                                splashScreenActivity, Constant.TypePredChampInside
                                             ) { str: String? ->
                                                 AVDApplicationClass.application?.let {
                                                     PredchampAppOpenManager(
@@ -454,9 +454,9 @@ class SplashScreenAct : AppCompatActivity() {
                                                 AdvertiseUtils.GameURL
                                             ) || !Utils.isValidationEmpty(AdvertiseUtils.BitcoinURL)
                                         ) {
-                                            Constant.AppOpenAdId = "ABCD"
+                                            Constant.OpenAppAdId = "ABCD"
                                             AllInterstitialNewAd.CallOpenQureka(
-                                                splashScreenActivity, Constant.PredChampInsideType
+                                                splashScreenActivity, Constant.TypePredChampInside
                                             ) {
                                                 AVDApplicationClass.application?.let { it1 ->
                                                     PredchampAppOpenManager(
@@ -475,7 +475,7 @@ class SplashScreenAct : AppCompatActivity() {
                                             ) || !Utils.isValidationEmpty(AdvertiseUtils.BitcoinURL)
                                         ) {
                                             AllInterstitialNewAd.CallOpenQureka(
-                                                splashScreenActivity, Constant.PredChampInsideType
+                                                splashScreenActivity, Constant.TypePredChampInside
                                             ) { transactionScreen() }
                                         } else {
                                             transactionScreen()
@@ -489,17 +489,17 @@ class SplashScreenAct : AppCompatActivity() {
                             } else {
                                 Log.d("68485", " - Else IN")
 
-                                //Constant.AppOpenAdId = null;
+                                //Constant.OpenAppAdId = null;
                                 //new SubAppOpenManager(MyApplicationClass.application);
                                 if (Utils.isValidationEmpty(
                                         SharedPreferences.getStringName(
-                                            Constant.is_advertise_available
+                                            Constant.is_available_advertise
                                         )!!
                                     ) || (!Utils.isValidationEmpty(
                                         SharedPreferences.getStringName(
-                                            Constant.is_advertise_available
+                                            Constant.is_available_advertise
                                         )!!
-                                    ) && SharedPreferences.getStringName(Constant.is_advertise_available)
+                                    ) && SharedPreferences.getStringName(Constant.is_available_advertise)
                                         .equals("2"))
                                 ) {
 
@@ -511,15 +511,15 @@ class SplashScreenAct : AppCompatActivity() {
                                             "G,F", ignoreCase = true
                                         ) || splashAdPriority.equals("F,G", ignoreCase = true)
                                     ) {
-                                        Constant.AppOpenAdId = null
+                                        Constant.OpenAppAdId = null
                                         AVDApplicationClass.application?.let {
                                             SubAppOpenManager(
                                                 it, this@SplashScreenAct
                                             )
                                         }
-                                        Constant.AppOpenAdId = "ABCD"
+                                        Constant.OpenAppAdId = "ABCD"
                                     } else if (splashAdPriority.equals("F", ignoreCase = true)) {
-                                        Constant.AppOpenAdId = null
+                                        Constant.OpenAppAdId = null
                                         AVDApplicationClass.application?.let {
                                             SubAppOpenManager(
                                                 it, this@SplashScreenAct
@@ -528,13 +528,13 @@ class SplashScreenAct : AppCompatActivity() {
                                     }
                                 } else if ((Utils.isValidationEmpty(
                                         SharedPreferences.getStringName(
-                                            Constant.is_advertise_available
+                                            Constant.is_available_advertise
                                         )!!
                                     ) || (!Utils.isValidationEmpty(
                                         SharedPreferences.getStringName(
-                                            Constant.is_advertise_available
+                                            Constant.is_available_advertise
                                         )!!
-                                    ) && SharedPreferences.getStringName(Constant.is_advertise_available)
+                                    ) && SharedPreferences.getStringName(Constant.is_available_advertise)
                                         .equals("1"))) && !Utils.isValidationEmpty(splashAdPriority) && splashAdPriority.equals(
                                         "F", ignoreCase = true
                                     )
@@ -542,10 +542,10 @@ class SplashScreenAct : AppCompatActivity() {
 
                                     //For Ads Type = 1 and Ads = F and Splash Ads = 0...
                                     Log.d("68485", " - Else IN 1 F")
-                                    if (SharedPreferences.getStringName(Constant.is_advertise_available)
+                                    if (SharedPreferences.getStringName(Constant.is_available_advertise)
                                             .equals("1")
                                     ) {
-                                        Constant.AppOpenAdId = null
+                                        Constant.OpenAppAdId = null
                                         AVDApplicationClass.application?.let {
                                             SubAppOpenManager(
                                                 it, this@SplashScreenAct
@@ -555,7 +555,7 @@ class SplashScreenAct : AppCompatActivity() {
                                 } else {
                                     //For Ads Type = 1 and Splash Ads = 0...
                                     Log.d("68485", " - else")
-                                    if (SharedPreferences.getStringName(Constant.is_advertise_available)
+                                    if (SharedPreferences.getStringName(Constant.is_available_advertise)
                                             .equals("1")
                                     ) {
                                         AVDApplicationClass.application?.let {
@@ -568,12 +568,12 @@ class SplashScreenAct : AppCompatActivity() {
                                 transactionScreen()
                             }
                         } else {
-                            SharedPreferences.setStringName(Constant.NORMAL_AD_COUNT, "1")
+                            SharedPreferences.setStringName(Constant.COUNT_NORMAL_AD, "1")
                             SharedPreferences.setStringName(
-                                Constant.is_advertise_available, "1"
+                                Constant.is_available_advertise, "1"
                             )
                             SharedPreferences.setStringName(Constant.IS_INFO, "1")
-                            SharedPreferences.setStringName(Constant.IS_SPLASH_AD, "0")
+                            SharedPreferences.setStringName(Constant.IS_AD_SPLASH, "0")
                             dataModel.isUserDialog = (true)
                             dataModel.appVersionCode = ("1")
                             dataModel.isAdvertiseAvailable = ("0")

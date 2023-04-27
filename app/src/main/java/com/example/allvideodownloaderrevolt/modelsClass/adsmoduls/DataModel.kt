@@ -90,9 +90,9 @@ class DataModel {
 
     @SerializedName("normal_ad_count")
     @Expose
-    var isNormalAdCount: String? = null
+    var isAdNormalCount: String? = null
 
-    @SerializedName("is_advertise_available")
+    @SerializedName("is_available_advertise")
     @Expose
     var isAdvertiseAvailable: String? = null
 

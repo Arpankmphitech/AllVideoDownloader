@@ -8,9 +8,9 @@ import com.google.gson.Gson
 
 object AdsIdOnDeviceStore {
     fun GetInterstitial(activity: Activity): SplashCommonModel {
-        return if ((Utils.isValidationEmpty(SharedPreferences.getStringName(Constant.is_advertise_available)!!) || (!Utils.isValidationEmpty(
-                SharedPreferences.getStringName(Constant.is_advertise_available)!!
-            ) && SharedPreferences.getStringName(Constant.is_advertise_available).equals(
+        return if ((Utils.isValidationEmpty(SharedPreferences.getStringName(Constant.is_available_advertise)!!) || (!Utils.isValidationEmpty(
+                SharedPreferences.getStringName(Constant.is_available_advertise)!!
+            ) && SharedPreferences.getStringName(Constant.is_available_advertise).equals(
                     "1",
                     ignoreCase = true
                 ))) && SharedPreferences.advertiseModel != null && !Utils.isValidationEmpty(
@@ -32,14 +32,14 @@ object AdsIdOnDeviceStore {
                 } catch (e: Exception) {
                 }
                 if (!SaveRemoteGet.equals("", ignoreCase = true)) {
-                    val saveobj = SplashCommonModel()
-                    saveobj.accountType = "2"
-                    saveobj.id = SaveRemoteGet
-                    saveobj.accountNo = ""
-                    Log.e("GetInt", "Int AccountType  " + saveobj.accountType)
-                    Log.e("GetInt", "Int AdsId  " + saveobj.id)
-                    Log.e("GetInt", "Int AccountNo  " + saveobj.accountNo)
-                    saveobj
+                    val objSave = SplashCommonModel()
+                    objSave.accountType = "2"
+                    objSave.id = SaveRemoteGet
+                    objSave.accountNo = ""
+                    Log.e("GetInt", "Int AccountType  " + objSave.accountType)
+                    Log.e("GetInt", "Int AdsId  " + objSave.id)
+                    Log.e("GetInt", "Int AccountNo  " + objSave.accountNo)
+                    objSave
                 } else {
                     val settestingads = SplashCommonModel()
                     settestingads.accountType = "0" //TODO: default 0
@@ -54,9 +54,9 @@ object AdsIdOnDeviceStore {
                 settestingads.accountNo = ""
                 settestingads
             }
-        } else if ((Utils.isValidationEmpty(SharedPreferences.getStringName(Constant.is_advertise_available)!!) || (!Utils.isValidationEmpty(
-                SharedPreferences.getStringName(Constant.is_advertise_available)!!
-            ) && SharedPreferences.getStringName(Constant.is_advertise_available).equals(
+        } else if ((Utils.isValidationEmpty(SharedPreferences.getStringName(Constant.is_available_advertise)!!) || (!Utils.isValidationEmpty(
+                SharedPreferences.getStringName(Constant.is_available_advertise)!!
+            ) && SharedPreferences.getStringName(Constant.is_available_advertise).equals(
                 "1", ignoreCase = true
             ))) && SharedPreferences.advertiseModel != null && !Utils.isValidationEmpty(
                 SharedPreferences.advertiseModel?.priority!!
@@ -77,14 +77,14 @@ object AdsIdOnDeviceStore {
                 } catch (e: Exception) {
                 }
                 if (!SaveRemoteGet.equals("", ignoreCase = true)) {
-                    val saveobj = SplashCommonModel()
-                    saveobj.accountType = "1"
-                    saveobj.id = SaveRemoteGet
-                    saveobj.accountNo = ""
-                    Log.e("GetInt", "Int AccountType  " + saveobj.accountType)
-                    Log.e("GetInt", "Int AdsId  " + saveobj.id)
-                    Log.e("GetInt", "Int AccountNo  " + saveobj.accountNo)
-                    saveobj
+                    val objSave = SplashCommonModel()
+                    objSave.accountType = "1"
+                    objSave.id = SaveRemoteGet
+                    objSave.accountNo = ""
+                    Log.e("GetInt", "Int AccountType  " + objSave.accountType)
+                    Log.e("GetInt", "Int AdsId  " + objSave.id)
+                    Log.e("GetInt", "Int AccountNo  " + objSave.accountNo)
+                    objSave
                 } else {
                     val settestingads = SplashCommonModel()
                     settestingads.accountType = "0" //TODO: default 0
@@ -101,9 +101,9 @@ object AdsIdOnDeviceStore {
                 settestingads.accountNo = ""
                 settestingads
             }
-        } else if ((Utils.isValidationEmpty(SharedPreferences.getStringName(Constant.is_advertise_available)!!) || (!Utils.isValidationEmpty(
-                SharedPreferences.getStringName(Constant.is_advertise_available)!!
-            ) && SharedPreferences.getStringName(Constant.is_advertise_available).equals(
+        } else if ((Utils.isValidationEmpty(SharedPreferences.getStringName(Constant.is_available_advertise)!!) || (!Utils.isValidationEmpty(
+                SharedPreferences.getStringName(Constant.is_available_advertise)!!
+            ) && SharedPreferences.getStringName(Constant.is_available_advertise).equals(
                     "1",
                     ignoreCase = true
                 ))) && SharedPreferences.advertiseModel != null && !Utils.isValidationEmpty(
@@ -138,18 +138,18 @@ object AdsIdOnDeviceStore {
                 } catch (e: Exception) {
                 }
                 if (!SaveRemoteGet.equals("", ignoreCase = true)) {
-                    val saveobj = SplashCommonModel()
+                    val objSave = SplashCommonModel()
                     if (isFacebook) {
-                        saveobj.accountType = "1"
+                        objSave.accountType = "1"
                     } else {
-                        saveobj.accountType = "2"
+                        objSave.accountType = "2"
                     }
-                    saveobj.id = SaveRemoteGet
-                    saveobj.accountNo = ""
-                    Log.e("GetInt", "Int AccountType  " + saveobj.accountType)
-                    Log.e("GetInt", "Int AdsId  " + saveobj.id)
-                    Log.e("GetInt", "Int AccountNo  " + saveobj.accountNo)
-                    saveobj
+                    objSave.id = SaveRemoteGet
+                    objSave.accountNo = ""
+                    Log.e("GetInt", "Int AccountType  " + objSave.accountType)
+                    Log.e("GetInt", "Int AdsId  " + objSave.id)
+                    Log.e("GetInt", "Int AccountNo  " + objSave.accountNo)
+                    objSave
                 } else {
                     val settestingads = SplashCommonModel()
                     settestingads.accountType = "0" //TODO: default 0
@@ -165,9 +165,9 @@ object AdsIdOnDeviceStore {
                 settestingads.accountNo = ""
                 settestingads
             }
-        } else if ((Utils.isValidationEmpty(SharedPreferences.getStringName(Constant.is_advertise_available)!!) || (!Utils.isValidationEmpty(
-                SharedPreferences.getStringName(Constant.is_advertise_available)!!
-            ) && SharedPreferences.getStringName(Constant.is_advertise_available).equals(
+        } else if ((Utils.isValidationEmpty(SharedPreferences.getStringName(Constant.is_available_advertise)!!) || (!Utils.isValidationEmpty(
+                SharedPreferences.getStringName(Constant.is_available_advertise)!!
+            ) && SharedPreferences.getStringName(Constant.is_available_advertise).equals(
                     "1",
                     ignoreCase = true
                 ))) && SharedPreferences.advertiseModel != null && !Utils.isValidationEmpty(
@@ -202,18 +202,18 @@ object AdsIdOnDeviceStore {
                 } catch (e: Exception) {
                 }
                 if (!SaveRemoteGet.equals("", ignoreCase = true)) {
-                    val saveobj = SplashCommonModel()
+                    val objSave = SplashCommonModel()
                     if (isFacebook) {
-                        saveobj.accountType = "1"
+                        objSave.accountType = "1"
                     } else {
-                        saveobj.accountType = "2"
+                        objSave.accountType = "2"
                     }
-                    saveobj.id = SaveRemoteGet
-                    saveobj.accountNo = ""
-                    Log.e("GetInt", "Int AccountType  " + saveobj.accountType)
-                    Log.e("GetInt", "Int AdsId  " + saveobj.id)
-                    Log.e("GetInt", "Int AccountNo  " + saveobj.accountNo)
-                    saveobj
+                    objSave.id = SaveRemoteGet
+                    objSave.accountNo = ""
+                    Log.e("GetInt", "Int AccountType  " + objSave.accountType)
+                    Log.e("GetInt", "Int AdsId  " + objSave.id)
+                    Log.e("GetInt", "Int AccountNo  " + objSave.accountNo)
+                    objSave
                 } else {
                     val settestingads = SplashCommonModel()
                     settestingads.accountType = "0" //TODO: default 0
@@ -230,8 +230,8 @@ object AdsIdOnDeviceStore {
                 settestingads.accountNo = ""
                 settestingads
             }
-        } else if (!Utils.isValidationEmpty(SharedPreferences.getStringName(Constant.is_advertise_available)!!) && SharedPreferences.getStringName(
-                Constant.is_advertise_available
+        } else if (!Utils.isValidationEmpty(SharedPreferences.getStringName(Constant.is_available_advertise)!!) && SharedPreferences.getStringName(
+                Constant.is_available_advertise
             ).equals("2", ignoreCase = true)
         ) {
             val settestingads = SplashCommonModel()
@@ -273,14 +273,14 @@ object AdsIdOnDeviceStore {
             } catch (e: Exception) {
             }
             if (!SaveRemoteGet.equals("", ignoreCase = true)) {
-                val saveobj = SplashCommonModel()
-                saveobj.setAccountType("1")
-                saveobj.setId(SaveRemoteGet)
-                saveobj.setAccountNo("")
-                Log.e("GetInt", "Int AccountType  " + saveobj.getAccountType())
-                Log.e("GetInt", "Int AdsId  " + saveobj.getId())
-                Log.e("GetInt", "Int AccountNo  " + saveobj.getAccountNo())
-                saveobj
+                val objSave = SplashCommonModel()
+                objSave.setAccountType("1")
+                objSave.setId(SaveRemoteGet)
+                objSave.setAccountNo("")
+                Log.e("GetInt", "Int AccountType  " + objSave.getAccountType())
+                Log.e("GetInt", "Int AdsId  " + objSave.getId())
+                Log.e("GetInt", "Int AccountNo  " + objSave.getAccountNo())
+                objSave
             } else {
                 val settestingads = SplashCommonModel()
                 settestingads.setAccountType("0") //TODO: default 0
@@ -301,9 +301,9 @@ object AdsIdOnDeviceStore {
 
     fun GetNativeAds(AdSize: Int, activity: Activity, pos: Int): SplashCommonModel {
         Log.d("23/01", "" + (SharedPreferences.advertiseModel == null))
-        return if ((Utils.isValidationEmpty(SharedPreferences.getStringName(Constant.is_advertise_available)!!) || (!Utils.isValidationEmpty(
-                SharedPreferences.getStringName(Constant.is_advertise_available)!!
-            ) && SharedPreferences.getStringName(Constant.is_advertise_available).equals(
+        return if ((Utils.isValidationEmpty(SharedPreferences.getStringName(Constant.is_available_advertise)!!) || (!Utils.isValidationEmpty(
+                SharedPreferences.getStringName(Constant.is_available_advertise)!!
+            ) && SharedPreferences.getStringName(Constant.is_available_advertise).equals(
                 "1", ignoreCase = true
             ))) && SharedPreferences.advertiseModel != null && !Utils.isValidationEmpty(
                 SharedPreferences.advertiseModel?.priority!!
@@ -331,15 +331,15 @@ object AdsIdOnDeviceStore {
                 } catch (e: Exception) {
                 }
                 if (!SaveRemoteGet.equals("", ignoreCase = true)) {
-                    val saveobj = SplashCommonModel()
-                    saveobj.accountType = "2"
-                    saveobj.id = SaveRemoteGet
-                    saveobj.addSize = "1"
-                    saveobj.accountNo = ""
-                    Log.e("GetInt", "Int AccountType  " + saveobj.accountType)
-                    Log.e("GetInt", "Int AdsId  " + saveobj.id)
-                    Log.e("GetInt", "Int AccountNo  " + saveobj.accountNo)
-                    saveobj
+                    val objSave = SplashCommonModel()
+                    objSave.accountType = "2"
+                    objSave.id = SaveRemoteGet
+                    objSave.addSize = "1"
+                    objSave.accountNo = ""
+                    Log.e("GetInt", "Int AccountType  " + objSave.accountType)
+                    Log.e("GetInt", "Int AdsId  " + objSave.id)
+                    Log.e("GetInt", "Int AccountNo  " + objSave.accountNo)
+                    objSave
                 } else {
                     val settestingads = SplashCommonModel()
                     settestingads.accountType = "0" //TODO: default 0
@@ -358,9 +358,9 @@ object AdsIdOnDeviceStore {
                 settestingads.accountNo = ""
                 settestingads
             }
-        } else if ((Utils.isValidationEmpty(SharedPreferences.getStringName(Constant.is_advertise_available)!!) || (!Utils.isValidationEmpty(
-                SharedPreferences.getStringName(Constant.is_advertise_available)!!
-            ) && SharedPreferences.getStringName(Constant.is_advertise_available).equals(
+        } else if ((Utils.isValidationEmpty(SharedPreferences.getStringName(Constant.is_available_advertise)!!) || (!Utils.isValidationEmpty(
+                SharedPreferences.getStringName(Constant.is_available_advertise)!!
+            ) && SharedPreferences.getStringName(Constant.is_available_advertise).equals(
                     "1",
                     ignoreCase = true
                 ))) && SharedPreferences.advertiseModel != null && !Utils.isValidationEmpty(
@@ -389,15 +389,15 @@ object AdsIdOnDeviceStore {
                 } catch (e: Exception) {
                 }
                 if (!SaveRemoteGet.equals("", ignoreCase = true)) {
-                    val saveobj = SplashCommonModel()
-                    saveobj.accountType = "1"
-                    saveobj.id = SaveRemoteGet
-                    saveobj.addSize = "1"
-                    saveobj.accountNo = ""
-                    Log.e("GetInt", "Int AccountType  " + saveobj.accountType)
-                    Log.e("GetInt", "Int AdsId  " + saveobj.id)
-                    Log.e("GetInt", "Int AccountNo  " + saveobj.accountNo)
-                    saveobj
+                    val objSave = SplashCommonModel()
+                    objSave.accountType = "1"
+                    objSave.id = SaveRemoteGet
+                    objSave.addSize = "1"
+                    objSave.accountNo = ""
+                    Log.e("GetInt", "Int AccountType  " + objSave.accountType)
+                    Log.e("GetInt", "Int AdsId  " + objSave.id)
+                    Log.e("GetInt", "Int AccountNo  " + objSave.accountNo)
+                    objSave
                 } else {
                     val settestingads = SplashCommonModel()
                     settestingads.accountType = "0" //TODO: default 0
@@ -416,9 +416,9 @@ object AdsIdOnDeviceStore {
                 settestingads.accountNo = ""
                 settestingads
             }
-        } else if ((Utils.isValidationEmpty(SharedPreferences.getStringName(Constant.is_advertise_available)!!) || (!Utils.isValidationEmpty(
-                SharedPreferences.getStringName(Constant.is_advertise_available)!!
-            ) && SharedPreferences.getStringName(Constant.is_advertise_available).equals(
+        } else if ((Utils.isValidationEmpty(SharedPreferences.getStringName(Constant.is_available_advertise)!!) || (!Utils.isValidationEmpty(
+                SharedPreferences.getStringName(Constant.is_available_advertise)!!
+            ) && SharedPreferences.getStringName(Constant.is_available_advertise).equals(
                     "1",
                     ignoreCase = true
                 ))) && SharedPreferences.advertiseModel != null && !Utils.isValidationEmpty(
@@ -478,19 +478,19 @@ object AdsIdOnDeviceStore {
                     }
                 }
                 if (!SaveRemoteGet.equals("", ignoreCase = true)) {
-                    val saveobj = SplashCommonModel()
-                    saveobj.id = SaveRemoteGet
+                    val objSave = SplashCommonModel()
+                    objSave.id = SaveRemoteGet
                     if (isFacebook) {
-                        saveobj.accountType = "1"
+                        objSave.accountType = "1"
                     } else {
-                        saveobj.accountType = "2"
+                        objSave.accountType = "2"
                     }
-                    saveobj.addSize = "1"
-                    saveobj.accountNo = ""
-                    Log.e("GetInt", "Int AccountType  " + saveobj.accountType)
-                    Log.e("GetInt", "Int AdsId  " + saveobj.id)
-                    Log.e("GetInt", "Int AccountNo  " + saveobj.accountNo)
-                    saveobj
+                    objSave.addSize = "1"
+                    objSave.accountNo = ""
+                    Log.e("GetInt", "Int AccountType  " + objSave.accountType)
+                    Log.e("GetInt", "Int AdsId  " + objSave.id)
+                    Log.e("GetInt", "Int AccountNo  " + objSave.accountNo)
+                    objSave
                 } else {
                     val settestingads = SplashCommonModel()
                     settestingads.accountType = "0" //TODO: default 0
@@ -509,9 +509,9 @@ object AdsIdOnDeviceStore {
                 settestingads.accountNo = ""
                 settestingads
             }
-        } else if ((Utils.isValidationEmpty(SharedPreferences.getStringName(Constant.is_advertise_available)!!) || (!Utils.isValidationEmpty(
-                SharedPreferences.getStringName(Constant.is_advertise_available)!!
-            ) && SharedPreferences.getStringName(Constant.is_advertise_available).equals(
+        } else if ((Utils.isValidationEmpty(SharedPreferences.getStringName(Constant.is_available_advertise)!!) || (!Utils.isValidationEmpty(
+                SharedPreferences.getStringName(Constant.is_available_advertise)!!
+            ) && SharedPreferences.getStringName(Constant.is_available_advertise).equals(
                 "1", ignoreCase = true
             ))) && SharedPreferences.advertiseModel != null && !Utils.isValidationEmpty(
                 SharedPreferences.advertiseModel?.priority!!
@@ -568,19 +568,19 @@ object AdsIdOnDeviceStore {
                     }
                 }
                 if (!SaveRemoteGet.equals("", ignoreCase = true)) {
-                    val saveobj = SplashCommonModel()
-                    saveobj.id = SaveRemoteGet
+                    val objSave = SplashCommonModel()
+                    objSave.id = SaveRemoteGet
                     if (isFacebook) {
-                        saveobj.accountType = "1"
+                        objSave.accountType = "1"
                     } else {
-                        saveobj.accountType = "2"
+                        objSave.accountType = "2"
                     }
-                    saveobj.addSize = "1"
-                    saveobj.accountNo = ""
-                    Log.e("GetInt", "Int AccountType  " + saveobj.accountType)
-                    Log.e("GetInt", "Int AdsId  " + saveobj.id)
-                    Log.e("GetInt", "Int AccountNo  " + saveobj.accountNo)
-                    saveobj
+                    objSave.addSize = "1"
+                    objSave.accountNo = ""
+                    Log.e("GetInt", "Int AccountType  " + objSave.accountType)
+                    Log.e("GetInt", "Int AdsId  " + objSave.id)
+                    Log.e("GetInt", "Int AccountNo  " + objSave.accountNo)
+                    objSave
                 } else {
                     val settestingads = SplashCommonModel()
                     settestingads.accountType = "0" //TODO: default 0
@@ -599,8 +599,8 @@ object AdsIdOnDeviceStore {
                 settestingads.accountNo = ""
                 settestingads
             }
-        } else if (!Utils.isValidationEmpty(SharedPreferences.getStringName(Constant.is_advertise_available)!!) && SharedPreferences.getStringName(
-                Constant.is_advertise_available
+        } else if (!Utils.isValidationEmpty(SharedPreferences.getStringName(Constant.is_available_advertise)!!) && SharedPreferences.getStringName(
+                Constant.is_available_advertise
             ).equals("2", ignoreCase = true)
         ) {
             Log.d("23/01", "5")
@@ -640,9 +640,9 @@ object AdsIdOnDeviceStore {
     fun GetNativeAds(
         AdSize: Int, activity: Activity, pos: Int, isExtra: Boolean
     ): SplashCommonModel {
-        return if ((Utils.isValidationEmpty(SharedPreferences.getStringName(Constant.is_advertise_available)!!) || (!Utils.isValidationEmpty(
-                SharedPreferences.getStringName(Constant.is_advertise_available)!!
-            ) && SharedPreferences.getStringName(Constant.is_advertise_available).equals(
+        return if ((Utils.isValidationEmpty(SharedPreferences.getStringName(Constant.is_available_advertise)!!) || (!Utils.isValidationEmpty(
+                SharedPreferences.getStringName(Constant.is_available_advertise)!!
+            ) && SharedPreferences.getStringName(Constant.is_available_advertise).equals(
                 "1", ignoreCase = true
             ))) && SharedPreferences.advertiseModel != null && !Utils.isValidationEmpty(
                 SharedPreferences.advertiseModel?.priority!!
@@ -669,15 +669,15 @@ object AdsIdOnDeviceStore {
                 } catch (e: Exception) {
                 }
                 if (!SaveRemoteGet.equals("", ignoreCase = true)) {
-                    val saveobj = SplashCommonModel()
-                    saveobj.accountType = "2"
-                    saveobj.id = SaveRemoteGet
-                    saveobj.addSize = "1"
-                    saveobj.accountNo = ""
-                    Log.e("GetInt", "Int AccountType  " + saveobj.accountType)
-                    Log.e("GetInt", "Int AdsId  " + saveobj.id)
-                    Log.e("GetInt", "Int AccountNo  " + saveobj.accountNo)
-                    saveobj
+                    val objSave = SplashCommonModel()
+                    objSave.accountType = "2"
+                    objSave.id = SaveRemoteGet
+                    objSave.addSize = "1"
+                    objSave.accountNo = ""
+                    Log.e("GetInt", "Int AccountType  " + objSave.accountType)
+                    Log.e("GetInt", "Int AdsId  " + objSave.id)
+                    Log.e("GetInt", "Int AccountNo  " + objSave.accountNo)
+                    objSave
                 } else {
                     val settestingads = SplashCommonModel()
                     settestingads.accountType = "0" //TODO: default 0
@@ -696,9 +696,9 @@ object AdsIdOnDeviceStore {
                 settestingads.accountNo = ""
                 settestingads
             }
-        } else if ((Utils.isValidationEmpty(SharedPreferences.getStringName(Constant.is_advertise_available)!!) || (!Utils.isValidationEmpty(
-                SharedPreferences.getStringName(Constant.is_advertise_available)!!
-            ) && SharedPreferences.getStringName(Constant.is_advertise_available).equals(
+        } else if ((Utils.isValidationEmpty(SharedPreferences.getStringName(Constant.is_available_advertise)!!) || (!Utils.isValidationEmpty(
+                SharedPreferences.getStringName(Constant.is_available_advertise)!!
+            ) && SharedPreferences.getStringName(Constant.is_available_advertise).equals(
                     "1",
                     ignoreCase = true
                 ))) && SharedPreferences.advertiseModel != null && !Utils.isValidationEmpty(
@@ -726,15 +726,15 @@ object AdsIdOnDeviceStore {
                 } catch (e: Exception) {
                 }
                 if (!SaveRemoteGet.equals("", ignoreCase = true)) {
-                    val saveobj = SplashCommonModel()
-                    saveobj.accountType = "1"
-                    saveobj.id = SaveRemoteGet
-                    saveobj.addSize = "1"
-                    saveobj.accountNo = ""
-                    Log.e("GetInt", "Int AccountType  " + saveobj.accountType)
-                    Log.e("GetInt", "Int AdsId  " + saveobj.id)
-                    Log.e("GetInt", "Int AccountNo  " + saveobj.accountNo)
-                    saveobj
+                    val objSave = SplashCommonModel()
+                    objSave.accountType = "1"
+                    objSave.id = SaveRemoteGet
+                    objSave.addSize = "1"
+                    objSave.accountNo = ""
+                    Log.e("GetInt", "Int AccountType  " + objSave.accountType)
+                    Log.e("GetInt", "Int AdsId  " + objSave.id)
+                    Log.e("GetInt", "Int AccountNo  " + objSave.accountNo)
+                    objSave
                 } else {
                     val settestingads = SplashCommonModel()
                     settestingads.accountType = "0" //TODO: default 0
@@ -753,9 +753,9 @@ object AdsIdOnDeviceStore {
                 settestingads.accountNo = ""
                 settestingads
             }
-        } else if ((Utils.isValidationEmpty(SharedPreferences.getStringName(Constant.is_advertise_available)!!) || (!Utils.isValidationEmpty(
-                SharedPreferences.getStringName(Constant.is_advertise_available)!!
-            ) && SharedPreferences.getStringName(Constant.is_advertise_available).equals(
+        } else if ((Utils.isValidationEmpty(SharedPreferences.getStringName(Constant.is_available_advertise)!!) || (!Utils.isValidationEmpty(
+                SharedPreferences.getStringName(Constant.is_available_advertise)!!
+            ) && SharedPreferences.getStringName(Constant.is_available_advertise).equals(
                     "1",
                     ignoreCase = true
                 ))) && SharedPreferences.advertiseModel != null && !Utils.isValidationEmpty(
@@ -814,19 +814,19 @@ object AdsIdOnDeviceStore {
                     }
                 }
                 if (!SaveRemoteGet.equals("", ignoreCase = true)) {
-                    val saveobj = SplashCommonModel()
-                    saveobj.id = SaveRemoteGet
+                    val objSave = SplashCommonModel()
+                    objSave.id = SaveRemoteGet
                     if (isFacebook) {
-                        saveobj.accountType = "1"
+                        objSave.accountType = "1"
                     } else {
-                        saveobj.accountType = "2"
+                        objSave.accountType = "2"
                     }
-                    saveobj.addSize = "1"
-                    saveobj.accountNo = ""
-                    Log.e("GetInt", "Int AccountType  " + saveobj.accountType)
-                    Log.e("GetInt", "Int AdsId  " + saveobj.id)
-                    Log.e("GetInt", "Int AccountNo  " + saveobj.accountNo)
-                    saveobj
+                    objSave.addSize = "1"
+                    objSave.accountNo = ""
+                    Log.e("GetInt", "Int AccountType  " + objSave.accountType)
+                    Log.e("GetInt", "Int AdsId  " + objSave.id)
+                    Log.e("GetInt", "Int AccountNo  " + objSave.accountNo)
+                    objSave
                 } else {
                     val settestingads = SplashCommonModel()
                     settestingads.accountType = "0" //TODO: default 0
@@ -845,9 +845,9 @@ object AdsIdOnDeviceStore {
                 settestingads.accountNo = ""
                 settestingads
             }
-        } else if ((Utils.isValidationEmpty(SharedPreferences.getStringName(Constant.is_advertise_available)!!) || (!Utils.isValidationEmpty(
-                SharedPreferences.getStringName(Constant.is_advertise_available)!!
-            ) && SharedPreferences.getStringName(Constant.is_advertise_available).equals(
+        } else if ((Utils.isValidationEmpty(SharedPreferences.getStringName(Constant.is_available_advertise)!!) || (!Utils.isValidationEmpty(
+                SharedPreferences.getStringName(Constant.is_available_advertise)!!
+            ) && SharedPreferences.getStringName(Constant.is_available_advertise).equals(
                 "1", ignoreCase = true
             ))) && SharedPreferences.advertiseModel != null && !Utils.isValidationEmpty(
                 SharedPreferences.advertiseModel?.priority!!
@@ -903,19 +903,19 @@ object AdsIdOnDeviceStore {
                     }
                 }
                 if (!SaveRemoteGet.equals("", ignoreCase = true)) {
-                    val saveobj = SplashCommonModel()
-                    saveobj.id = SaveRemoteGet
+                    val objSave = SplashCommonModel()
+                    objSave.id = SaveRemoteGet
                     if (isFacebook) {
-                        saveobj.accountType = "1"
+                        objSave.accountType = "1"
                     } else {
-                        saveobj.accountType = "2"
+                        objSave.accountType = "2"
                     }
-                    saveobj.addSize = "1"
-                    saveobj.accountNo = ""
-                    Log.e("GetInt", "Int AccountType  " + saveobj.accountType)
-                    Log.e("GetInt", "Int AdsId  " + saveobj.id)
-                    Log.e("GetInt", "Int AccountNo  " + saveobj.accountNo)
-                    saveobj
+                    objSave.addSize = "1"
+                    objSave.accountNo = ""
+                    Log.e("GetInt", "Int AccountType  " + objSave.accountType)
+                    Log.e("GetInt", "Int AdsId  " + objSave.id)
+                    Log.e("GetInt", "Int AccountNo  " + objSave.accountNo)
+                    objSave
                 } else {
                     val settestingads = SplashCommonModel()
                     settestingads.accountType = "0" //TODO: default 0
@@ -934,8 +934,8 @@ object AdsIdOnDeviceStore {
                 settestingads.accountNo = ""
                 settestingads
             }
-        } else if (!Utils.isValidationEmpty(SharedPreferences.getStringName(Constant.is_advertise_available)!!) && SharedPreferences.getStringName(
-                Constant.is_advertise_available
+        } else if (!Utils.isValidationEmpty(SharedPreferences.getStringName(Constant.is_available_advertise)!!) && SharedPreferences.getStringName(
+                Constant.is_available_advertise
             ).equals("2", ignoreCase = true)
         ) {
             val settestingads = SplashCommonModel()
@@ -970,9 +970,9 @@ object AdsIdOnDeviceStore {
     }
 
     fun GetSmallNativeBannerAds(activity: Activity): SplashCommonModel {
-        return if ((Utils.isValidationEmpty(SharedPreferences.getStringName(Constant.is_advertise_available)!!) || (!Utils.isValidationEmpty(
-                SharedPreferences.getStringName(Constant.is_advertise_available)!!
-            ) && SharedPreferences.getStringName(Constant.is_advertise_available).equals(
+        return if ((Utils.isValidationEmpty(SharedPreferences.getStringName(Constant.is_available_advertise)!!) || (!Utils.isValidationEmpty(
+                SharedPreferences.getStringName(Constant.is_available_advertise)!!
+            ) && SharedPreferences.getStringName(Constant.is_available_advertise).equals(
                 "1", ignoreCase = true
             ))) && SharedPreferences.advertiseModel != null && !Utils.isValidationEmpty(
                 SharedPreferences.advertiseModel?.priority!!
@@ -993,15 +993,15 @@ object AdsIdOnDeviceStore {
                 } catch (e: Exception) {
                 }
                 if (!SaveRemoteGet.equals("", ignoreCase = true)) {
-                    val saveobj = SplashCommonModel()
-                    saveobj.accountType = "2"
-                    saveobj.id = SaveRemoteGet
-                    saveobj.addSize = "1"
-                    saveobj.accountNo = ""
-                    Log.e("GetInt", "Int AccountType  " + saveobj.accountType)
-                    Log.e("GetInt", "Int AdsId  " + saveobj.id)
-                    Log.e("GetInt", "Int AccountNo  " + saveobj.accountNo)
-                    saveobj
+                    val objSave = SplashCommonModel()
+                    objSave.accountType = "2"
+                    objSave.id = SaveRemoteGet
+                    objSave.addSize = "1"
+                    objSave.accountNo = ""
+                    Log.e("GetInt", "Int AccountType  " + objSave.accountType)
+                    Log.e("GetInt", "Int AdsId  " + objSave.id)
+                    Log.e("GetInt", "Int AccountNo  " + objSave.accountNo)
+                    objSave
                 } else {
                     val settestingads = SplashCommonModel()
                     settestingads.accountType = "0" //TODO: default 0
@@ -1020,9 +1020,9 @@ object AdsIdOnDeviceStore {
                 settestingads.accountNo = ""
                 settestingads
             }
-        } else if ((Utils.isValidationEmpty(SharedPreferences.getStringName(Constant.is_advertise_available)!!) || (!Utils.isValidationEmpty(
-                SharedPreferences.getStringName(Constant.is_advertise_available)!!
-            ) && SharedPreferences.getStringName(Constant.is_advertise_available).equals(
+        } else if ((Utils.isValidationEmpty(SharedPreferences.getStringName(Constant.is_available_advertise)!!) || (!Utils.isValidationEmpty(
+                SharedPreferences.getStringName(Constant.is_available_advertise)!!
+            ) && SharedPreferences.getStringName(Constant.is_available_advertise).equals(
                 "1", ignoreCase = true
             ))) && SharedPreferences.advertiseModel != null && !Utils.isValidationEmpty(
                 SharedPreferences.advertiseModel?.priority!!
@@ -1043,15 +1043,15 @@ object AdsIdOnDeviceStore {
                 } catch (e: Exception) {
                 }
                 if (!SaveRemoteGet.equals("", ignoreCase = true)) {
-                    val saveobj = SplashCommonModel()
-                    saveobj.accountType = "1"
-                    saveobj.id = SaveRemoteGet
-                    saveobj.addSize = "1"
-                    saveobj.accountNo = ""
-                    Log.e("GetInt", "Int AccountType  " + saveobj.accountType)
-                    Log.e("GetInt", "Int AdsId  " + saveobj.id)
-                    Log.e("GetInt", "Int AccountNo  " + saveobj.accountNo)
-                    saveobj
+                    val objSave = SplashCommonModel()
+                    objSave.accountType = "1"
+                    objSave.id = SaveRemoteGet
+                    objSave.addSize = "1"
+                    objSave.accountNo = ""
+                    Log.e("GetInt", "Int AccountType  " + objSave.accountType)
+                    Log.e("GetInt", "Int AdsId  " + objSave.id)
+                    Log.e("GetInt", "Int AccountNo  " + objSave.accountNo)
+                    objSave
                 } else {
                     val settestingads = SplashCommonModel()
                     settestingads.accountType = "0" //TODO: default 0
@@ -1070,9 +1070,9 @@ object AdsIdOnDeviceStore {
                 settestingads.accountNo = ""
                 settestingads
             }
-        } else if ((Utils.isValidationEmpty(SharedPreferences.getStringName(Constant.is_advertise_available)!!) || (!Utils.isValidationEmpty(
-                SharedPreferences.getStringName(Constant.is_advertise_available)!!
-            ) && SharedPreferences.getStringName(Constant.is_advertise_available).equals(
+        } else if ((Utils.isValidationEmpty(SharedPreferences.getStringName(Constant.is_available_advertise)!!) || (!Utils.isValidationEmpty(
+                SharedPreferences.getStringName(Constant.is_available_advertise)!!
+            ) && SharedPreferences.getStringName(Constant.is_available_advertise).equals(
                 "1", ignoreCase = true
             ))) && SharedPreferences.advertiseModel != null && !Utils.isValidationEmpty(
                 SharedPreferences.advertiseModel?.priority!!
@@ -1107,19 +1107,19 @@ object AdsIdOnDeviceStore {
                 } catch (e: Exception) {
                 }
                 if (!SaveRemoteGet.equals("", ignoreCase = true)) {
-                    val saveobj = SplashCommonModel()
-                    saveobj.id = SaveRemoteGet
+                    val objSave = SplashCommonModel()
+                    objSave.id = SaveRemoteGet
                     if (isFacebook) {
-                        saveobj.accountType = "1"
+                        objSave.accountType = "1"
                     } else {
-                        saveobj.accountType = "2"
+                        objSave.accountType = "2"
                     }
-                    saveobj.addSize = "1"
-                    saveobj.accountNo = ""
-                    Log.e("GetInt", "Int AccountType  " + saveobj.accountType)
-                    Log.e("GetInt", "Int AdsId  " + saveobj.id)
-                    Log.e("GetInt", "Int AccountNo  " + saveobj.accountNo)
-                    saveobj
+                    objSave.addSize = "1"
+                    objSave.accountNo = ""
+                    Log.e("GetInt", "Int AccountType  " + objSave.accountType)
+                    Log.e("GetInt", "Int AdsId  " + objSave.id)
+                    Log.e("GetInt", "Int AccountNo  " + objSave.accountNo)
+                    objSave
                 } else {
                     val settestingads = SplashCommonModel()
                     settestingads.accountType = "0" //TODO: default 0
@@ -1138,9 +1138,9 @@ object AdsIdOnDeviceStore {
                 settestingads.accountNo = ""
                 settestingads
             }
-        } else if ((Utils.isValidationEmpty(SharedPreferences.getStringName(Constant.is_advertise_available)!!) || (!Utils.isValidationEmpty(
-                SharedPreferences.getStringName(Constant.is_advertise_available)!!
-            ) && SharedPreferences.getStringName(Constant.is_advertise_available).equals(
+        } else if ((Utils.isValidationEmpty(SharedPreferences.getStringName(Constant.is_available_advertise)!!) || (!Utils.isValidationEmpty(
+                SharedPreferences.getStringName(Constant.is_available_advertise)!!
+            ) && SharedPreferences.getStringName(Constant.is_available_advertise).equals(
                 "1", ignoreCase = true
             ))) && SharedPreferences.advertiseModel != null && !Utils.isValidationEmpty(
                 SharedPreferences.advertiseModel?.priority!!
@@ -1175,19 +1175,19 @@ object AdsIdOnDeviceStore {
                 } catch (e: Exception) {
                 }
                 if (!SaveRemoteGet.equals("", ignoreCase = true)) {
-                    val saveobj = SplashCommonModel()
-                    saveobj.id = SaveRemoteGet
+                    val objSave = SplashCommonModel()
+                    objSave.id = SaveRemoteGet
                     if (isFacebook) {
-                        saveobj.accountType = "1"
+                        objSave.accountType = "1"
                     } else {
-                        saveobj.accountType = "2"
+                        objSave.accountType = "2"
                     }
-                    saveobj.addSize = "1"
-                    saveobj.accountNo = ""
-                    Log.e("GetInt", "Int AccountType  " + saveobj.accountType)
-                    Log.e("GetInt", "Int AdsId  " + saveobj.id)
-                    Log.e("GetInt", "Int AccountNo  " + saveobj.accountNo)
-                    saveobj
+                    objSave.addSize = "1"
+                    objSave.accountNo = ""
+                    Log.e("GetInt", "Int AccountType  " + objSave.accountType)
+                    Log.e("GetInt", "Int AdsId  " + objSave.id)
+                    Log.e("GetInt", "Int AccountNo  " + objSave.accountNo)
+                    objSave
                 } else {
                     val settestingads = SplashCommonModel()
                     settestingads.accountType = "0" //TODO: default 0
@@ -1206,8 +1206,8 @@ object AdsIdOnDeviceStore {
                 settestingads.accountNo = ""
                 settestingads
             }
-        } else if (!Utils.isValidationEmpty(SharedPreferences.getStringName(Constant.is_advertise_available)!!) && SharedPreferences.getStringName(
-                Constant.is_advertise_available
+        } else if (!Utils.isValidationEmpty(SharedPreferences.getStringName(Constant.is_available_advertise)!!) && SharedPreferences.getStringName(
+                Constant.is_available_advertise
             ).equals("2", ignoreCase = true)
         ) {
             val settestingads = SplashCommonModel()

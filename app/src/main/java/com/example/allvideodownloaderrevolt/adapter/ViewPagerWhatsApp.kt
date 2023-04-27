@@ -10,10 +10,10 @@ import com.example.allvideodownloaderrevolt.modelsClass.StatusModel
 
 class ViewPagerWhatsApp(
     fm: FragmentManager,
-    var whatsAppData: ArrayList<String?>,
-    var whatsAppVideo: ArrayList<String?>,
-    var whatsappImageR: ArrayList<StatusModel>,
-    var whatsappVideoR: ArrayList<StatusModel>,
+    var wADataList: ArrayList<String?>,
+    var wAVideoList: ArrayList<String?>,
+    var wAImageListR: ArrayList<StatusModel>,
+    var wAVideoListR: ArrayList<StatusModel>,
     var intExtra: Int
 ) :
     FragmentPagerAdapter(fm) {
@@ -23,13 +23,34 @@ class ViewPagerWhatsApp(
     }
 
     override fun getItem(position: Int): Fragment {
-        Log.d("07/03","position----$position")
+        Log.d("07/03", "position----$position")
         return when (position) {
-            0 -> WhatsAppFrag(position, whatsAppData, whatsAppVideo, intExtra,whatsappImageR,whatsappVideoR)
-            1 -> WhatsAppFrag(position, whatsAppData, whatsAppVideo, intExtra,whatsappImageR,whatsappVideoR)
+            0 -> WhatsAppFrag(
+                position,
+                wADataList,
+                wAVideoList,
+                intExtra,
+                wAImageListR,
+                wAVideoListR
+            )
+            1 -> WhatsAppFrag(
+                position,
+                wADataList,
+                wAVideoList,
+                intExtra,
+                wAImageListR,
+                wAVideoListR
+            )
             2 -> DownloadListFrag.newInstance(1)
             else -> {
-                WhatsAppFrag(position, whatsAppData, whatsAppVideo, intExtra,whatsappImageR,whatsappVideoR)
+                WhatsAppFrag(
+                    position,
+                    wADataList,
+                    wAVideoList,
+                    intExtra,
+                    wAImageListR,
+                    wAVideoListR
+                )
             }
         }
     }

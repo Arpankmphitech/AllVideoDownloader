@@ -21,10 +21,11 @@ import com.example.allvideodownloaderrevolt.commonClass.Utils
 import com.example.allvideodownloaderrevolt.databinding.VideoThumbnailItemBinding
 import java.io.File
 
-class AdapterDownloadVideoList(var filePath: ArrayList<String?>?, var activity: Activity?) :
+class AdapterDownloadVideoList(var filePathList: ArrayList<String?>?, var activity: Activity?) :
     RecyclerView.Adapter<AdapterDownloadVideoList.ViewHolder>() {
 
-    class ViewHolder(val binding: VideoThumbnailItemBinding?) : RecyclerView.ViewHolder(binding?.root!!)
+    class ViewHolder(val vtBinding: VideoThumbnailItemBinding?) :
+        RecyclerView.ViewHolder(vtBinding?.root!!)
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val binding =
@@ -33,9 +34,9 @@ class AdapterDownloadVideoList(var filePath: ArrayList<String?>?, var activity: 
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        holder.binding?.roundImage?.let {
+        holder.vtBinding?.roundImage?.let {
             activity?.let { it1 ->
-                Glide.with(it1).load(filePath?.get(position)).into(
+                Glide.with(it1).load(filePathList?.get(position)).into(
                     it
                 )
             }
@@ -46,11 +47,9 @@ class AdapterDownloadVideoList(var filePath: ArrayList<String?>?, var activity: 
                 Utils.displayInter(activity!!, {
                     activity?.startActivity(
                         Intent(
-                            activity,
-                            DownloadVideoPlayerAct::class.java
+                            activity, DownloadVideoPlayerAct::class.java
                         ).addFlags(Intent.FLAG_ACTIVITY_NEW_TASK).putExtra(
-                            "path",
-                            filePath?.get(position)
+                            "path", filePathList?.get(position)
                         )
                     )
                 }, true)
@@ -60,21 +59,19 @@ class AdapterDownloadVideoList(var filePath: ArrayList<String?>?, var activity: 
                 Toast.makeText(activity, "Unable to play video", Toast.LENGTH_SHORT).show()
             }
         }
-        holder.binding?.imgShare?.setOnClickListener {
+        holder.vtBinding?.imgShare?.setOnClickListener {
             activity?.let {
-                shareExcludingApp("You Can Easily Download Videos From Multiple Platform With The Help Of This App " +
-                        "\n\n" +
-                        "\uD83E\uDD29 \uD83E\uDD29 \uD83E\uDD29 \uD83E\uDD29" +
-                        "\n\n" +
-                        Constant.TINY_URL,
-                    filePath?.get(position)
+                shareExcludingApp(
+                    "You Can Easily Download Videos From Multiple Platform With The Help Of This App " + "\n\n" + "\uD83E\uDD29 \uD83E\uDD29 \uD83E\uDD29 \uD83E\uDD29" + "\n\n" + Constant.TINY_URL,
+                    filePathList?.get(position)
                 )
             }
         }
     }
 
-    private fun shareExcludingApp(text: String?,
-                                  filePath: String?,
+    private fun shareExcludingApp(
+        text: String?,
+        filePath: String?,
     ) {
         val targetIntent = Intent(Intent.ACTION_SEND)
         targetIntent.type = "video/*"
@@ -82,22 +79,16 @@ class AdapterDownloadVideoList(var filePath: ArrayList<String?>?, var activity: 
         targetIntent.putExtra(Intent.EXTRA_SUBJECT, activity?.getString(R.string.app_name))
         targetIntent.putExtra(Intent.EXTRA_TEXT, text)
         val fileURI = FileProvider.getUriForFile(
-            activity!!, activity!!.packageName + ".provider",
-            File(filePath!!)
+            activity!!, activity!!.packageName + ".provider", File(filePath!!)
         )
         Log.e("1010", "shareExcludingApp: $filePath")
         targetIntent.putExtra(Intent.EXTRA_STREAM, fileURI)
-        val excludedAppsPackageNames =
-            hashSetOf(activity?.packageName)
-        getIntentChooser(
-            activity,
-            targetIntent,
-            "choose!",
-            object : HomeAct.ComponentNameFilter {
-                override fun shouldBeFilteredOut(componentName: ComponentName?): Boolean {
-                    return excludedAppsPackageNames.contains(componentName!!.packageName)
-                }
-            })?.let { activity?.startActivity(it) }
+        val excludedAppsPackageNames = hashSetOf(activity?.packageName)
+        getIntentChooser(activity, targetIntent, "choose!", object : HomeAct.ComponentNameFilter {
+            override fun shouldBeFilteredOut(componentName: ComponentName?): Boolean {
+                return excludedAppsPackageNames.contains(componentName!!.packageName)
+            }
+        })?.let { activity?.startActivity(it) }
     }
 
 
@@ -112,8 +103,7 @@ class AdapterDownloadVideoList(var filePath: ArrayList<String?>?, var activity: 
         resolveInfos?.forEach {
             val activityInfo = it.activityInfo
             val componentName = ComponentName(activityInfo.packageName, activityInfo.name)
-            if (filter.shouldBeFilteredOut(componentName))
-                excludedComponentNames.add(componentName)
+            if (filter.shouldBeFilteredOut(componentName)) excludedComponentNames.add(componentName)
         }
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
             return Intent.createChooser(intent, chooserTitle)
@@ -126,24 +116,22 @@ class AdapterDownloadVideoList(var filePath: ArrayList<String?>?, var activity: 
                     val activityInfo = resolveInfo.activityInfo
                     if (excludedComponentNames.contains(
                             ComponentName(
-                                activityInfo.packageName,
-                                activityInfo.name
+                                activityInfo.packageName, activityInfo.name
                             )
                         )
-                    )
-                        continue
-                    val targetIntent = Intent(intent)
-                    targetIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
-                    targetIntent.setPackage(activityInfo.packageName)
-                    targetIntent.component =
+                    ) continue
+                    val intentTarget = Intent(intent)
+                    intentTarget.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
+                    intentTarget.setPackage(activityInfo.packageName)
+                    intentTarget.component =
                         ComponentName(activityInfo.packageName, activityInfo.name)
-                    val labeledIntent = LabeledIntent(
-                        targetIntent,
+                    val intentLabeled = LabeledIntent(
+                        intentTarget,
                         activityInfo.packageName,
                         resolveInfo.labelRes,
                         resolveInfo.icon
                     )
-                    targetIntents.add(labeledIntent)
+                    targetIntents.add(intentLabeled)
                 }
                 val chooserIntent: Intent? = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
                     Intent.createChooser(Intent(), chooserTitle)
@@ -154,8 +142,7 @@ class AdapterDownloadVideoList(var filePath: ArrayList<String?>?, var activity: 
                     return null
                 }
                 chooserIntent.putExtra(
-                    Intent.EXTRA_INITIAL_INTENTS,
-                    targetIntents.toTypedArray<Parcelable>()
+                    Intent.EXTRA_INITIAL_INTENTS, targetIntents.toTypedArray<Parcelable>()
                 )
                 return chooserIntent
             }
@@ -164,6 +151,6 @@ class AdapterDownloadVideoList(var filePath: ArrayList<String?>?, var activity: 
     }
 
     override fun getItemCount(): Int {
-        return filePath?.size!!
+        return filePathList?.size!!
     }
 }

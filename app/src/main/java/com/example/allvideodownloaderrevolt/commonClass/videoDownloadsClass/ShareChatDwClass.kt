@@ -15,27 +15,27 @@ import java.io.File
 import java.io.IOException
 
 
-internal class ShareChatDwClass(var applicationContext: Context, var filePath: File) :
+internal class ShareChatDwClass(var context: Context, var filePath: File) :
     AsyncTask<String?, Void?, Document?>() {
-    var ShareChatDoc: Document? = null
+    var documentShareChat: Document? = null
 
 
     override fun doInBackground(vararg strArr: String?): Document? {
         try {
-            ShareChatDoc = Jsoup.connect(strArr[0]).get()
+            documentShareChat = Jsoup.connect(strArr[0]).get()
         } catch (e: IOException) {
             Utils.HideProgressbarDialog()
-            (applicationContext as? Activity)?.runOnUiThread {
+            (context as? Activity)?.runOnUiThread {
                 Toast.makeText(
-                    applicationContext,
-                    applicationContext.getString(R.string.valid_url),
+                    context,
+                    context.getString(R.string.valid_url),
                     Toast.LENGTH_SHORT
                 ).show()
                 Log.d("15/09", "IOException--->" + e.message)
             }
             e.printStackTrace()
         }
-        return ShareChatDoc
+        return documentShareChat
     }
 
     override fun onPostExecute(document: Document?) {
@@ -61,16 +61,16 @@ internal class ShareChatDwClass(var applicationContext: Context, var filePath: F
                 }
             }
             if (html != null && !html.equals(""))
-                newDownload(html, applicationContext)
+                newDownload(html, context)
 //                newDownloadShareChat(html,
 //                    "/All Videos Downloader/Share Chat/", applicationContext,
 //                    "Share Chat " + System.currentTimeMillis() + ".mp4")
             else {
                 Utils.HideProgressbarDialog()
-                (applicationContext as? Activity)?.runOnUiThread {
+                (context as? Activity)?.runOnUiThread {
                     Toast.makeText(
-                        applicationContext,
-                        applicationContext.getString(R.string.valid_url),
+                        context,
+                        context.getString(R.string.valid_url),
                         Toast.LENGTH_SHORT
                     ).show()
                 }
@@ -79,10 +79,10 @@ internal class ShareChatDwClass(var applicationContext: Context, var filePath: F
             e.printStackTrace()
             Log.d("15/09", "Exception--->" + e.message)
             Utils.HideProgressbarDialog()
-            (applicationContext as? Activity)?.runOnUiThread {
+            (context as? Activity)?.runOnUiThread {
                 Toast.makeText(
-                    applicationContext,
-                    applicationContext.getString(R.string.valid_url),
+                    context,
+                    context.getString(R.string.valid_url),
                     Toast.LENGTH_SHORT
                 ).show()
             }

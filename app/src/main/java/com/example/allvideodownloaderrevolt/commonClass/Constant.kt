@@ -5,38 +5,38 @@ import com.example.allvideodownloaderrevolt.modelsClass.StatusModel
 import java.io.File
 
 object Constant {
-    var WHATSAPP_PACKAGE = "com.whatsapp"
+    var WHATSAPP_PACKAGE_PATH = "com.whatsapp"
     var WHATSAPP_STATUS_FOLDER_PATH = "/WhatsApp/Media/.Statuses/"
     var TINY_URL = "https://tinyurl.com/mty9um6v"
     var WHATSAPP_STATUS_FOLDER_PATH2 = "/Android/media/com.whatsapp/WhatsApp/Media/.Statuses/"
-    var dialogTrue = true
-    var isNotificationClicked = false
+    var trueDialog = true
+    var isClickedNotification = false
     var Firstime = true
     var isRegistered = false
-    var isNormalAdCount = 0
-    var isBackAdCount = 0
-    var AppOpenAdId: String? = ""
-    const val PredChampInsideType: String = "0"
+    var isAdNormalCount = 0
+    var isAdBackCount = 0
+    var OpenAppAdId: String? = ""
+    const val TypePredChampInside: String = "0"
     var BigNative = 2
     var SmallNative = 1
     var forwardCount = 1
-    var backCount = 1
-    const val is_advertise_available = "is_advertise_available"
-    const val BACK_PRESS_COUNT = "is_back_press_count"
-    const val NORMAL_AD_COUNT = "is_normal_ad_count"
-    var APP_OPEN_AD = "APP_OPEN_AD"
-    const val LOGIN_TABLE_NAME = "MySharedPref"
+    var countBack = 1
+    const val is_available_advertise = "is_available_advertise"
+    const val COUNT_BACK_PRESS = "is_back_press_count"
+    const val COUNT_NORMAL_AD = "is_normal_ad_count"
+    var AD_APP_OPEN = "AD_APP_OPEN"
+    const val TABLE_NAME_LOGIN = "MySharedPref"
     const val IS_INFO = "IS_INFO"
-    const val IS_SPLASH_AD = "IS_SPLASH_AD"
-    const val USER_DIALOG_TEXT = "USER_DIALOG_TEXT"
-    const val USER_DIALOG_IMG = "USER_DIALOG_IMG"
-    const val USER_DIALOG_URL = "USER_DIALOG_URL"
-    const val   App_VERSION_CODE = "app_versionCode"
+    const val IS_AD_SPLASH = "IS_AD_SPLASH"
+    const val TEXT_USER_DIALOG = "TEXT_USER_DIALOG"
+    const val IMG_USER_DIALOG = "IMG_USER_DIALOG"
+    const val URL_USER_DIALOG = "URL_USER_DIALOG"
+    const val   VERSION_CODE_App = "app_versionCode"
     const val IS_USER_DIALOG = "IS_USER_DIALOG"
-    const val USER_DIALOG_BTN = "USER_DIALOG_BTN"
-    var PLAYSTORE_URL = "https://play.google.com/store/apps/details?id="
-    var DEVELOPER_NAME = "Yashenam Inc"
-    const val USER_DIALOG_UPDATE_TEXT = "USER_DIALOG_UPDATE_TEXT"
+    const val BTN_USER_DIALOG = "BTN_USER_DIALOG"
+    var URL_PLAYSTORE = "https://play.google.com/store/apps/details?id="
+    var NAME_OF_DEVELOPER = "Yashenam Inc"
+    const val UPDATE_USER_DIALOG_TEXT = "UPDATE_USER_DIALOG_TEXT"
     const val ONE_SIGNAL = "81061f5d-5354-4cef-8dfa-69eb7abefeda"
     var WHATSAPP_IMAGE_R: ArrayList<StatusModel> = ArrayList()
     var WHATSAPP_VIDEO_R: ArrayList<StatusModel> = ArrayList()
@@ -81,8 +81,6 @@ object Constant {
     val loginApi: String? external get
     val header: String? external get
     val token: String? external get
-
-    external fun getUrl()
 
     fun createFolder() {
         if (!SHARE_CHAT_PATH.exists()) {

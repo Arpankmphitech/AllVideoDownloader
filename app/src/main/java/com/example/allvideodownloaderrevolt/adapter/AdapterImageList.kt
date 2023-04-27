@@ -18,34 +18,34 @@ import com.example.allvideodownloaderrevolt.modelsClass.GalleyPhotosListModel
 import java.io.Serializable
 
 class AdapterImageList(
-    var context: Activity,
-    var listGalleryAlbums: List<GalleyPhotosListModel>,
+    var activity : Activity,
+    var galleryAlbumsList: List<GalleyPhotosListModel>,
 ) : RecyclerView.Adapter<AdapterImageList.MyImage>() {
     override fun onCreateViewHolder(viewGroup: ViewGroup, i: Int): MyImage {
         return MyImage(LayoutInflater.from(
-            context).inflate(R.layout.row_images_item, viewGroup, false))
+            activity).inflate(R.layout.row_images_item, viewGroup, false))
     }
 
     override fun onBindViewHolder(myImage: MyImage, @SuppressLint("RecyclerView") i: Int) {
-        val galleyPhotosListModel = listGalleryAlbums[i]
-        ((Glide.with(context).load(galleyPhotosListModel.photoUri)
+        val galleyPhotosListModel = galleryAlbumsList[i]
+        ((Glide.with(activity).load(galleyPhotosListModel.photoUri)
             .centerCrop() as RequestBuilder<*>).placeholder(
             R.color.colorWhite) as RequestBuilder<*>).into(myImage.imgThum)
         myImage.tvTitle.text = galleyPhotosListModel.albumName
         myImage.itemView.setOnClickListener {
-            Utils.displayInter(context, {
-                context.startActivity(Intent(context,
+            Utils.displayInter(activity, {
+                activity.startActivity(Intent(activity,
                     FullImageViewAct::class.java)
                     .setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
                     .putExtra("pos", i)
-                    .putExtra("list", listGalleryAlbums as Serializable))
+                    .putExtra("list", galleryAlbumsList as Serializable))
             }, true)
 
         }
     }
 
     override fun getItemCount(): Int {
-        return listGalleryAlbums.size
+        return galleryAlbumsList.size
     }
 
     inner class MyImage(view: View) : RecyclerView.ViewHolder(view) {

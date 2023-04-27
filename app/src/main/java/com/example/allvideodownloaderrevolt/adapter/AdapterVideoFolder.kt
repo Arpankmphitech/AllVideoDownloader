@@ -15,18 +15,18 @@ import com.example.allvideodownloaderrevolt.modelsClass.FolderModel
 import com.google.android.exoplayer2.metadata.icy.IcyHeaders
 
 class AdapterVideoFolder(
-    var context: Activity, var modelList: List<FolderModel>
+    var activity : Activity, var folderModelList: List<FolderModel>
 ) : RecyclerView.Adapter<AdapterVideoFolder.MyFolder>() {
     override fun onCreateViewHolder(viewGroup: ViewGroup, i: Int): MyFolder {
         return MyFolder(
             LayoutInflater.from(
-                context
+                activity
             ).inflate(R.layout.row_video_folder_item, viewGroup, false)
         )
     }
 
     override fun onBindViewHolder(myFolder: MyFolder, i: Int) {
-        val folderModel = modelList[i]
+        val folderModel = folderModelList[i]
         myFolder.txtName.text = folderModel.bucket
         if (folderModel.videoCount == IcyHeaders.REQUEST_HEADER_ENABLE_METADATA_VALUE) {
             val textView = myFolder.txtCount
@@ -38,9 +38,9 @@ class AdapterVideoFolder(
 //        myFolder.txtSize.text = folderModel.date
         myFolder.itemView.setOnClickListener {
             Log.d("10/03", "" + folderModel.bid)
-            Utils.displayInter(context, {
-                context.startActivity(
-                    Intent(context, VideoListAct::class.java).setFlags(
+            Utils.displayInter(activity, {
+                activity.startActivity(
+                    Intent(activity, VideoListAct::class.java).setFlags(
                         Intent.FLAG_ACTIVITY_CLEAR_TOP
                     ).putExtra("Bucket", folderModel.bid).putExtra("name", folderModel.bucket)
                 )
@@ -50,7 +50,7 @@ class AdapterVideoFolder(
     }
 
     override fun getItemCount(): Int {
-        return modelList.size
+        return folderModelList.size
     }
 
     inner class MyFolder(view: View) : RecyclerView.ViewHolder(view) {

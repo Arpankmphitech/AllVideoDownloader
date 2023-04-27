@@ -16,13 +16,13 @@ import java.io.IOException
 
 internal class JoshDwClass(var applicationContext: Context, var filePath: File) :
     AsyncTask<String?, Void?, Document?>() {
-    var JoshDoc: Document? = null
+    var docJosh: Document? = null
 
 
     override fun doInBackground(vararg strArr: String?): Document? {
         try {
             Log.d("15/09", "try-->" + Jsoup.connect(strArr[0]).get())
-            JoshDoc = Jsoup.connect(strArr[0]).get()
+            docJosh = Jsoup.connect(strArr[0]).get()
         } catch (e: IOException) {
             Utils.HideProgressbarDialog()
             (applicationContext as? Activity)?.runOnUiThread {
@@ -35,8 +35,8 @@ internal class JoshDwClass(var applicationContext: Context, var filePath: File) 
             }
             e.printStackTrace()
         }
-        Log.d("15/09", "try-->$JoshDoc")
-        return JoshDoc
+        Log.d("15/09", "try-->$docJosh")
+        return docJosh
     }
 
     override fun onPostExecute(document: Document?) {

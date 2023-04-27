@@ -15,33 +15,33 @@ import com.example.allvideodownloaderrevolt.commonClass.Utils
 import com.example.allvideodownloaderrevolt.modelsClass.AudioModel
 import java.io.Serializable
 
-class AdapterMusic(var context: Activity, var listGalleryAlbums: List<AudioModel>) :
+class AdapterMusic(var activity : Activity, var galleryAlbumsList: List<AudioModel>) :
     RecyclerView.Adapter<AdapterMusic.MyImage>() {
     override fun onCreateViewHolder(viewGroup: ViewGroup, i: Int): MyImage {
         return MyImage(
             LayoutInflater.from(
-            context).inflate(R.layout.row_music_folder_item, viewGroup, false))
+                activity).inflate(R.layout.row_music_folder_item, viewGroup, false))
     }
 
     override fun onBindViewHolder(myImage: MyImage, @SuppressLint("RecyclerView") i: Int) {
-        val audioModel = listGalleryAlbums[i]
+        val audioModel = galleryAlbumsList[i]
         val textView = myImage.txtCount
         textView.text = audioModel.getaArtist()
         myImage.tvTitle.text = audioModel.getaName()
         myImage.txtSize.visibility = View.GONE
         myImage.itemView.setOnClickListener {
-            Utils.displayInter(context, {
-                context.startActivity(
-                    Intent(context,
+            Utils.displayInter(activity, {
+                activity.startActivity(
+                    Intent(activity,
                     MusicPlayAct::class.java).setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
                     .putExtra("pos", i)
-                    .putExtra("arrayList", listGalleryAlbums as Serializable))
+                    .putExtra("arrayList", galleryAlbumsList as Serializable))
             }, true)
         }
     }
 
     override fun getItemCount(): Int {
-        return listGalleryAlbums.size
+        return galleryAlbumsList.size
     }
 
     inner class MyImage(view: View) : RecyclerView.ViewHolder(view) {

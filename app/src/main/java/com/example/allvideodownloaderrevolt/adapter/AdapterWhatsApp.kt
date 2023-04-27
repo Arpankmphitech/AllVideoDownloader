@@ -29,18 +29,18 @@ import java.io.IOException
 import java.nio.channels.FileChannel
 
 class AdapterWhatsApp(
-    var activity: FragmentActivity?,
+    var fragActivity: FragmentActivity?,
     var position: Int,
-    var whatsAppData: ArrayList<String?>?,
-    var whatsAppVideo: ArrayList<String?>?,
+    var wAData: ArrayList<String?>?,
+    var wAVideo: ArrayList<String?>?,
     var intExtra: Int,
-    var imgEmpty: ImageView?,
-    var whatsappImageR: ArrayList<StatusModel>,
-    var whatsappVideoR: ArrayList<StatusModel>,
+    var emptyImage: ImageView?,
+    var wAImageR: ArrayList<StatusModel>,
+    var wAVideoR: ArrayList<StatusModel>,
 ) :
     RecyclerView.Adapter<RecyclerView.ViewHolder>() {
-    class ImageHolder(var binding: ImageThumbanialItemBinding) :
-        RecyclerView.ViewHolder(binding.root)
+    class ImageHolder(var imageBinding: ImageThumbanialItemBinding) :
+        RecyclerView.ViewHolder(imageBinding.root)
 
     class VideoHolder(var binding: VideoThumbnailItemBinding) :
         RecyclerView.ViewHolder(binding.root)
@@ -49,7 +49,7 @@ class AdapterWhatsApp(
         if (viewType == 0) {
             return ImageHolder(
                 ImageThumbanialItemBinding.inflate(
-                    LayoutInflater.from(activity),
+                    LayoutInflater.from(fragActivity),
                     parent,
                     false
                 )
@@ -57,7 +57,7 @@ class AdapterWhatsApp(
         }
         return VideoHolder(
             VideoThumbnailItemBinding.inflate(
-                LayoutInflater.from(activity),
+                LayoutInflater.from(fragActivity),
                 parent,
                 false
             )
@@ -70,55 +70,55 @@ class AdapterWhatsApp(
 
     override fun onBindViewHolder(mainHolder: RecyclerView.ViewHolder, position: Int) {
         if (getItemViewType(position) == 0) {
-            if (whatsappImageR.isEmpty()) {
+            if (wAImageR.isEmpty()) {
                 var imageHolder: ImageHolder = mainHolder as ImageHolder
-                activity?.let {
-                    Glide.with(it).load(whatsAppData?.get(position)).into(
-                        imageHolder.binding.roundImage
+                fragActivity?.let {
+                    Glide.with(it).load(wAData?.get(position)).into(
+                        imageHolder.imageBinding.roundImage
                     )
                 }
-                var file = File(whatsAppData?.get(position))
+                var file = File(wAData?.get(position))
                 if (SharedPreferences.getStringName(file.name).equals("1")) {
-                    imageHolder.binding.imgPlay.visibility = View.GONE
+                    imageHolder.imageBinding.imgPlay.visibility = View.GONE
                 }
                 Log.d("13/10", "if-----" + file.name)
-                imageHolder.binding.roundImage.setOnClickListener {
+                imageHolder.imageBinding.roundImage.setOnClickListener {
                     if (SharedPreferences.getStringName(file.name).equals("1")) {
-                        Toast.makeText(activity, "Image already downloaded", Toast.LENGTH_SHORT)
+                        Toast.makeText(fragActivity, "Image already downloaded", Toast.LENGTH_SHORT)
                             .show()
                         return@setOnClickListener
                     }
                 }
-                imageHolder.binding.imgPlay.setOnClickListener {
+                imageHolder.imageBinding.imgPlay.setOnClickListener {
                     SharedPreferences.setStringName(file.name, "1")
                     copyFileOrDirectory(
-                        whatsAppData?.get(position),
+                        wAData?.get(position),
                         Constant.WHATSAPP_IMAGES_PATH.path
                     )
 
-                    imageHolder.binding.imgPlay.visibility = View.GONE
+                    imageHolder.imageBinding.imgPlay.visibility = View.GONE
                 }
             } else {
-                var status = whatsappImageR[position]
+                var status = wAImageR[position]
                 var imageHolder: ImageHolder = mainHolder as ImageHolder
-                activity?.let {
+                fragActivity?.let {
                     Glide.with(it).load(status.documentFile?.uri).into(
-                        imageHolder.binding.roundImage
+                        imageHolder.imageBinding.roundImage
                     )
                 }
                 var file = File(Constant.WHATSAPP_STATUS_FOLDER_PATH2 + status.documentFile?.name)
                 if (SharedPreferences.getStringName(file.name).equals("1")) {
-                    imageHolder.binding.imgPlay.visibility = View.GONE
+                    imageHolder.imageBinding.imgPlay.visibility = View.GONE
                 }
                 Log.d("13/10", "if-----" + file.name)
-                imageHolder.binding.roundImage.setOnClickListener {
+                imageHolder.imageBinding.roundImage.setOnClickListener {
                     if (SharedPreferences.getStringName(file.name).equals("1")) {
-                        Toast.makeText(activity, "Image already downloaded", Toast.LENGTH_SHORT)
+                        Toast.makeText(fragActivity, "Image already downloaded", Toast.LENGTH_SHORT)
                             .show()
                         return@setOnClickListener
                     }
                 }
-                imageHolder.binding.imgPlay.setOnClickListener {
+                imageHolder.imageBinding.imgPlay.setOnClickListener {
                     SharedPreferences.setStringName(file.name, "1")
                     saveFile(
                         status.documentFile?.uri,
@@ -126,13 +126,13 @@ class AdapterWhatsApp(
                         "roundImage/jpg"
                     )
 
-                    imageHolder.binding.imgPlay.visibility = View.GONE
+                    imageHolder.imageBinding.imgPlay.visibility = View.GONE
                 }
             }
 
         } else {
-            if (whatsappVideoR.isEmpty()) {
-                val thumb = whatsAppVideo?.get(position)?.let {
+            if (wAVideoR.isEmpty()) {
+                val thumb = wAVideo?.get(position)?.let {
                     ThumbnailUtils.createVideoThumbnail(
                         it,
                         MediaStore.Images.Thumbnails.MINI_KIND
@@ -142,7 +142,7 @@ class AdapterWhatsApp(
                 videoHolder.binding.roundImage.setImageBitmap(thumb)
                 videoHolder.binding.imgShare.visibility = View.GONE
                 videoHolder.binding.imgPlay.setImageResource(R.drawable.icon_wa_download)
-                var file = File(whatsAppVideo?.get(position))
+                var file = File(wAVideo?.get(position))
                 Log.d(
                     "13/10",
                     "" + SharedPreferences.getStringName(file.name)
@@ -153,7 +153,7 @@ class AdapterWhatsApp(
                 }
                 videoHolder.binding.roundImage.setOnClickListener {
                     if (SharedPreferences.getStringName(file.name).equals("1")) {
-                        Toast.makeText(activity, "Video already downloaded", Toast.LENGTH_SHORT)
+                        Toast.makeText(fragActivity, "Video already downloaded", Toast.LENGTH_SHORT)
                             .show()
                         return@setOnClickListener
                     }
@@ -161,17 +161,17 @@ class AdapterWhatsApp(
                 videoHolder.binding.imgPlay.setOnClickListener {
                     SharedPreferences.setStringName(file.name, "1")
                     copyFileOrDirectory(
-                        whatsAppVideo?.get(position),
+                        wAVideo?.get(position),
                         Constant.WHATSAPP_VIDEO_PATH.path
                     )
                     videoHolder.binding.imgPlay.visibility = View.GONE
                 }
             } else {
                 var videoHolder = mainHolder as VideoHolder
-                var status = whatsappVideoR[position]
+                var status = wAVideoR[position]
                 Log.d("24/12", "" + status.documentFile?.name)
 
-                activity?.let {
+                fragActivity?.let {
                     Glide.with(it).load(status.documentFile?.uri)
                         .into(videoHolder.binding.roundImage)
                 }
@@ -190,7 +190,7 @@ class AdapterWhatsApp(
                 }
                 videoHolder.binding.roundImage.setOnClickListener {
                     if (SharedPreferences.getStringName(file.name).equals("1")) {
-                        Toast.makeText(activity, "Video already downloaded", Toast.LENGTH_SHORT)
+                        Toast.makeText(fragActivity, "Video already downloaded", Toast.LENGTH_SHORT)
                             .show()
                         return@setOnClickListener
                     }
@@ -210,23 +210,23 @@ class AdapterWhatsApp(
 
     override fun getItemCount(): Int {
         if (position == 0) {
-            if (whatsAppData?.size == 0 && whatsappImageR.size == 0)
-                imgEmpty?.visibility = View.VISIBLE
+            if (wAData?.size == 0 && wAImageR.size == 0)
+                emptyImage?.visibility = View.VISIBLE
             else
-                imgEmpty?.visibility = View.GONE
-            return if (whatsappImageR.size == 0)
-                whatsAppData?.size!!
+                emptyImage?.visibility = View.GONE
+            return if (wAImageR.size == 0)
+                wAData?.size!!
             else
-                whatsappImageR.size
+                wAImageR.size
         } else {
-            if (whatsAppVideo?.size == 0 && whatsappVideoR.size == 0)
-                imgEmpty?.visibility = View.VISIBLE
+            if (wAVideo?.size == 0 && wAVideoR.size == 0)
+                emptyImage?.visibility = View.VISIBLE
             else
-                imgEmpty?.visibility = View.GONE
-            return if (whatsappVideoR.size == 0)
-                whatsAppVideo?.size!!
+                emptyImage?.visibility = View.GONE
+            return if (wAVideoR.size == 0)
+                wAVideo?.size!!
             else
-                whatsappVideoR.size
+                wAVideoR.size
         }
     }
 
@@ -265,7 +265,7 @@ class AdapterWhatsApp(
                     Environment.DIRECTORY_DCIM + "/All Videos Downloader/Whatsapp/Videos"
                 )
             }
-            activity?.contentResolver
+            fragActivity?.contentResolver
                 ?.insert(MediaStore.Video.Media.EXTERNAL_CONTENT_URI, contentValues)!!
         } else {
             if (Build.VERSION.SDK_INT > Build.VERSION_CODES.Q) {
@@ -274,13 +274,13 @@ class AdapterWhatsApp(
                     Environment.DIRECTORY_DCIM + "/All Videos Downloader/Whatsapp/Images"
                 )
             }
-            activity?.contentResolver
+            fragActivity?.contentResolver
                 ?.insert(MediaStore.Images.Media.EXTERNAL_CONTENT_URI, contentValues)!!
         }
-        Toast.makeText(activity, "Downloaded Successfully", Toast.LENGTH_SHORT).show()
+        Toast.makeText(fragActivity, "Downloaded Successfully", Toast.LENGTH_SHORT).show()
         IOUtils.copy(
-            uri?.let { activity?.contentResolver?.openInputStream(it) },
-            activity?.contentResolver?.openOutputStream(uri2)
+            uri?.let { fragActivity?.contentResolver?.openInputStream(it) },
+            fragActivity?.contentResolver?.openOutputStream(uri2)
         )
     }
 
@@ -296,9 +296,9 @@ class AdapterWhatsApp(
             source = FileInputStream(sourceFile).channel
             destination = FileOutputStream(destFile).channel
             destination.transferFrom(source, 0, source.size())
-            Toast.makeText(activity, "Downloaded Successfully", Toast.LENGTH_SHORT).show()
+            Toast.makeText(fragActivity, "Downloaded Successfully", Toast.LENGTH_SHORT).show()
         } catch (e: Exception) {
-            Toast.makeText(activity, "Something Went Wrong", Toast.LENGTH_SHORT).show()
+            Toast.makeText(fragActivity, "Something Went Wrong", Toast.LENGTH_SHORT).show()
         } finally {
             if (source != null) {
                 source.close()

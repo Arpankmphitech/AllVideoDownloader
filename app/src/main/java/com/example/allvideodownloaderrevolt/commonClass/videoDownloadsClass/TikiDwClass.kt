@@ -13,7 +13,7 @@ import org.jsoup.nodes.Document
 import java.io.File
 import java.util.regex.Pattern
 
-class TikiDwClass internal constructor(var applicationContext: Context, var tikiPath: File) :
+class TikiDwClass internal constructor(var context: Context, var tikiPath: File) :
     AsyncTask<String?, Void?, Document?>() {
     var doc: Document? = null
     var pattern = Pattern.compile("window\\.data \\s*=\\s*(\\{.+?\\});")
@@ -23,10 +23,10 @@ class TikiDwClass internal constructor(var applicationContext: Context, var tiki
         } catch (e: Exception) {
             e.printStackTrace()
             Utils.HideProgressbarDialog()
-            (applicationContext as? Activity)?.runOnUiThread {
+            (context as? Activity)?.runOnUiThread {
                 Toast.makeText(
-                    applicationContext,
-                    applicationContext.getString(R.string.valid_url),
+                    context,
+                    context.getString(R.string.valid_url),
                     Toast.LENGTH_SHORT
                 ).show()
             }
@@ -43,14 +43,14 @@ class TikiDwClass internal constructor(var applicationContext: Context, var tiki
             }
             val jSONObject = JSONObject(str)
             val videoUrl = jSONObject.getString("video_url").replace("_4", "")
-            Utils.newDownload(videoUrl, applicationContext)
+            Utils.newDownload(videoUrl, context)
             Log.d("07/09", "" + videoUrl)
         } catch (e2: Exception) {
             Utils.HideProgressbarDialog()
-            (applicationContext as? Activity)?.runOnUiThread {
+            (context as? Activity)?.runOnUiThread {
                 Toast.makeText(
-                    applicationContext,
-                    applicationContext.getString(R.string.valid_url),
+                    context,
+                    context.getString(R.string.valid_url),
                     Toast.LENGTH_SHORT
                 ).show()
             }

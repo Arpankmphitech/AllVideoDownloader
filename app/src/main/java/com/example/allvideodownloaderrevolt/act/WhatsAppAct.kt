@@ -90,8 +90,8 @@ class WhatsAppAct : BaseAct() {
         actWAppBinding.toolBar.imgApp.setImageDrawable(getDrawable(R.drawable.ic_go_wa))
         actWAppBinding.toolBar.imgApp.visibility = View.VISIBLE
         actWAppBinding.toolBar.imgApp.setOnClickListener {
-            if (isPackageExisted(Constant.WHATSAPP_PACKAGE)) {
-                val launchIntent = Constant.WHATSAPP_PACKAGE.let { it1 ->
+            if (isPackageExisted(Constant.WHATSAPP_PACKAGE_PATH)) {
+                val launchIntent = Constant.WHATSAPP_PACKAGE_PATH.let { it1 ->
                     packageManager.getLaunchIntentForPackage(
                         it1
                     )
