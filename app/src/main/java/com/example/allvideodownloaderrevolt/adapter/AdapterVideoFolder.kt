@@ -9,9 +9,9 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.allvideodownloaderrevolt.R
-import com.example.allvideodownloaderrevolt.activitys.VideoListAct
-import com.example.allvideodownloaderrevolt.common.Utils
-import com.example.allvideodownloaderrevolt.models.FolderModel
+import com.example.allvideodownloaderrevolt.act.VideoListAct
+import com.example.allvideodownloaderrevolt.commonClass.Utils
+import com.example.allvideodownloaderrevolt.modelsClass.FolderModel
 import com.google.android.exoplayer2.metadata.icy.IcyHeaders
 
 class AdapterVideoFolder(

@@ -35,7 +35,7 @@
     </queries>
 
     <application
-        android:name=".AllVideoDownloaderApplicationClass"
+        android:name=".AVDApplicationClass"
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
         android:fullBackupContent="@xml/backup_rules"
@@ -49,64 +49,64 @@
         android:usesCleartextTraffic="true"
         tools:targetApi="31">
         <activity
-            android:name=".activitys.LoginScreenAct"
+            android:name=".act.LoginScreenAct"
             android:exported="false" />
         <activity
-            android:name=".activitys.WhatsAppAct"
+            android:name=".act.WhatsAppAct"
             android:screenOrientation="portrait"
             tools:ignore="LockedOrientationActivity" />
         <activity
-            android:name=".activitys.VideoPlayerAct"
+            android:name=".act.VideoPlayerAct"
             android:screenOrientation="portrait"
             tools:ignore="LockedOrientationActivity" />
         <activity
-            android:name=".activitys.VideoListAct"
+            android:name=".act.VideoListAct"
             android:screenOrientation="portrait"
             tools:ignore="LockedOrientationActivity" />
         <activity
-            android:name=".activitys.VideoDownloaderAct"
+            android:name=".act.VideoDownloaderAct"
             android:screenOrientation="portrait"
             tools:ignore="LockedOrientationActivity" />
         <activity
-            android:name=".activitys.MusicPlayAct"
+            android:name=".act.MusicPlayAct"
             android:screenOrientation="portrait"
             tools:ignore="LockedOrientationActivity" />
         <activity
-            android:name=".activitys.DownloadVideoPlayerAct"
+            android:name=".act.DownloadVideoPlayerAct"
             android:screenOrientation="portrait"
             tools:ignore="LockedOrientationActivity" />
         <activity
-            android:name=".activitys.ImageListAct"
+            android:name=".act.ImageListAct"
             android:screenOrientation="portrait"
             tools:ignore="LockedOrientationActivity" />
         <activity
-            android:name=".activitys.FullImageViewAct"
+            android:name=".act.FullImageViewAct"
             android:screenOrientation="portrait"
             tools:ignore="LockedOrientationActivity" />
         <activity
-            android:name=".activitys.AllVideoPlayerAct"
+            android:name=".act.AllVideoPlayerAct"
             android:label="@string/title_activity_all_video_player"
             android:screenOrientation="portrait"
             android:theme="@style/Theme.AllVideoDownloaderRevolt.NoActionBar"
             tools:ignore="LockedOrientationActivity" />
         <activity
-            android:name=".activitys.ExitAct"
+            android:name=".act.ExitAct"
             android:screenOrientation="portrait"
             tools:ignore="LockedOrientationActivity" />
         <activity
-            android:name=".activitys.HomeAct"
+            android:name=".act.HomeAct"
             android:screenOrientation="portrait"
             tools:ignore="LockedOrientationActivity" />
         <activity
-            android:name=".activitys.FreePremiumAct"
+            android:name=".act.FreePremiumAct"
             android:screenOrientation="portrait"
             tools:ignore="LockedOrientationActivity" />
         <activity
-            android:name=".activitys.LanguagesAct"
+            android:name=".act.LanguagesAct"
             android:screenOrientation="portrait"
             tools:ignore="LockedOrientationActivity" />
         <activity
-            android:name=".activitys.AllDownloadsAct"
+            android:name=".act.AllDownloadsAct"
             android:screenOrientation="portrait"
             tools:ignore="LockedOrientationActivity" />
 
@@ -134,7 +134,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".activitys.SplashScreenAct"
+            android:name=".act.SplashScreenAct"
             android:exported="true"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar"

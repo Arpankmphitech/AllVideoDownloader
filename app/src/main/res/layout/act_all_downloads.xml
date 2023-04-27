@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".activitys.AllDownloadsAct">
+    tools:context=".act.AllDownloadsAct">
 
     <include layout="@layout/tool_bar_item"
         android:id="@+id/toolBar"/>

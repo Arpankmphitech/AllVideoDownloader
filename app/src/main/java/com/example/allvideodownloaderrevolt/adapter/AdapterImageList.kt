@@ -12,9 +12,9 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.bumptech.glide.RequestBuilder
 import com.example.allvideodownloaderrevolt.R
-import com.example.allvideodownloaderrevolt.activitys.FullImageViewAct
-import com.example.allvideodownloaderrevolt.common.Utils
-import com.example.allvideodownloaderrevolt.models.GalleyPhotosListModel
+import com.example.allvideodownloaderrevolt.act.FullImageViewAct
+import com.example.allvideodownloaderrevolt.commonClass.Utils
+import com.example.allvideodownloaderrevolt.modelsClass.GalleyPhotosListModel
 import java.io.Serializable
 
 class AdapterImageList(

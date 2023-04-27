@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:background="@drawable/neon_pink_gradient"
     android:orientation="vertical"
-    tools:context=".activitys.MusicPlayAct">
+    tools:context=".act.MusicPlayAct">
 
     <RelativeLayout
         android:layout_width="match_parent"

@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:background="@drawable/sky_gradient_bg"
     android:orientation="vertical"
-    tools:context=".activitys.AllVideoPlayerAct">
+    tools:context=".act.AllVideoPlayerAct">
 
     <include
         android:id="@+id/toolBar"

@@ -12,9 +12,9 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.bumptech.glide.RequestBuilder
 import com.example.allvideodownloaderrevolt.R
-import com.example.allvideodownloaderrevolt.activitys.AllVideoPlayerAct
-import com.example.allvideodownloaderrevolt.common.Utils
-import com.example.allvideodownloaderrevolt.models.VideoModel
+import com.example.allvideodownloaderrevolt.act.AllVideoPlayerAct
+import com.example.allvideodownloaderrevolt.commonClass.Utils
+import com.example.allvideodownloaderrevolt.modelsClass.VideoModel
 import java.io.File
 import java.io.Serializable
 

@@ -4,9 +4,9 @@ import android.util.Log
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentPagerAdapter
-import com.example.allvideodownloaderrevolt.fragment.DownloadListFrag
-import com.example.allvideodownloaderrevolt.fragment.WhatsAppFrag
-import com.example.allvideodownloaderrevolt.models.StatusModel
+import com.example.allvideodownloaderrevolt.frag.DownloadListFrag
+import com.example.allvideodownloaderrevolt.frag.WhatsAppFrag
+import com.example.allvideodownloaderrevolt.modelsClass.StatusModel
 
 class ViewPagerWhatsApp(
     fm: FragmentManager,

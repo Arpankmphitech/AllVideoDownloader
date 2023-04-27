@@ -10,9 +10,9 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.allvideodownloaderrevolt.R
-import com.example.allvideodownloaderrevolt.activitys.ImageListAct
-import com.example.allvideodownloaderrevolt.common.Utils
-import com.example.allvideodownloaderrevolt.models.GalleyAlbumModel
+import com.example.allvideodownloaderrevolt.act.ImageListAct
+import com.example.allvideodownloaderrevolt.commonClass.Utils
+import com.example.allvideodownloaderrevolt.modelsClass.GalleyAlbumModel
 import com.makeramen.roundedimageview.RoundedImageView
 
 class AdapterGallery(var context: Activity, var listGalleryAlbums: List<GalleyAlbumModel>) :

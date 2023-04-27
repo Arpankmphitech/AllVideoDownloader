@@ -16,11 +16,11 @@ import androidx.fragment.app.FragmentActivity
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.allvideodownloaderrevolt.R
-import com.example.allvideodownloaderrevolt.common.Constant
-import com.example.allvideodownloaderrevolt.common.SharedPreferences
+import com.example.allvideodownloaderrevolt.commonClass.Constant
+import com.example.allvideodownloaderrevolt.commonClass.SharedPreferences
 import com.example.allvideodownloaderrevolt.databinding.ImageThumbanialItemBinding
 import com.example.allvideodownloaderrevolt.databinding.VideoThumbnailItemBinding
-import com.example.allvideodownloaderrevolt.models.StatusModel
+import com.example.allvideodownloaderrevolt.modelsClass.StatusModel
 import org.apache.commons.io.IOUtils
 import java.io.File
 import java.io.FileInputStream

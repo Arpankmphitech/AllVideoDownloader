@@ -14,10 +14,10 @@ import androidx.core.content.FileProvider
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.allvideodownloaderrevolt.R
-import com.example.allvideodownloaderrevolt.activitys.DownloadVideoPlayerAct
-import com.example.allvideodownloaderrevolt.activitys.HomeAct
-import com.example.allvideodownloaderrevolt.common.Constant
-import com.example.allvideodownloaderrevolt.common.Utils
+import com.example.allvideodownloaderrevolt.act.DownloadVideoPlayerAct
+import com.example.allvideodownloaderrevolt.act.HomeAct
+import com.example.allvideodownloaderrevolt.commonClass.Constant
+import com.example.allvideodownloaderrevolt.commonClass.Utils
 import com.example.allvideodownloaderrevolt.databinding.VideoThumbnailItemBinding
 import java.io.File
 

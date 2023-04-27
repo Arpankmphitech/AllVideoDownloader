@@ -10,9 +10,9 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.allvideodownloaderrevolt.R
-import com.example.allvideodownloaderrevolt.activitys.MusicPlayAct
-import com.example.allvideodownloaderrevolt.common.Utils
-import com.example.allvideodownloaderrevolt.models.AudioModel
+import com.example.allvideodownloaderrevolt.act.MusicPlayAct
+import com.example.allvideodownloaderrevolt.commonClass.Utils
+import com.example.allvideodownloaderrevolt.modelsClass.AudioModel
 import java.io.Serializable
 
 class AdapterMusic(var context: Activity, var listGalleryAlbums: List<AudioModel>) :

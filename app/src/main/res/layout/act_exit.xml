@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:background="@color/colorWhite"
     android:orientation="vertical"
-    tools:context=".activitys.ExitAct">
+    tools:context=".act.ExitAct">
 
     <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
