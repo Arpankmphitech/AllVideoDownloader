@@ -40,9 +40,9 @@ import java.net.URL
 class AllDownloadsAct : BaseAct() {
 
     lateinit var actAlDwBinding: ActAllDownloadsBinding
-    private var intFrom = 0
-    private var method: InstaMethodDwClass? = null
-    private var permission = arrayOf(
+    private var fromInt = 0
+    private var methodInsta: InstaMethodDwClass? = null
+    private var accessPermission = arrayOf(
         Manifest.permission.READ_MEDIA_VIDEO,
         Manifest.permission.READ_MEDIA_IMAGES,
         Manifest.permission.READ_MEDIA_AUDIO
@@ -65,38 +65,47 @@ class AllDownloadsAct : BaseAct() {
     }
 
     private fun initView() {
-        intFrom = intent.getIntExtra("from", 0)
+        fromInt = intent.getIntExtra("from", 0)
     }
 
     private fun initToolBar() {
         actAlDwBinding.toolBar.ivBackArrow.setOnClickListener { onBackPressed() }
-        when (intFrom) {
+        when (fromInt) {
             0 -> {
-                actAlDwBinding.toolBar.txtTitleName.text = activity.resources.getString(R.string.sharechat)
+                actAlDwBinding.toolBar.txtTitleName.text =
+                    activity.resources.getString(R.string.sharechat)
             }
             1 -> {
-                actAlDwBinding.toolBar.txtTitleName.text = activity.resources.getString(R.string.twitter)
+                actAlDwBinding.toolBar.txtTitleName.text =
+                    activity.resources.getString(R.string.twitter)
             }
             2 -> {
-                actAlDwBinding.toolBar.txtTitleName.text = activity.resources.getString(R.string.facebook)
+                actAlDwBinding.toolBar.txtTitleName.text =
+                    activity.resources.getString(R.string.facebook)
             }
             3 -> {
-                actAlDwBinding.toolBar.txtTitleName.text = activity.resources.getString(R.string.josh)
+                actAlDwBinding.toolBar.txtTitleName.text =
+                    activity.resources.getString(R.string.josh)
             }
             4 -> {
-                actAlDwBinding.toolBar.txtTitleName.text = activity.resources.getString(R.string.instagram)
+                actAlDwBinding.toolBar.txtTitleName.text =
+                    activity.resources.getString(R.string.instagram)
             }
             5 -> {
-                actAlDwBinding.toolBar.txtTitleName.text = activity.resources.getString(R.string.chingari)
+                actAlDwBinding.toolBar.txtTitleName.text =
+                    activity.resources.getString(R.string.chingari)
             }
             6 -> {
-                actAlDwBinding.toolBar.txtTitleName.text = activity.resources.getString(R.string.tiki)
+                actAlDwBinding.toolBar.txtTitleName.text =
+                    activity.resources.getString(R.string.tiki)
             }
             7 -> {
-                actAlDwBinding.toolBar.txtTitleName.text = activity.resources.getString(R.string.roposo)
+                actAlDwBinding.toolBar.txtTitleName.text =
+                    activity.resources.getString(R.string.roposo)
             }
             8 -> {
-                actAlDwBinding.toolBar.txtTitleName.text = activity.resources.getString(R.string.vimeo)
+                actAlDwBinding.toolBar.txtTitleName.text =
+                    activity.resources.getString(R.string.vimeo)
             }
         }
     }
@@ -105,11 +114,10 @@ class AllDownloadsAct : BaseAct() {
         actAlDwBinding.btnUriDataDownloads.setOnClickListener {
             if (Build.VERSION.SDK_INT > 31) {
                 if (ContextCompat.checkSelfPermission(
-                        this,
-                        Manifest.permission.READ_MEDIA_VIDEO
+                        this, Manifest.permission.READ_MEDIA_VIDEO
                     ) != PackageManager.PERMISSION_GRANTED
                 ) {
-                    ActivityCompat.requestPermissions(activity, permission, 101)
+                    ActivityCompat.requestPermissions(activity, accessPermission, 101)
                 } else {
 //                    if (!Utils.isValidationUrl(actAlDwBinding.edtWebURL.text.toString())) {
 //                        Toast.makeText(activity, getString(R.string.valid_url), Toast.LENGTH_SHORT)
@@ -117,12 +125,10 @@ class AllDownloadsAct : BaseAct() {
 //                    }
                     Constant.createFolder()
                     if (Utils.isNetworkAvailable(
-                            activity,
-                            canShowErrorDialogOnFail = true,
-                            isFinish = true
+                            activity, canShowErrorDialogOnFail = true, isFinish = true
                         )
                     ) {
-                        when (intFrom) {
+                        when (fromInt) {
                             0 -> {
                                 //share chat
                                 shareChatDownloads()
@@ -167,14 +173,11 @@ class AllDownloadsAct : BaseAct() {
                 }
             } else {
                 if (ContextCompat.checkSelfPermission(
-                        this,
-                        Manifest.permission.WRITE_EXTERNAL_STORAGE
+                        this, Manifest.permission.WRITE_EXTERNAL_STORAGE
                     ) != PackageManager.PERMISSION_GRANTED
                 ) {
                     ActivityCompat.requestPermissions(
-                        this,
-                        permission,
-                        101
+                        this, accessPermission, 101
                     )
                 } else {
 //                    if (!Utils.isValidationUrl(actAlDwBinding.edtWebURL.text.toString())) {
@@ -183,12 +186,10 @@ class AllDownloadsAct : BaseAct() {
 //                    }
                     Constant.createFolder()
                     if (Utils.isNetworkAvailable(
-                            activity,
-                            canShowErrorDialogOnFail = true,
-                            isFinish = true
+                            activity, canShowErrorDialogOnFail = true, isFinish = true
                         )
                     ) {
-                        when (intFrom) {
+                        when (fromInt) {
                             0 -> {
                                 //share chat
                                 shareChatDownloads()
@@ -234,8 +235,7 @@ class AllDownloadsAct : BaseAct() {
             }
         }
         actAlDwBinding.btnUriDataPaste.setOnClickListener {
-            val clipboard =
-                getSystemService(CLIPBOARD_SERVICE) as ClipboardManager
+            val clipboard = getSystemService(CLIPBOARD_SERVICE) as ClipboardManager
             try {
                 val text = clipboard.primaryClip!!.getItemAt(0).text
                 actAlDwBinding.edtWebURL.setText(text)
@@ -247,7 +247,7 @@ class AllDownloadsAct : BaseAct() {
 
     private fun initSetData() {
         val gradientDrawable = actAlDwBinding.btnUriDataDownloads.background as GradientDrawable
-        when (intFrom) {
+        when (fromInt) {
             0 -> {
                 setChangeData(
                     activity.resources.getString(R.string.sharechat),
@@ -255,7 +255,8 @@ class AllDownloadsAct : BaseAct() {
                     activity.resources.getColorStateList(R.color.colorRose),
                     activity.resources.getColorStateList(R.color.colorLavenderBlush),
                     activity.resources.getDrawable(R.drawable.ic_sharechat),
-                    activity.resources.getDrawable(R.drawable.ic_download_share), gradientDrawable
+                    activity.resources.getDrawable(R.drawable.ic_download_share),
+                    gradientDrawable
                 )
             }
             1 -> {
@@ -287,7 +288,8 @@ class AllDownloadsAct : BaseAct() {
                     activity.resources.getColorStateList(R.color.colorDarkTurquoise),
                     activity.resources.getColorStateList(R.color.colorLightCyan),
                     activity.resources.getDrawable(R.drawable.ic_josh),
-                    activity.resources.getDrawable(R.drawable.ic_download_josh), gradientDrawable
+                    activity.resources.getDrawable(R.drawable.ic_download_josh),
+                    gradientDrawable
                 )
             }
             4 -> {
@@ -319,7 +321,8 @@ class AllDownloadsAct : BaseAct() {
                     activity.resources.getColorStateList(R.color.colorCorn),
                     activity.resources.getColorStateList(R.color.colorCornSilk),
                     activity.resources.getDrawable(R.drawable.ic_tiki),
-                    activity.resources.getDrawable(R.drawable.ic_download_tiki), gradientDrawable
+                    activity.resources.getDrawable(R.drawable.ic_download_tiki),
+                    gradientDrawable
                 )
             }
             7 -> {
@@ -329,7 +332,8 @@ class AllDownloadsAct : BaseAct() {
                     activity.resources.getColorStateList(R.color.colorHeliotrope),
                     activity.resources.getColorStateList(R.color.colorMagnolia),
                     activity.resources.getDrawable(R.drawable.ic_roposo),
-                    activity.resources.getDrawable(R.drawable.ic_download_roposo), gradientDrawable
+                    activity.resources.getDrawable(R.drawable.ic_download_roposo),
+                    gradientDrawable
                 )
 
             }
@@ -340,7 +344,8 @@ class AllDownloadsAct : BaseAct() {
                     activity.resources.getColorStateList(R.color.colorSummerSky),
                     activity.resources.getColorStateList(R.color.colorAliceBlue),
                     activity.resources.getDrawable(R.drawable.ic_vimeo),
-                    activity.resources.getDrawable(R.drawable.ic_download_vimeo), gradientDrawable
+                    activity.resources.getDrawable(R.drawable.ic_download_vimeo),
+                    gradientDrawable
                 )
             }
         }
@@ -366,24 +371,22 @@ class AllDownloadsAct : BaseAct() {
     }
 
     private fun instagramDownloads() {
-        method = InstaMethodDwClass(activity) { _, type, data ->
+        methodInsta = InstaMethodDwClass(activity) { _, type, data ->
 
             if (type.equals("getData")) {
                 Utils.ShowProgressbarDialog(
-                    activity,
-                    getString(R.string.please_wait_we_are_downloading)
+                    activity, getString(R.string.please_wait_we_are_downloading)
                 )
-                val findData =
-                    InstagramDwClass(
-                        applicationContext
-                    ) { _, _, _ -> }
+                val findData = InstagramDwClass(
+                    applicationContext
+                ) { _, _, _ -> }
                 findData.data(data)
             }
 
         }
 //        val url = actAlDwBinding.edtWebURL.text.toString().trim { it <= ' ' }
 //        if (!Utils.isValidatEmpty(actAlDwBinding.edtWebURL.text.toString().trim { it <= ' ' })) {
-//            method!!.onClick(0, "getData", url)
+//            methodInsta!!.onClick(0, "getData", url)
 //        } else {
 //            Toast.makeText(activity, getString(R.string.enter_url), Toast.LENGTH_SHORT).show()
 //        }
@@ -391,10 +394,12 @@ class AllDownloadsAct : BaseAct() {
         val url = actAlDwBinding.edtWebURL.text.toString().trim { it <= ' ' }
         if (Utils.isValidatEmpty(actAlDwBinding.edtWebURL.text.toString().trim { it <= ' ' })) {
             Toast.makeText(activity, getString(R.string.enter_url), Toast.LENGTH_SHORT).show()
-        } else if (!Utils.isValidationUrl(actAlDwBinding.edtWebURL.text.toString().trim { it <= ' ' })) {
+        } else if (!Utils.isValidationUrl(actAlDwBinding.edtWebURL.text.toString()
+                .trim { it <= ' ' })
+        ) {
             Toast.makeText(activity, getString(R.string.valid_url), Toast.LENGTH_SHORT).show()
         } else {
-            method!!.onClick(0, "getData", url)
+            methodInsta!!.onClick(0, "getData", url)
         }
     }
 
@@ -404,8 +409,7 @@ class AllDownloadsAct : BaseAct() {
                 val url = actAlDwBinding.edtWebURL.text.toString().trim { it <= ' ' }
                 Log.e("17/01", "roposoDownloads:$url")
                 Utils.ShowProgressbarDialog(
-                    activity,
-                    getString(R.string.please_wait_we_are_downloading)
+                    activity, getString(R.string.please_wait_we_are_downloading)
                 )
                 RoposoDwClass(activity, Constant.ROPOSO_PATH, url).execute(url)
             } else {
@@ -421,8 +425,7 @@ class AllDownloadsAct : BaseAct() {
             if (actAlDwBinding.edtWebURL.text.toString().trim { it <= ' ' }.contains("chingari")) {
                 val url = actAlDwBinding.edtWebURL.text.toString().trim { it <= ' ' }
                 Utils.ShowProgressbarDialog(
-                    activity,
-                    getString(R.string.please_wait_we_are_downloading)
+                    activity, getString(R.string.please_wait_we_are_downloading)
                 )
                 ChingariDwClass(activity, Constant.CHINGARI_PATH).execute(url)
             } else {
@@ -438,18 +441,14 @@ class AllDownloadsAct : BaseAct() {
             if (actAlDwBinding.edtWebURL.text.toString().contains("tiki")) {
                 val url = actAlDwBinding.edtWebURL.text.toString()
                 Utils.ShowProgressbarDialog(
-                    activity,
-                    getString(R.string.please_wait_we_are_downloading)
+                    activity, getString(R.string.please_wait_we_are_downloading)
                 )
                 TikiDwClass(
-                    activity,
-                    Constant.TIKI_PATH
+                    activity, Constant.TIKI_PATH
                 ).execute(url)
             } else {
                 Toast.makeText(
-                    activity,
-                    getString(R.string.valid_url),
-                    Toast.LENGTH_SHORT
+                    activity, getString(R.string.valid_url), Toast.LENGTH_SHORT
                 ).show()
             }
         } else {
@@ -492,8 +491,8 @@ class AllDownloadsAct : BaseAct() {
                 Toast.makeText(activity, getString(R.string.enter_url), Toast.LENGTH_SHORT).show()
                 hideKeyBoard(activity)
 
-            } else if (!Utils.isValidationUrl(
-                    actAlDwBinding.edtWebURL.text.toString().trim { it <= ' ' })
+            } else if (!Utils.isValidationUrl(actAlDwBinding.edtWebURL.text.toString()
+                    .trim { it <= ' ' })
             ) {
                 Toast.makeText(activity, getString(R.string.valid_url), Toast.LENGTH_SHORT).show()
                 hideKeyBoard(activity)
@@ -507,10 +506,8 @@ class AllDownloadsAct : BaseAct() {
                         activity.resources.getString(R.string.please_wait_we_are_downloading)
                     )
                     ShareChatDwClass(
-                        activity,
-                        Constant.SHARE_CHAT_PATH
-                    ).execute(actAlDwBinding.edtWebURL.text.toString()
-                        .trim { it <= ' ' })
+                        activity, Constant.SHARE_CHAT_PATH
+                    ).execute(actAlDwBinding.edtWebURL.text.toString().trim { it <= ' ' })
                     hideKeyBoard(activity)
                 } else {
                     Toast.makeText(activity, getString(R.string.valid_url), Toast.LENGTH_SHORT)
@@ -526,48 +523,37 @@ class AllDownloadsAct : BaseAct() {
     private fun twitterDownloads() {
         if (Utils.isValidatEmpty(actAlDwBinding.edtWebURL.text.toString())) {
             Toast.makeText(
-                activity,
-                activity.resources.getString(R.string.enter_url),
-                Toast.LENGTH_SHORT
+                activity, activity.resources.getString(R.string.enter_url), Toast.LENGTH_SHORT
             ).show()
             Log.e("0101", "twitterDownloads:23 ")
             Utils.HideProgressbarDialog()
 
         } else if (!Utils.isValidationUrl(actAlDwBinding.edtWebURL.text.toString())) {
             Toast.makeText(
-                activity,
-                activity.resources.getString(R.string.valid_url),
-                Toast.LENGTH_SHORT
+                activity, activity.resources.getString(R.string.valid_url), Toast.LENGTH_SHORT
             ).show()
             Log.e("0101", "twitterDownloads:2 ")
             Utils.HideProgressbarDialog()
 
         } else {
-            if (!Utils.isValidatEmpty(actAlDwBinding.edtWebURL.text.toString().trim { it <= ' ' })
-                && URL(actAlDwBinding.edtWebURL.text.toString()).host
-                    .contains("twitter.com")
+            if (!Utils.isValidatEmpty(
+                    actAlDwBinding.edtWebURL.text.toString().trim { it <= ' ' }) && URL(
+                    actAlDwBinding.edtWebURL.text.toString()
+                ).host.contains("twitter.com")
             ) {
                 Utils.ShowProgressbarDialog(
-                    activity,
-                    getString(R.string.please_wait_we_are_downloading)
+                    activity, getString(R.string.please_wait_we_are_downloading)
                 )
-                val tweetId =
-                    JavaHelper.getTweetId(actAlDwBinding.edtWebURL.text.toString().trim())
+                val tweetId = JavaHelper.getTweetId(actAlDwBinding.edtWebURL.text.toString().trim())
 
                 if (tweetId != null) {
                     AndroidNetworking.post(
                         Crypto.decrypt(
-                            Constant.twitterApi,
-                            Constant.encryptionKey
+                            Constant.twitterApi, Constant.encryptionKey
                         )
-                    )
-                        .addBodyParameter(
-                            "id",
-                            tweetId.toString()
-                        )
-                        .setTag("test")
-                        .setPriority(Priority.MEDIUM)
-                        .build()
+                    ).addBodyParameter(
+                        "id", tweetId.toString()
+                    ).setTag("test").setPriority(Priority.MEDIUM).build()
                         .getAsJSONObject(object : JSONObjectRequestListener {
                             override fun onResponse(response: JSONObject) {
 
@@ -578,14 +564,12 @@ class AllDownloadsAct : BaseAct() {
                                         ) {
                                             if (!Utils.isValidationEmpty(
                                                     response.optJSONArray("videos")!!
-                                                        .optJSONObject(0)
-                                                        .get("url").toString()
+                                                        .optJSONObject(0).get("url").toString()
                                                 )
                                             ) {
                                                 Utils.newDownload(
                                                     response.optJSONArray("videos")!!
-                                                        .optJSONObject(0)
-                                                        .get("url").toString(),
+                                                        .optJSONObject(0).get("url").toString(),
                                                     activity
                                                 )
                                             }
@@ -594,14 +578,12 @@ class AllDownloadsAct : BaseAct() {
                                         ) {
                                             if (!Utils.isValidationEmpty(
                                                     response.optJSONArray("videos")!!
-                                                        .optJSONObject(1)
-                                                        .get("url").toString()
+                                                        .optJSONObject(1).get("url").toString()
                                                 )
                                             ) {
                                                 Utils.newDownload(
                                                     response.optJSONArray("videos")!!
-                                                        .optJSONObject(1)
-                                                        .get("url").toString(),
+                                                        .optJSONObject(1).get("url").toString(),
                                                     activity
                                                 )
                                             }
@@ -610,15 +592,14 @@ class AllDownloadsAct : BaseAct() {
                                         ) {
                                             if (!Utils.isValidationEmpty(
                                                     response.optJSONArray("videos")!!
-                                                        .optJSONObject(2)
-                                                        .get("url").toString()
+                                                        .optJSONObject(2).get("url").toString()
                                                 )
                                             ) {
                                                 Utils.newDownload(
                                                     response.optJSONArray("videos")!!
-                                                        .optJSONObject(2)
-                                                        .get("url").toString(),
-                                                    activity)
+                                                        .optJSONObject(2).get("url").toString(),
+                                                    activity
+                                                )
                                             }
 
                                         }
@@ -640,9 +621,7 @@ class AllDownloadsAct : BaseAct() {
                 } else {
                     (activity as? Activity)?.runOnUiThread {
                         Toast.makeText(
-                            activity,
-                            activity.getString(R.string.valid_url),
-                            Toast.LENGTH_SHORT
+                            activity, activity.getString(R.string.valid_url), Toast.LENGTH_SHORT
                         ).show()
                         Log.e("0101", "twitterDownloads: ")
                         Utils.HideProgressbarDialog()
@@ -660,8 +639,7 @@ class AllDownloadsAct : BaseAct() {
             val url = actAlDwBinding.edtWebURL.text.toString().trim { it <= ' ' }
             if (url.contains("fb")) {
                 Utils.ShowProgressbarDialog(
-                    activity,
-                    activity.resources.getString(R.string.please_wait_we_are_downloading)
+                    activity, activity.resources.getString(R.string.please_wait_we_are_downloading)
                 )
                 Log.d("10/03", "1")
                 FacebookVideoLinkParserDwClass({ }, activity).execute(url)
@@ -678,19 +656,15 @@ class AllDownloadsAct : BaseAct() {
             if (actAlDwBinding.edtWebURL.text.toString().contains("vimeo")) {
                 val url = actAlDwBinding.edtWebURL.text.toString()
                 Utils.ShowProgressbarDialog(
-                    activity,
-                    getString(R.string.please_wait_we_are_downloading)
+                    activity, getString(R.string.please_wait_we_are_downloading)
                 )
                 VimeoDwClass(
-                    applicationContext,
-                    Constant.VIMEO_PATH
+                    applicationContext, Constant.VIMEO_PATH
                 ).execute(url)
 
             } else {
                 Toast.makeText(
-                    applicationContext,
-                    getString(R.string.valid_url),
-                    Toast.LENGTH_SHORT
+                    applicationContext, getString(R.string.valid_url), Toast.LENGTH_SHORT
                 ).show()
             }
         } else {
