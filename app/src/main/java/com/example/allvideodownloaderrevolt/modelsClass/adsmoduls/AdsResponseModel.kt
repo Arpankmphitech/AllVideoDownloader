@@ -1,8 +1,9 @@
-package com.video.downloader.free.allvideo.media.download.social.videos.hd.models.adsmodule
+package com.example.allvideodownloaderrevolt.models.adsmodule
 
 import com.androidads.adsdemo.model.AdPriority
 import com.google.gson.annotations.Expose
 import com.google.gson.annotations.SerializedName
+import com.video.downloader.free.allvideo.media.download.social.videos.hd.models.adsmodule.DataModel
 import java.io.Serializable
 
 class AdsResponseModel : Serializable {

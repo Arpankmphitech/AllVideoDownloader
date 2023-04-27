@@ -1,4 +1,4 @@
-package com.video.downloader.free.allvideo.media.download.social.videos.hd.models.adsmodule
+package com.example.allvideodownloaderrevolt.models.adsmodule
 
 import android.app.Activity
 import android.app.Application
