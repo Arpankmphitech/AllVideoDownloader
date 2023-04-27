@@ -12,7 +12,7 @@ import com.example.allvideodownloaderrevolt.modelsClass.VideoModel
 class AllVideoPlayerAct : BaseAct() {
 
     lateinit var actAlPlayerBinding: ActAllVideoPlayerBinding
-    private var videoList: List<VideoModel>? = null
+    var videoList: List<VideoModel>? = null
     private var position = 0
 
     override fun onCreate(savedInstanceState: Bundle?) {

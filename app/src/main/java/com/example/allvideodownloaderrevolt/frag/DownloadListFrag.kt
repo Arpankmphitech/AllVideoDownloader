@@ -105,7 +105,6 @@ class DownloadListFrag(var i: Int) : Fragment(), LoaderManager.LoaderCallbacks<C
     }
 
     override fun onLoaderReset(loader: Loader<Cursor>?) {
-        TODO("Not yet implemented")
     }
 
     override fun onLoadFinished(loader: Loader<Cursor>?, cursor: Cursor?) {
