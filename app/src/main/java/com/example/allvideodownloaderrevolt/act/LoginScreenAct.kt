@@ -20,7 +20,7 @@ class LoginScreenAct : AppCompatActivity() {
         actLoginBinding = ActLoginScreenBinding.inflate(layoutInflater)
         setContentView(actLoginBinding.root)
 
-        initView()
+        loginInitView()
 
     }
 
@@ -35,7 +35,7 @@ class LoginScreenAct : AppCompatActivity() {
 
     }
 
-    private fun initView() {
+    private fun loginInitView() {
 
         actLoginBinding.apply {
 

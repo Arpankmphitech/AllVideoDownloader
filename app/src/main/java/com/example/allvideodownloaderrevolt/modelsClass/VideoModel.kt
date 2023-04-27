@@ -48,19 +48,23 @@ class VideoModel : Serializable, Comparable<VideoModel?> {
         }
         var sort_location = Comparator<VideoModel> { videoModel, videoModel2 ->
             videoModel.data!!.compareTo(
-                videoModel2.data!!)
+                videoModel2.data!!
+            )
         }
         var sort_name = Comparator<VideoModel> { videoModel, videoModel2 ->
             videoModel.title!!.compareTo(
-                videoModel2.title!!)
+                videoModel2.title!!
+            )
         }
         var sort_resolution = Comparator<VideoModel> { videoModel, videoModel2 ->
             videoModel.resolution!!.compareTo(
-                videoModel2.resolution!!)
+                videoModel2.resolution!!
+            )
         }
         var sort_size = Comparator<VideoModel> { videoModel, videoModel2 ->
             videoModel.size!!.compareTo(
-                videoModel2.size!!)
+                videoModel2.size!!
+            )
         }
 
         fun folderDate(str: String?): String {
@@ -70,14 +74,22 @@ class VideoModel : Serializable, Comparable<VideoModel?> {
         fun duration(str: String?): String {
             return try {
                 val parseInt = str!!.toInt().toLong()
-                String.format("%02d:%02d:%02d",
-                    *arrayOf<Any>(java.lang.Long.valueOf(TimeUnit.MILLISECONDS.toHours(parseInt)),
+                String.format(
+                    "%02d:%02d:%02d",
+                    *arrayOf<Any>(
+                        java.lang.Long.valueOf(TimeUnit.MILLISECONDS.toHours(parseInt)),
                         java.lang.Long.valueOf(
                             TimeUnit.MILLISECONDS.toMinutes(parseInt) - TimeUnit.HOURS.toMinutes(
-                                TimeUnit.MILLISECONDS.toHours(parseInt))),
+                                TimeUnit.MILLISECONDS.toHours(parseInt)
+                            )
+                        ),
                         java.lang.Long.valueOf(
                             TimeUnit.MILLISECONDS.toSeconds(parseInt) - TimeUnit.MINUTES.toSeconds(
-                                TimeUnit.MILLISECONDS.toMinutes(parseInt)))))
+                                TimeUnit.MILLISECONDS.toMinutes(parseInt)
+                            )
+                        )
+                    )
+                )
             } catch (e: Exception) {
                 e.printStackTrace()
                 ""

@@ -153,7 +153,7 @@ object Utils {
     fun setStatusBarSkyGradientActivity(activity: Activity) {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
             val window = activity.window
-            val background = activity.resources.getDrawable(R.drawable.ic_sky_common_gradient_bg)
+            val background = activity.resources.getDrawable(R.drawable.ic_sky_gradient_bg)
             window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS)
             window.statusBarColor = activity.resources.getColor(android.R.color.transparent)
             window.navigationBarColor = activity.resources.getColor(android.R.color.transparent)
@@ -411,7 +411,7 @@ object Utils {
     fun setStatusBarBlueGradientActivity(activity: Activity) {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
             val window = activity.window
-            val background = activity.resources.getDrawable(R.drawable.ic_blue_common_gradient_bg)
+            val background = activity.resources.getDrawable(R.drawable.ic_blue_with_gradient_bg)
             window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS)
             window.statusBarColor = activity.resources.getColor(android.R.color.transparent)
             window.navigationBarColor = activity.resources.getColor(android.R.color.transparent)
@@ -509,7 +509,7 @@ object Utils {
     fun setStatusBarSkyBlueGradientActivity(activity: Activity) {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
             val window = activity.window
-            val background = activity.resources.getDrawable(R.drawable.sky_gradient_bg)
+            val background = activity.resources.getDrawable(R.drawable.sky_gradient_bg_135)
             window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS)
             window.statusBarColor = activity.resources.getColor(android.R.color.transparent)
             window.navigationBarColor = activity.resources.getColor(android.R.color.transparent)

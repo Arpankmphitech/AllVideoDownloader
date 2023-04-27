@@ -52,7 +52,7 @@ class WhatsAppsFrag : Fragment() {
                     0 -> {
                         binding.txtImages.setTextColor(resources.getColor(R.color.colorWhite))
                         binding.txtImages.background =
-                            resources.getDrawable(R.drawable.sky_gradient_8sdp_bg)
+                            resources.getDrawable(R.drawable.blue_gradient_8sdp_bg)
 
                         binding.tvVideos.setTextColor(resources.getColor(R.color.colorSilver))
                         binding.tvVideos.background = null
@@ -63,7 +63,7 @@ class WhatsAppsFrag : Fragment() {
                     1 -> {
                         binding.tvVideos.setTextColor(resources.getColor(R.color.colorWhite))
                         binding.tvVideos.background =
-                            resources.getDrawable(R.drawable.sky_gradient_8sdp_bg)
+                            resources.getDrawable(R.drawable.blue_gradient_8sdp_bg)
 
                         binding.txtSave.setTextColor(resources.getColor(R.color.colorSilver))
                         binding.txtSave.background = null
@@ -74,7 +74,7 @@ class WhatsAppsFrag : Fragment() {
                     else -> {
                         binding.txtSave.setTextColor(resources.getColor(R.color.colorWhite))
                         binding.txtSave.background =
-                            resources.getDrawable(R.drawable.sky_gradient_8sdp_bg)
+                            resources.getDrawable(R.drawable.blue_gradient_8sdp_bg)
 
                         binding.tvVideos.setTextColor(resources.getColor(R.color.colorSilver))
                         binding.tvVideos.background = null
@@ -92,7 +92,7 @@ class WhatsAppsFrag : Fragment() {
 
         })
         binding.toolBar.txtTitleName.text = "Status Saver"
-        binding.toolBar.imgApp.setImageDrawable(resources.getDrawable(R.drawable.ic_wa_go))
+        binding.toolBar.imgApp.setImageDrawable(resources.getDrawable(R.drawable.ic_go_wa))
         binding.toolBar.imgApp.visibility = View.VISIBLE
         binding.toolBar.ivBackArrow.visibility = View.INVISIBLE
         binding.toolBar.imgApp.setOnClickListener {

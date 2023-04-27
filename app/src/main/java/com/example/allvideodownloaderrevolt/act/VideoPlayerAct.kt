@@ -19,17 +19,17 @@ class VideoPlayerAct : BaseAct() {
         setContentView(actVideoPlayerBinding.root)
         activity = this@VideoPlayerAct
         Utils.setStatusBarSkyGradientActivity(activity as VideoPlayerAct)
-        initToolBar()
-        initView()
-        initClick()
+        videoPlayerInitToolBar()
+        videoPlayerInitView()
+        videoPlayerInitClick()
     }
 
-    private fun initToolBar() {
+    private fun videoPlayerInitToolBar() {
         actVideoPlayerBinding.toolBar.ivBackArrow.setOnClickListener { onBackPressed() }
         actVideoPlayerBinding.toolBar.txtTitleName.text = activity.resources.getString(R.string.video_player)
     }
 
-    private fun initClick() {
+    private fun videoPlayerInitClick() {
         actVideoPlayerBinding.txtVideo.setOnClickListener { bottomBarSelectOption(1) }
         actVideoPlayerBinding.txtMusic.setOnClickListener { bottomBarSelectOption(2) }
         actVideoPlayerBinding.txtGallery.setOnClickListener { bottomBarSelectOption(3) }
@@ -46,25 +46,25 @@ class VideoPlayerAct : BaseAct() {
             1 -> {
                 actVideoPlayerBinding.txtVideo.setTextColor(activity.resources.getColor(R.color.colorWhite))
                 actVideoPlayerBinding.txtVideo.background =
-                    activity.resources.getDrawable(R.drawable.sky_gradient_8sdp_bg)
+                    activity.resources.getDrawable(R.drawable.blue_gradient_8sdp_bg)
                 loadFragmentView(VideoFrag())
             }
             2 -> {
                 actVideoPlayerBinding.txtMusic.setTextColor(activity.resources.getColor(R.color.colorWhite))
                 actVideoPlayerBinding.txtMusic.background =
-                    activity.resources.getDrawable(R.drawable.sky_gradient_8sdp_bg)
+                    activity.resources.getDrawable(R.drawable.blue_gradient_8sdp_bg)
                 loadFragmentView(MusicFrag())
             }
             else -> {
                 actVideoPlayerBinding.txtGallery.setTextColor(activity.resources.getColor(R.color.colorWhite))
                 actVideoPlayerBinding.txtGallery.background =
-                    activity.resources.getDrawable(R.drawable.sky_gradient_8sdp_bg)
+                    activity.resources.getDrawable(R.drawable.blue_gradient_8sdp_bg)
                 loadFragmentView(GalleryFrag())
             }
         }
     }
 
-    private fun initView() {
+    private fun videoPlayerInitView() {
         bottomBarSelectOption(1)
     }
 

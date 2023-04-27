@@ -23,7 +23,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:src="@drawable/ic_exit" />
+                android:src="@drawable/ic_icon_exit" />
 
             <TextView
                 android:layout_width="match_parent"
@@ -52,7 +52,7 @@
                 android:layout_height="@dimen/_45sdp"
                 android:layout_marginHorizontal="@dimen/_10sdp"
                 android:layout_marginTop="@dimen/_10sdp"
-                android:background="@drawable/sky_gradient_8sdp_bg"
+                android:background="@drawable/blue_gradient_8sdp_bg"
                 android:fontFamily="@font/worksans_semibold"
                 android:includeFontPadding="false"
                 android:text="@string/rate_now"
@@ -72,7 +72,7 @@
                     android:layout_height="@dimen/_45sdp"
                     android:layout_marginEnd="@dimen/_5sdp"
                     android:layout_weight="1"
-                    android:background="@drawable/common_border_bg_10sdp"
+                    android:background="@drawable/sky_border_bg_10sdp"
                     android:fontFamily="@font/worksans_semibold"
                     android:includeFontPadding="false"
                     android:text="@string/yes"
@@ -86,7 +86,7 @@
                     android:layout_height="@dimen/_45sdp"
                     android:layout_marginStart="@dimen/_5sdp"
                     android:layout_weight="1"
-                    android:background="@drawable/common_border_bg_10sdp"
+                    android:background="@drawable/sky_border_bg_10sdp"
                     android:fontFamily="@font/worksans_semibold"
                     android:includeFontPadding="false"
                     android:text="@string/no"

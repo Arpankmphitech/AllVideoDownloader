@@ -30,7 +30,7 @@
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="@dimen/_23sdp"
-        android:src="@drawable/ic_slc_home"
+        android:src="@drawable/ic_gradient_home"
         tools:ignore="ContentDescription" />
     <!--    android:background="@drawable/orange_red_gradient_with_shadow_365sdp"-->
     <!--    android:padding="@dimen/_20sdp"-->

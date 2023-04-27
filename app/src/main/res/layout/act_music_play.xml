@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/neon_pink_gradient"
+    android:background="@drawable/pink_gradient_bg"
     android:orientation="vertical"
     tools:context=".act.MusicPlayAct">
 
@@ -19,7 +19,7 @@
             android:layout_height="match_parent"
             android:layout_gravity="center"
             android:scaleType="centerCrop"
-            android:src="@drawable/ic_music_top_logo" />
+            android:src="@drawable/music_top_bg" />
 
         <include
             android:id="@+id/toolBar"
@@ -33,7 +33,7 @@
             android:layout_height="wrap_content"
             android:layout_alignParentBottom="true"
             android:layout_margin="@dimen/_15sdp"
-            android:background="@drawable/ic_music_trans"
+            android:background="@drawable/music_trans_bg"
             android:gravity="center"
             android:orientation="vertical"
             android:padding="@dimen/_15sdp">
@@ -83,7 +83,7 @@
                     android:layout_width="@dimen/_25sdp"
                     android:layout_height="@dimen/_25sdp"
                     android:padding="@dimen/_3sdp"
-                    android:src="@drawable/ic_previous" />
+                    android:src="@drawable/ic_previous_btn" />
 
                 <ImageView
                     android:id="@+id/imgPlayStop"
@@ -91,14 +91,14 @@
                     android:layout_height="@dimen/_35sdp"
                     android:layout_marginHorizontal="@dimen/_20sdp"
                     android:padding="@dimen/_3sdp"
-                    android:src="@drawable/ic_stop" />
+                    android:src="@drawable/ic_stop_btn" />
 
                 <ImageView
                     android:id="@+id/imgNext"
                     android:layout_width="@dimen/_25sdp"
                     android:layout_height="@dimen/_25sdp"
                     android:padding="@dimen/_3sdp"
-                    android:src="@drawable/ic_next" />
+                    android:src="@drawable/ic_next_btn" />
             </LinearLayout>
         </LinearLayout>
 

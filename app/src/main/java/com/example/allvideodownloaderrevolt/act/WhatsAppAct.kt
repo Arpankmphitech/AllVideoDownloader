@@ -46,7 +46,7 @@ class WhatsAppAct : BaseAct() {
                     0 -> {
                         actWAppBinding.txtImages.setTextColor(resources.getColor(R.color.colorWhite))
                         actWAppBinding.txtImages.background =
-                            getDrawable(R.drawable.sky_gradient_8sdp_bg)
+                            getDrawable(R.drawable.blue_gradient_8sdp_bg)
 
                         actWAppBinding.tvVideos.setTextColor(resources.getColor(R.color.colorSilver))
                         actWAppBinding.tvVideos.background = null
@@ -57,7 +57,7 @@ class WhatsAppAct : BaseAct() {
                     1 -> {
                         actWAppBinding.tvVideos.setTextColor(resources.getColor(R.color.colorWhite))
                         actWAppBinding.tvVideos.background =
-                            getDrawable(R.drawable.sky_gradient_8sdp_bg)
+                            getDrawable(R.drawable.blue_gradient_8sdp_bg)
 
                         actWAppBinding.txtSave.setTextColor(resources.getColor(R.color.colorSilver))
                         actWAppBinding.txtSave.background = null
@@ -68,7 +68,7 @@ class WhatsAppAct : BaseAct() {
                     else -> {
                         actWAppBinding.txtSave.setTextColor(resources.getColor(R.color.colorWhite))
                         actWAppBinding.txtSave.background =
-                            getDrawable(R.drawable.sky_gradient_8sdp_bg)
+                            getDrawable(R.drawable.blue_gradient_8sdp_bg)
 
                         actWAppBinding.tvVideos.setTextColor(resources.getColor(R.color.colorSilver))
                         actWAppBinding.tvVideos.background = null
@@ -87,7 +87,7 @@ class WhatsAppAct : BaseAct() {
         })
         actWAppBinding.toolBar.ivBackArrow.setOnClickListener { onBackPressed() }
         actWAppBinding.toolBar.txtTitleName.text = "Status Saver"
-        actWAppBinding.toolBar.imgApp.setImageDrawable(getDrawable(R.drawable.ic_wa_go))
+        actWAppBinding.toolBar.imgApp.setImageDrawable(getDrawable(R.drawable.ic_go_wa))
         actWAppBinding.toolBar.imgApp.visibility = View.VISIBLE
         actWAppBinding.toolBar.imgApp.setOnClickListener {
             if (isPackageExisted(Constant.WHATSAPP_PACKAGE)) {

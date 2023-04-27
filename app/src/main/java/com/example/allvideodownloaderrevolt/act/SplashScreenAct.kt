@@ -66,18 +66,18 @@ class SplashScreenAct : AppCompatActivity() {
 
         splashScreenActivity = this@SplashScreenAct
 
-        initView()
+        splashInitView()
 
     }
 
-    private fun initView() {
+    private fun splashInitView() {
 
         splashScreenActivity.runOnUiThread {
             if (Utils.isNetworkAvailable(
                     splashScreenActivity, canShowErrorDialogOnFail = true, isFinish = true
                 )
             ) {
-                splashScreenAPI()
+                splashScreenDataAPI()
             } else {
                 Utils.showAlertWithFinis(
                     splashScreenActivity,
@@ -112,7 +112,7 @@ class SplashScreenAct : AppCompatActivity() {
     }
 
 
-    private fun splashScreenAPI() {
+    private fun splashScreenDataAPI() {
 
         AndroidNetworking.get(Crypto.decrypt(Constant.moreAppApi, Constant.encryptionKey))
             .setTag("test").doNotCacheResponse().setPriority(Priority.IMMEDIATE).build()
@@ -209,8 +209,7 @@ class SplashScreenAct : AppCompatActivity() {
                         if (SharedPreferences.getStringName(Constant.IS_SPLASH_AD)
                                 ?.let { Utils.isValidationEmpty(it) }!!
                         ) {
-                            strAdsAvailable =
-                                SharedPreferences.getStringName(Constant.IS_SPLASH_AD)
+                            strAdsAvailable = SharedPreferences.getStringName(Constant.IS_SPLASH_AD)
                         }
                         Constant.isNormalAdCount =
                             SharedPreferences.getStringName(Constant.NORMAL_AD_COUNT)!!.toInt()
@@ -299,8 +298,7 @@ class SplashScreenAct : AppCompatActivity() {
                                     )
                                 ) {
                                     Log.d("68485", " - G IN")
-                                    val manager =
-                                        AppOpenManager(AVDApplicationClass.application!!)
+                                    val manager = AppOpenManager(AVDApplicationClass.application!!)
                                     if (!Utils.isValidationEmpty(
                                             SharedPreferences.getStringName(
                                                 Constant.IS_SPLASH_AD
@@ -309,15 +307,14 @@ class SplashScreenAct : AppCompatActivity() {
                                             .equals("1")
                                     ) {
 
-                                        manager.fetchSplashAd(
-                                            splashScreenActivity,
+                                        manager.fetchSplashAd(splashScreenActivity,
                                             object : AppOpenManager.onNext {
                                                 override fun nextActionPerform() {
-                                                    screenTransaction()
+                                                    transactionScreen()
                                                 }
                                             })
                                     } else {
-                                        screenTransaction()
+                                        transactionScreen()
                                     }
                                 } else if ((Utils.isValidationEmpty(
                                         SharedPreferences.getStringName(
@@ -333,8 +330,7 @@ class SplashScreenAct : AppCompatActivity() {
                                     )
                                 ) {
                                     Log.d("68485", " - G F IN")
-                                    val manager =
-                                        AppOpenManager(AVDApplicationClass.application!!)
+                                    val manager = AppOpenManager(AVDApplicationClass.application!!)
                                     if (!Utils.isValidationEmpty(
                                             SharedPreferences.getStringName(
                                                 Constant.IS_SPLASH_AD
@@ -342,15 +338,14 @@ class SplashScreenAct : AppCompatActivity() {
                                         ) && SharedPreferences.getStringName(Constant.IS_SPLASH_AD)
                                             .equals("1")
                                     ) {
-                                        manager.fetchSplashAd(
-                                            splashScreenActivity,
+                                        manager.fetchSplashAd(splashScreenActivity,
                                             object : AppOpenManager.onNext {
                                                 override fun nextActionPerform() {
-                                                    screenTransaction()
+                                                    transactionScreen()
                                                 }
                                             })
                                     } else {
-                                        screenTransaction()
+                                        transactionScreen()
                                     }
                                 } else if ((Utils.isValidationEmpty(
                                         SharedPreferences.getStringName(
@@ -378,11 +373,11 @@ class SplashScreenAct : AppCompatActivity() {
                                             IntAdsId.getAccountNo(),
                                             true,
                                             Constant.PredChampInsideType,
-                                            { screenTransaction() },
+                                            { transactionScreen() },
                                             AVDApplicationClass.application
                                         )
                                     } else {
-                                        screenTransaction()
+                                        transactionScreen()
                                     }
                                 } else if ((Utils.isValidationEmpty(
                                         SharedPreferences.getStringName(
@@ -410,11 +405,11 @@ class SplashScreenAct : AppCompatActivity() {
                                             IntAdsId.accountNo,
                                             true,
                                             Constant.PredChampInsideType,
-                                            { screenTransaction() },
+                                            { transactionScreen() },
                                             null
                                         )
                                     } else {
-                                        screenTransaction()
+                                        transactionScreen()
                                     }
                                 } else if ((Utils.isValidationEmpty(
                                         SharedPreferences.getStringName(
@@ -448,10 +443,10 @@ class SplashScreenAct : AppCompatActivity() {
                                                         it
                                                     )
                                                 }
-                                                screenTransaction()
+                                                transactionScreen()
                                             }
                                         } else {
-                                            screenTransaction()
+                                            transactionScreen()
                                         }
                                     } else if (splashAdPriority.equals("F,G", ignoreCase = true)) {
                                         Log.d("68485", " - F,G")
@@ -468,10 +463,10 @@ class SplashScreenAct : AppCompatActivity() {
                                                         it1
                                                     )
                                                 }
-                                                screenTransaction()
+                                                transactionScreen()
                                             }
                                         } else {
-                                            screenTransaction()
+                                            transactionScreen()
                                         }
                                     } else if (splashAdPriority.equals("F", ignoreCase = true)) {
                                         Log.d("68485", " - F")
@@ -481,15 +476,15 @@ class SplashScreenAct : AppCompatActivity() {
                                         ) {
                                             AllInterstitialNewAd.CallOpenQureka(
                                                 splashScreenActivity, Constant.PredChampInsideType
-                                            ) { screenTransaction() }
+                                            ) { transactionScreen() }
                                         } else {
-                                            screenTransaction()
+                                            transactionScreen()
                                         }
                                     } else {
-                                        screenTransaction()
+                                        transactionScreen()
                                     }
                                 } else {
-                                    screenTransaction()
+                                    transactionScreen()
                                 }
                             } else {
                                 Log.d("68485", " - Else IN")
@@ -570,7 +565,7 @@ class SplashScreenAct : AppCompatActivity() {
                                         }
                                     }
                                 }
-                                screenTransaction()
+                                transactionScreen()
                             }
                         } else {
                             SharedPreferences.setStringName(Constant.NORMAL_AD_COUNT, "1")
@@ -585,39 +580,39 @@ class SplashScreenAct : AppCompatActivity() {
                             adPriority.priority = ("NA")
                             SharedPreferences.setAdvertiseModel(adPriority)
                             Handler(Looper.getMainLooper()).postDelayed(
-                                { screenTransaction() }, screenTimeOut.toLong()
+                                { transactionScreen() }, screenTimeOut.toLong()
                             )
                         }
                     } else {
-                        screenTransaction()
+                        transactionScreen()
                     }
                 }
 
                 override fun onError(anError: ANError) {
                     Log.d("okhttp", "" + anError.message)
-                    screenTransaction()
+                    transactionScreen()
                 }
             })
     }
 
-    private fun screenTransaction() {
+    private fun transactionScreen() {
 
-        var intent = Intent(this, LoginScreenAct::class.java)
-        startActivity(intent)
+//        var intent = Intent(this, LoginScreenAct::class.java)
+//        startActivity(intent)
 
 
-//        if (!Utils.isValidationEmpty(intent.getStringExtra("android.intent.extra.TEXT"))) {
-//            startActivity(
-//                Intent(
-//                    applicationContext, AllDownloadsActivity::class.java
-//                ).putExtra(
-//                    "android.intent.extra.TEXT", intent?.getStringExtra("android.intent.extra.TEXT")
-//                )
-//            )
-//            finish()
-//            return
-//        }
-//        startActivity(Intent(applicationContext, LanguagesActivity::class.java))
+        if (!Utils.isValidationEmpty(intent.getStringExtra("android.intent.extra.TEXT"))) {
+            startActivity(
+                Intent(
+                    applicationContext, AllDownloadsAct::class.java
+                ).putExtra(
+                    "android.intent.extra.TEXT", intent?.getStringExtra("android.intent.extra.TEXT")
+                )
+            )
+            finish()
+            return
+        }
+        startActivity(Intent(applicationContext, LanguagesAct::class.java))
 
         finish()
 

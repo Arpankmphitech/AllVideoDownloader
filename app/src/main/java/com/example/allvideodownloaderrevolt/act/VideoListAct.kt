@@ -29,19 +29,19 @@ class VideoListAct : BaseAct() {
         setContentView(actVideoListBinding.root)
         videoActivity = this@VideoListAct
         Utils.setStatusBarSkyGradientActivity(activity)
-        initToolBar()
-        initView()
+        videoListToolBar()
+        videoListInitView()
         LoadVideos().execute()
         actVideoListBinding.LayoutRefersh.setOnRefreshListener { LoadVideos().execute(*arrayOfNulls<String>(0)) }
     }
 
 
-    private fun initView() {
+    private fun videoListInitView() {
         actVideoListBinding.rcvFolderList.layoutManager = GridLayoutManager(this, 1)
         mGetMedia = GetMedia(this)
     }
 
-    private fun initToolBar() {
+    private fun videoListToolBar() {
         actVideoListBinding.toolBar.ivBackArrow.setOnClickListener { onBackPressed() }
         actVideoListBinding.toolBar.txtTitleName.text = videoActivity.resources.getString(R.string.videos)
     }

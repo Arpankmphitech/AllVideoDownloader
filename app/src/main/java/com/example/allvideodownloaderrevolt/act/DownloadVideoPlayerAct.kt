@@ -42,7 +42,7 @@ class DownloadVideoPlayerAct : AppCompatActivity() {
 
     private fun initView() {
         intent.getStringExtra("path")?.let {
-            if (!videoFileIsCorrupted(it)) {
+            if (!avdVideoFileIsCorrupted(it)) {
                 Utils.showAlertWithFinis(
                     this, getString(R.string.app_name), "Video file is corrupted", true
                 )
@@ -90,7 +90,7 @@ class DownloadVideoPlayerAct : AppCompatActivity() {
         }
     }
 
-    private fun videoFileIsCorrupted(path: String): Boolean {
+    private fun avdVideoFileIsCorrupted(path: String): Boolean {
         val retriever = MediaMetadataRetriever()
         try {
             retriever.setDataSource(applicationContext, Uri.parse(path))

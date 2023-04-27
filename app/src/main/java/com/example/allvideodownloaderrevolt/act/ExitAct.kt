@@ -19,11 +19,11 @@ class ExitAct : BaseAct() {
         actExitBinding = ActExitBinding.inflate(layoutInflater)
         setContentView(actExitBinding.root)
         activity = this@ExitAct
-        initView()
-        initClick()
+        initAVDView()
+        initAVDClick()
     }
 
-    private fun initClick() {
+    private fun initAVDClick() {
         actExitBinding.btnAppNo.setOnClickListener {
             Utils.displayInter(activity, {
                 startActivity(
@@ -57,7 +57,7 @@ class ExitAct : BaseAct() {
         }
     }
 
-    private fun initView() {
+    private fun initAVDView() {
         val drawableGradientYes = actExitBinding.btnAppYes.background as GradientDrawable
         drawableGradientYes.setStroke(5, activity.resources.getColor(R.color.colorDodgerBlue))
 

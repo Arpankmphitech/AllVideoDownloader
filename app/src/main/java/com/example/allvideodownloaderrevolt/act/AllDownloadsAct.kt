@@ -254,8 +254,8 @@ class AllDownloadsAct : BaseAct() {
                     activity.resources.getColor(R.color.colorRose),
                     activity.resources.getColorStateList(R.color.colorRose),
                     activity.resources.getColorStateList(R.color.colorLavenderBlush),
-                    activity.resources.getDrawable(R.drawable.ic_sharechat),
-                    activity.resources.getDrawable(R.drawable.ic_download_share),
+                    activity.resources.getDrawable(R.drawable.sharechat_logo),
+                    activity.resources.getDrawable(R.drawable.ic_share_download),
                     gradientDrawable
                 )
             }
@@ -265,8 +265,8 @@ class AllDownloadsAct : BaseAct() {
                     activity.resources.getColor(R.color.colorDeepSky),
                     activity.resources.getColorStateList(R.color.colorDeepSky),
                     activity.resources.getColorStateList(R.color.colorAlicBlue),
-                    activity.resources.getDrawable(R.drawable.ic_twitter),
-                    activity.resources.getDrawable(R.drawable.ic_download_twitter),
+                    activity.resources.getDrawable(R.drawable.twitter_logo),
+                    activity.resources.getDrawable(R.drawable.ic_twitter_download),
                     gradientDrawable
                 )
             }
@@ -276,8 +276,8 @@ class AllDownloadsAct : BaseAct() {
                     activity.resources.getColor(R.color.colorMariner),
                     activity.resources.getColorStateList(R.color.colorMariner),
                     activity.resources.getColorStateList(R.color.colorLavender),
-                    activity.resources.getDrawable(R.drawable.ic_facebook),
-                    activity.resources.getDrawable(R.drawable.ic_download_facebook),
+                    activity.resources.getDrawable(R.drawable.ic_icon_facebook),
+                    activity.resources.getDrawable(R.drawable.ic_facebook_download),
                     gradientDrawable
                 )
             }
@@ -287,8 +287,8 @@ class AllDownloadsAct : BaseAct() {
                     activity.resources.getColor(R.color.colorDarkTurquoise),
                     activity.resources.getColorStateList(R.color.colorDarkTurquoise),
                     activity.resources.getColorStateList(R.color.colorLightCyan),
-                    activity.resources.getDrawable(R.drawable.ic_josh),
-                    activity.resources.getDrawable(R.drawable.ic_download_josh),
+                    activity.resources.getDrawable(R.drawable.icon_josh),
+                    activity.resources.getDrawable(R.drawable.ic_josh_download),
                     gradientDrawable
                 )
             }
@@ -298,8 +298,8 @@ class AllDownloadsAct : BaseAct() {
                     activity.resources.getColor(R.color.colorRadicalRed),
                     activity.resources.getColorStateList(R.color.colorRadicalRed),
                     activity.resources.getColorStateList(R.color.colorAmour),
-                    activity.resources.getDrawable(R.drawable.ic_instagram),
-                    activity.resources.getDrawable(R.drawable.ic_download_instagram),
+                    activity.resources.getDrawable(R.drawable.icon_instagram),
+                    activity.resources.getDrawable(R.drawable.ic_instagram_download),
                     gradientDrawable
                 )
             }
@@ -309,8 +309,8 @@ class AllDownloadsAct : BaseAct() {
                     activity.resources.getColor(R.color.colorBlackCurrent),
                     activity.resources.getColorStateList(R.color.colorBlackCurrent),
                     activity.resources.getColorStateList(R.color.colorThistle),
-                    activity.resources.getDrawable(R.drawable.ic_chingari),
-                    activity.resources.getDrawable(R.drawable.ic_download_chingari),
+                    activity.resources.getDrawable(R.drawable.chingari_logo),
+                    activity.resources.getDrawable(R.drawable.ic_chingari_download),
                     gradientDrawable
                 )
             }
@@ -320,8 +320,8 @@ class AllDownloadsAct : BaseAct() {
                     activity.resources.getColor(R.color.colorCorn),
                     activity.resources.getColorStateList(R.color.colorCorn),
                     activity.resources.getColorStateList(R.color.colorCornSilk),
-                    activity.resources.getDrawable(R.drawable.ic_tiki),
-                    activity.resources.getDrawable(R.drawable.ic_download_tiki),
+                    activity.resources.getDrawable(R.drawable.ic_tiki_logo),
+                    activity.resources.getDrawable(R.drawable.ic_tiki_download),
                     gradientDrawable
                 )
             }
@@ -331,8 +331,8 @@ class AllDownloadsAct : BaseAct() {
                     activity.resources.getColor(R.color.colorHeliotrope),
                     activity.resources.getColorStateList(R.color.colorHeliotrope),
                     activity.resources.getColorStateList(R.color.colorMagnolia),
-                    activity.resources.getDrawable(R.drawable.ic_roposo),
-                    activity.resources.getDrawable(R.drawable.ic_download_roposo),
+                    activity.resources.getDrawable(R.drawable.ic_roposo_logo),
+                    activity.resources.getDrawable(R.drawable.ic_roposo_download),
                     gradientDrawable
                 )
 
@@ -343,8 +343,8 @@ class AllDownloadsAct : BaseAct() {
                     activity.resources.getColor(R.color.colorSummerSky),
                     activity.resources.getColorStateList(R.color.colorSummerSky),
                     activity.resources.getColorStateList(R.color.colorAliceBlue),
-                    activity.resources.getDrawable(R.drawable.ic_vimeo),
-                    activity.resources.getDrawable(R.drawable.ic_download_vimeo),
+                    activity.resources.getDrawable(R.drawable.ic_vimeo_logo),
+                    activity.resources.getDrawable(R.drawable.ic_vimeo_download),
                     gradientDrawable
                 )
             }

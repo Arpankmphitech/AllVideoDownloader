@@ -103,7 +103,7 @@ class FreePremiumAct : BaseAct() {
             PERMISSIONS
         )
 
-        initView()
+        initViewFreePrem()
     }
 
     companion object {
@@ -235,7 +235,7 @@ class FreePremiumAct : BaseAct() {
         }
     }
 
-    private fun initView() {
+    private fun initViewFreePrem() {
         actFreePreBinding.allFreeLayout.setOnClickListener {
             if (Build.VERSION.SDK_INT > Build.VERSION_CODES.Q) {
 

@@ -33,13 +33,13 @@ class MusicPlayAct : BaseAct() {
         if (Build.VERSION.SDK_INT != Build.VERSION_CODES.O) {
             requestedOrientation = ActivityInfo.SCREEN_ORIENTATION_PORTRAIT
         }
-        getIntentData()
-        initToolBar()
-        videoPlayer()
-        initClick()
+        getIntentMusicData()
+        musicInitToolBar()
+        MusicPlayer()
+        musicInitClick()
     }
 
-    private fun getIntentData() {
+    private fun getIntentMusicData() {
         val getDataIntent = intent
         if (getDataIntent.hasExtra("arrayList") && getDataIntent.hasExtra("pos")) {
             list = (getDataIntent.getSerializableExtra("arrayList") as List<AudioModel>)
@@ -47,30 +47,30 @@ class MusicPlayAct : BaseAct() {
         }
     }
 
-    private fun initToolBar() {
+    private fun musicInitToolBar() {
         actMusicPlayerBinding.toolBar.ivBackArrow.setOnClickListener { onBackPressed() }
         actMusicPlayerBinding.toolBar.txtTitleName.visibility = View.INVISIBLE
     }
 
-    private fun initClick() {
+    private fun musicInitClick() {
         actMusicPlayerBinding.imgPrevious.setOnClickListener {
             music!!.start()
-            actMusicPlayerBinding.imgPlayStop.setImageResource(R.drawable.ic_stop)
+            actMusicPlayerBinding.imgPlayStop.setImageResource(R.drawable.ic_stop_btn)
             flag = 1
             if (position >= 1) {
                 position--
                 music!!.stop()
-                videoPlayer()
+                MusicPlayer()
             }
         }
 
         actMusicPlayerBinding.imgPlayStop.setOnClickListener {
             flag = if (flag == 0) {
-                actMusicPlayerBinding.imgPlayStop.setImageResource(R.drawable.ic_stop)
+                actMusicPlayerBinding.imgPlayStop.setImageResource(R.drawable.ic_stop_btn)
                 music!!.start()
                 1
             } else {
-                actMusicPlayerBinding.imgPlayStop.setImageResource(R.drawable.ic_play)
+                actMusicPlayerBinding.imgPlayStop.setImageResource(R.drawable.ic_play_btn)
                 music!!.pause()
                 0
             }
@@ -78,17 +78,17 @@ class MusicPlayAct : BaseAct() {
 
         actMusicPlayerBinding.imgNext.setOnClickListener {
             music!!.start()
-            actMusicPlayerBinding.imgPlayStop.setImageResource(R.drawable.ic_stop)
+            actMusicPlayerBinding.imgPlayStop.setImageResource(R.drawable.ic_stop_btn)
             flag = 1
             if (list.size - 1 > position) {
                 position++
                 music!!.stop()
-                videoPlayer()
+                MusicPlayer()
             }
         }
     }
 
-    private fun videoPlayer() {
+    private fun MusicPlayer() {
         actMusicPlayerBinding.txtArtisName.text = list[position].getaArtist()
         actMusicPlayerBinding.txtName.text = list[position].getaName()
 

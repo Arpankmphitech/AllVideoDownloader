@@ -13,7 +13,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@drawable/white_top_15sdp_bg"
+        android:background="@drawable/white_15sdp_top_bg"
         android:orientation="vertical">
 
         <androidx.core.widget.NestedScrollView
@@ -31,7 +31,7 @@
                     android:id="@+id/linkDownloadBoxBg"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:background="@drawable/lavender_blush_bg_15sdp"
+                    android:background="@drawable/lavender_blush_15sdp_bg"
                     android:orientation="vertical"
                     android:padding="@dimen/_10sdp">
 
@@ -45,10 +45,10 @@
                             android:id="@+id/imgDownloadLogo"
                             android:layout_width="@dimen/_60sdp"
                             android:layout_height="@dimen/_60sdp"
-                            android:background="@drawable/white_round_bg"
+                            android:background="@drawable/white_circle_bg"
                             android:backgroundTint="@color/colorRose"
                             android:padding="@dimen/_2sdp"
-                            android:src="@drawable/ic_sharechat" />
+                            android:src="@drawable/sharechat_logo" />
 
                         <TextView
                             android:id="@+id/txtDownloadTitle"
@@ -68,7 +68,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="@dimen/_10sdp"
-                        android:background="@drawable/white_with_black_border_7sdp"
+                        android:background="@drawable/black_border_with_white_7sdp_bg"
                         android:fontFamily="@font/worksans_semibold"
                         android:hint="@string/paste_url"
                         android:imeOptions="actionDone"
@@ -90,7 +90,7 @@
                             android:layout_width="0dp"
                             android:layout_height="@dimen/_45sdp"
                             android:layout_weight="1"
-                            android:background="@drawable/common_border_bg_10sdp"
+                            android:background="@drawable/sky_border_bg_10sdp"
                             android:fontFamily="@font/worksans_semibold"
                             android:includeFontPadding="false"
                             android:text="@string/download"
@@ -107,7 +107,7 @@
                             android:layout_width="0dp"
                             android:layout_height="@dimen/_45sdp"
                             android:layout_weight="1"
-                            android:background="@drawable/common_bg_10sdp"
+                            android:background="@drawable/sky_bg_10sdp"
                             android:fontFamily="@font/worksans_semibold"
                             android:includeFontPadding="false"
                             android:text="@string/paste"
@@ -155,7 +155,7 @@
                     android:layout_gravity="center"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:src="@drawable/ic_download_1" />
+                    android:src="@drawable/ic_download_path_1" />
 
                 <TextView
                     android:layout_width="match_parent"
@@ -174,7 +174,7 @@
                     android:layout_gravity="center"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:src="@drawable/ic_download_share" />
+                    android:src="@drawable/ic_share_download" />
 
             </LinearLayout>
         </androidx.core.widget.NestedScrollView>

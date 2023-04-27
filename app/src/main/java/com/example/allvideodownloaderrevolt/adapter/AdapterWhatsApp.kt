@@ -141,7 +141,7 @@ class AdapterWhatsApp(
                 var videoHolder = mainHolder as VideoHolder
                 videoHolder.binding.roundImage.setImageBitmap(thumb)
                 videoHolder.binding.imgShare.visibility = View.GONE
-                videoHolder.binding.imgPlay.setImageResource(R.drawable.ic_wa_download)
+                videoHolder.binding.imgPlay.setImageResource(R.drawable.icon_wa_download)
                 var file = File(whatsAppVideo?.get(position))
                 Log.d(
                     "13/10",
@@ -178,7 +178,7 @@ class AdapterWhatsApp(
 
 //                videoHolder.binding.roundImage.setImageBitmap(thumb)
                 videoHolder.binding.imgShare.visibility = View.GONE
-                videoHolder.binding.imgPlay.setImageResource(R.drawable.ic_wa_download)
+                videoHolder.binding.imgPlay.setImageResource(R.drawable.icon_wa_download)
                 var file = File(Constant.WHATSAPP_STATUS_FOLDER_PATH2 + status.documentFile?.name)
                 Log.d(
                     "13/10",

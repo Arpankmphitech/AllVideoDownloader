@@ -14,10 +14,10 @@ class LanguagesAct : BaseAct() {
         setContentView(actLanguageBinding.root)
         activity = this@LanguagesAct
         Utils.setStatusBarBlueGradientActivity(activity as LanguagesAct)
-        initView()
+        languageInitView()
     }
 
-    private fun initView() {
+    private fun languageInitView() {
         actLanguageBinding.allEnglish.setOnClickListener {
             Utils.displayInter(activity, {
                 move(FreePremiumAct::class.java, 1)

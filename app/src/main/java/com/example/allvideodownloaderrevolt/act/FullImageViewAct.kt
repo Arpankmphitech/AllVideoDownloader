@@ -29,21 +29,21 @@ class FullImageViewAct : BaseAct() {
         fullImageAct = this@FullImageViewAct
         Utils.setStatusBarSkyBlueGradientActivity(fullImageAct as FullImageViewAct)
         getIntentData()
-        initToolBar()
-        initView()
+        avdInitToolBar()
+        initViewFullImage()
     }
 
     private fun getIntentData() {
         galleryAlbumsList = intent.getSerializableExtra("list") as ArrayList<GalleyPhotosListModel>?
     }
 
-    private fun initToolBar() {
+    private fun avdInitToolBar() {
         actFullImgBinding.toolBar.ivBackArrow.setOnClickListener { onBackPressed() }
         actFullImgBinding.toolBar.txtTitleName.text =
             fullImageAct.resources.getString(R.string.roundImage)
     }
 
-    private fun initView() {
+    private fun initViewFullImage() {
         actFullImgBinding.listViewPager.adapter = ImageAdapter(galleryAlbumsList)
         actFullImgBinding.listViewPager.currentItem = intent.getIntExtra("pos", 0)
     }

@@ -12,7 +12,7 @@
         android:layout_gravity="center"
         android:layout_marginStart="@dimen/_5sdp"
         android:padding="@dimen/_5sdp"
-        android:src="@drawable/ic_back_arrow" />
+        android:src="@drawable/back_arrow" />
 
     <TextView
         android:id="@+id/txtTitleName"
@@ -34,7 +34,7 @@
         android:layout_gravity="center"
         android:layout_marginEnd="@dimen/_7sdp"
         android:padding="@dimen/_3sdp"
-        android:src="@drawable/ic_wa_go"
+        android:src="@drawable/ic_go_wa"
         android:visibility="invisible" />
 
 </LinearLayout>

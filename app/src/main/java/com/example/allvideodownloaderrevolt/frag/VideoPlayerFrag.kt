@@ -53,18 +53,18 @@ class VideoPlayerFrag : Fragment() {
         when (i) {
             1 -> {
                 binding.txtVideo.setTextColor(resources.getColor(R.color.colorWhite))
-                binding.txtVideo.background = resources.getDrawable(R.drawable.sky_gradient_8sdp_bg)
+                binding.txtVideo.background = resources.getDrawable(R.drawable.blue_gradient_8sdp_bg)
                 loadFragmentView(VideoFrag())
             }
             2 -> {
                 binding.txtMusic.setTextColor(resources.getColor(R.color.colorWhite))
-                binding.txtMusic.background = resources.getDrawable(R.drawable.sky_gradient_8sdp_bg)
+                binding.txtMusic.background = resources.getDrawable(R.drawable.blue_gradient_8sdp_bg)
                 loadFragmentView(MusicFrag())
             }
             else -> {
                 binding.txtGallery.setTextColor(resources.getColor(R.color.colorWhite))
                 binding.txtGallery.background =
-                    resources.getDrawable(R.drawable.sky_gradient_8sdp_bg)
+                    resources.getDrawable(R.drawable.blue_gradient_8sdp_bg)
                 loadFragmentView(GalleryFrag())
             }
         }

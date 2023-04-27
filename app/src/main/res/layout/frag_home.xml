@@ -11,12 +11,12 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginVertical="@dimen/_12sdp"
-        android:src="@drawable/ic_common_top_logo" />
+        android:src="@drawable/ic_avd_top_logo" />
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@drawable/white_top_15sdp_bg"
+        android:background="@drawable/white_15sdp_top_bg"
         android:orientation="vertical">
 
         <androidx.core.widget.NestedScrollView
@@ -36,14 +36,14 @@
                     android:id="@+id/layoutSaveStatus"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:background="@drawable/sky_gradient_12sdp_bg"
+                    android:background="@drawable/blue_gradient_12sdp_bg"
                     android:orientation="horizontal"
                     android:padding="@dimen/_15sdp">
 
                     <ImageView
                         android:layout_width="@dimen/_50sdp"
                         android:layout_height="@dimen/_50sdp"
-                        android:src="@drawable/ic_save_status2" />
+                        android:src="@drawable/ic_save_status_blue" />
 
                     <LinearLayout
                         android:layout_width="0dp"
@@ -79,7 +79,7 @@
                         android:layout_width="@dimen/_18sdp"
                         android:layout_height="@dimen/_18sdp"
                         android:layout_gravity="center"
-                        android:src="@drawable/ic_next_arrow" />
+                        android:src="@drawable/ic_next_arrow_btn" />
                 </LinearLayout>
 
                 <include
@@ -95,14 +95,14 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/_10sdp"
-                    android:background="@drawable/sky_gradient_12sdp_bg"
+                    android:background="@drawable/blue_gradient_12sdp_bg"
                     android:orientation="horizontal"
                     android:padding="@dimen/_15sdp">
 
                     <ImageView
                         android:layout_width="@dimen/_50sdp"
                         android:layout_height="@dimen/_50sdp"
-                        android:src="@drawable/ic_video_player2" />
+                        android:src="@drawable/video_player_icon2" />
 
                     <LinearLayout
                         android:layout_width="0dp"
@@ -138,7 +138,7 @@
                         android:layout_width="@dimen/_18sdp"
                         android:layout_height="@dimen/_18sdp"
                         android:layout_gravity="center"
-                        android:src="@drawable/ic_next_arrow" />
+                        android:src="@drawable/ic_next_arrow_btn" />
                 </LinearLayout>
 
                 <include
@@ -155,14 +155,14 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginVertical="@dimen/_10sdp"
-                    android:background="@drawable/sky_gradient_12sdp_bg"
+                    android:background="@drawable/blue_gradient_12sdp_bg"
                     android:orientation="horizontal"
                     android:padding="@dimen/_15sdp">
 
                     <ImageView
                         android:layout_width="@dimen/_50sdp"
                         android:layout_height="@dimen/_50sdp"
-                        android:src="@drawable/ic_video_downloader2" />
+                        android:src="@drawable/ic_video_downloader_blue" />
 
                     <LinearLayout
                         android:layout_width="0dp"
@@ -198,7 +198,7 @@
                         android:layout_width="@dimen/_18sdp"
                         android:layout_height="@dimen/_18sdp"
                         android:layout_gravity="center"
-                        android:src="@drawable/ic_next_arrow" />
+                        android:src="@drawable/ic_next_arrow_btn" />
                 </LinearLayout>
             </LinearLayout>
         </androidx.core.widget.NestedScrollView>

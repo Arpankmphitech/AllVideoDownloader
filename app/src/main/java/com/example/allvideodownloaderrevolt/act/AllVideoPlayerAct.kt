@@ -21,17 +21,17 @@ class AllVideoPlayerAct : BaseAct() {
         setContentView(actAlPlayerBinding.root)
         activity = this@AllVideoPlayerAct
         Utils.setStatusBarSkyBlueGradientActivity(activity as AllVideoPlayerAct)
-        initVideoPlayerToolBar()
-        initVideoPlayerViewID()
+        videoPlayerToolBar()
+        videoPlayerViewID()
     }
 
-    private fun initVideoPlayerToolBar() {
+    private fun videoPlayerToolBar() {
         actAlPlayerBinding.toolBar.txtTitleName.text =
             activity.resources.getString(R.string.video_player)
         actAlPlayerBinding.toolBar.ivBackArrow.setOnClickListener { onBackPressed() }
     }
 
-    private fun initVideoPlayerViewID() {
+    private fun videoPlayerViewID() {
         if (intent.extras != null) {
             position = intent.getIntExtra("position", 0)
             val videoList2: List<VideoModel>? = intent.getSerializableExtra("videoList") as List<VideoModel>?

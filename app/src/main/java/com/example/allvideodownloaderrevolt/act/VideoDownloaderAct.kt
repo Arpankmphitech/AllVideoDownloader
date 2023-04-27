@@ -16,17 +16,17 @@ class VideoDownloaderAct : BaseAct() {
         setContentView(actVideoDwBinding.root)
         activity = this@VideoDownloaderAct
         Utils.setStatusBarSkyGradientActivity(activity)
-        initToolBar()
-        initClick()
+        vdInitToolBar()
+        vdInitClick()
     }
 
-    private fun initToolBar() {
+    private fun vdInitToolBar() {
         actVideoDwBinding.toolBar.ivBackArrow.setOnClickListener { onBackPressed() }
         actVideoDwBinding.toolBar.txtTitleName.text =
             activity.resources.getString(R.string.video_downloader_title)
     }
 
-    private fun initClick() {
+    private fun vdInitClick() {
         actVideoDwBinding.layoutWA.setOnClickListener {
             Utils.displayInter(activity, {
                 startActivity(

@@ -11,7 +11,7 @@
         android:layout_width="@dimen/_150sdp"
         android:layout_height="@dimen/_150sdp"
         android:layout_gravity="center"
-        android:src="@drawable/ic_empty"
+        android:src="@drawable/ic_folder_empty"
         android:visibility="gone" />
 
     <androidx.recyclerview.widget.RecyclerView

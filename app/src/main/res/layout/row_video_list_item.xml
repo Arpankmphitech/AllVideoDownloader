@@ -11,7 +11,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@drawable/white_smoke_12sdp_bg"
+        android:background="@drawable/white_12sdp_smoke_bg"
         android:gravity="center_vertical"
         android:orientation="horizontal"
         android:padding="@dimen/_7sdp">
@@ -26,13 +26,13 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:scaleType="centerCrop"
-                android:src="@drawable/ic_sample"
+                android:src="@drawable/ic_sample_bg"
                 app:riv_corner_radius="@dimen/_10sdp" />
 
             <com.makeramen.roundedimageview.RoundedImageView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:src="@drawable/ic_shadow"
+                android:src="@drawable/ic_black_shadow_bg"
                 app:riv_corner_radius="@dimen/_10sdp" />
 
             <TextView
@@ -102,7 +102,7 @@
             android:layout_height="28dp"
             android:layout_gravity="center_vertical"
             android:padding="1dp"
-            android:src="@drawable/ic_more_option"
+            android:src="@drawable/more_option_icon"
             android:visibility="gone"
             app:tint="@color/colorBlack" />
 

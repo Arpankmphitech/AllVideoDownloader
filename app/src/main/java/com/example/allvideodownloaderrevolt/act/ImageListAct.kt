@@ -27,24 +27,24 @@ class ImageListAct : BaseAct() {
         setContentView(actImgListBinding.root)
         imageAct = this@ImageListAct
         Utils.setStatusBarSkyGradientActivity(imageAct as ImageListAct)
-        initToolBar()
-        initView()
-        LoadVideos().execute()
-        actImgListBinding.LayoutRefersh.setOnRefreshListener { LoadVideos().execute(*arrayOfNulls<String>(0)) }
+        ImageInitToolBar()
+        ImageinitView()
+        ImageLoadVideos().execute()
+        actImgListBinding.LayoutRefersh.setOnRefreshListener { ImageLoadVideos().execute(*arrayOfNulls<String>(0)) }
     }
 
-    private fun initView() {
+    private fun ImageinitView() {
         actImgListBinding.rcvFolderList.layoutManager = GridLayoutManager(this, 1)
         getMedia = GetMedia(this)
     }
 
 
-    private fun initToolBar() {
+    private fun ImageInitToolBar() {
         actImgListBinding.toolBar.ivBackArrow.setOnClickListener { onBackPressed() }
         actImgListBinding.toolBar.txtTitleName.text = imageAct.resources.getString(R.string.photo)
     }
 
-    internal class LoadVideos : AsyncTask<String?, String?, List<GalleyPhotosListModel>>() {
+    internal class ImageLoadVideos : AsyncTask<String?, String?, List<GalleyPhotosListModel>>() {
         public override fun onPreExecute() {
             super.onPreExecute()
             actImgListBinding.txtNoDataFound.visibility = View.GONE

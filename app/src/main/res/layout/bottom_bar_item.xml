@@ -8,7 +8,7 @@
     <ImageView
         android:layout_width="match_parent"
         android:layout_height="@dimen/_15sdp"
-        android:background="@drawable/shadow_white_box"
+        android:background="@drawable/white_box_shadow"
         tools:ignore="ContentDescription" />
 
     <LinearLayout
@@ -16,7 +16,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/_3sdp"
-        android:background="@drawable/white_top_15sdp_bg"
+        android:background="@drawable/white_15sdp_top_bg"
         android:orientation="horizontal"
         android:paddingHorizontal="@dimen/_10sdp"
         android:paddingVertical="@dimen/_15sdp"
@@ -35,7 +35,7 @@
                 android:layout_width="@dimen/_25sdp"
                 android:layout_height="@dimen/_25sdp"
                 android:layout_gravity="center"
-                android:src="@drawable/ic_unslc_status_saver"
+                android:src="@drawable/icon_status_saver_gray"
                 tools:ignore="ContentDescription" />
 
             <TextView
@@ -83,7 +83,7 @@
                 android:layout_width="@dimen/_25sdp"
                 android:layout_height="@dimen/_25sdp"
                 android:layout_gravity="center"
-                android:src="@drawable/ic_unslc_video_player"
+                android:src="@drawable/ic_unslc_video_player_gray"
                 tools:ignore="ContentDescription" />
 
             <TextView

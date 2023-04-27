@@ -10,9 +10,9 @@
         android:id="@+id/roundImage"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@drawable/image_curve"
+        android:background="@drawable/img_curve_black"
         android:scaleType="centerCrop"
-        android:src="@drawable/ic_sample"
+        android:src="@drawable/ic_sample_bg"
         app:riv_corner_radius="@dimen/_10sdp"
         app:riv_tile_mode="repeat" />
 
@@ -23,5 +23,5 @@
         android:layout_height="@dimen/_35sdp"
         android:layout_gravity="bottom|end"
         android:padding="@dimen/_7sdp"
-        android:src="@drawable/ic_wa_download" />
+        android:src="@drawable/icon_wa_download" />
 </FrameLayout>

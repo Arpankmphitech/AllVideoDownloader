@@ -14,7 +14,7 @@
             android:id="@+id/layoutBigPlaceHolder"
             android:layout_width="match_parent"
             android:layout_height="@dimen/_250sdp"
-            android:background="@drawable/two_line_border_10sdp"
+            android:background="@drawable/two_line_white_border_10sdp_bg"
             android:gravity="center"
             android:visibility="gone">
 
@@ -31,7 +31,7 @@
             android:id="@+id/layoutSmallPlaceHolder"
             android:layout_width="match_parent"
             android:layout_height="@dimen/_110sdp"
-            android:background="@drawable/two_line_border_10sdp"
+            android:background="@drawable/two_line_white_border_10sdp_bg"
             android:gravity="center"
             android:visibility="gone">
 

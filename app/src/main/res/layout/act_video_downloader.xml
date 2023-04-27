@@ -14,7 +14,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@drawable/white_top_15sdp_bg"
+        android:background="@drawable/white_15sdp_top_bg"
         android:orientation="vertical">
 
         <androidx.core.widget.NestedScrollView
@@ -39,7 +39,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        android:background="@drawable/white_smoke_12sdp_bg"
+                        android:background="@drawable/white_12sdp_smoke_bg"
                         android:gravity="center"
                         android:orientation="vertical"
                         android:padding="@dimen/_10sdp">
@@ -47,7 +47,7 @@
                         <ImageView
                             android:layout_width="@dimen/_60sdp"
                             android:layout_height="@dimen/_60sdp"
-                            android:src="@drawable/ic_sharechat" />
+                            android:src="@drawable/sharechat_logo" />
 
                         <TextView
                             android:layout_width="match_parent"
@@ -70,7 +70,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        android:background="@drawable/white_smoke_12sdp_bg"
+                        android:background="@drawable/white_12sdp_smoke_bg"
                         android:gravity="center"
                         android:orientation="vertical"
                         android:padding="@dimen/_10sdp">
@@ -78,7 +78,7 @@
                         <ImageView
                             android:layout_width="@dimen/_60sdp"
                             android:layout_height="@dimen/_60sdp"
-                            android:src="@drawable/ic_twitter" />
+                            android:src="@drawable/twitter_logo" />
 
                         <TextView
                             android:layout_width="match_parent"
@@ -102,7 +102,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        android:background="@drawable/white_smoke_12sdp_bg"
+                        android:background="@drawable/white_12sdp_smoke_bg"
                         android:gravity="center"
                         android:orientation="vertical"
                         android:padding="@dimen/_10sdp">
@@ -110,7 +110,7 @@
                         <ImageView
                             android:layout_width="@dimen/_60sdp"
                             android:layout_height="@dimen/_60sdp"
-                            android:src="@drawable/ic_facebook" />
+                            android:src="@drawable/ic_icon_facebook" />
 
                         <TextView
                             android:layout_width="match_parent"
@@ -146,7 +146,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        android:background="@drawable/white_smoke_12sdp_bg"
+                        android:background="@drawable/white_12sdp_smoke_bg"
                         android:gravity="center"
                         android:orientation="vertical"
                         android:padding="@dimen/_10sdp">
@@ -154,7 +154,7 @@
                         <ImageView
                             android:layout_width="@dimen/_60sdp"
                             android:layout_height="@dimen/_60sdp"
-                            android:src="@drawable/ic_josh" />
+                            android:src="@drawable/icon_josh" />
 
                         <TextView
                             android:layout_width="match_parent"
@@ -178,7 +178,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        android:background="@drawable/white_smoke_12sdp_bg"
+                        android:background="@drawable/white_12sdp_smoke_bg"
                         android:gravity="center"
                         android:orientation="vertical"
                         android:padding="@dimen/_10sdp">
@@ -186,7 +186,7 @@
                         <ImageView
                             android:layout_width="@dimen/_60sdp"
                             android:layout_height="@dimen/_60sdp"
-                            android:src="@drawable/ic_vimeo" />
+                            android:src="@drawable/ic_vimeo_logo" />
 
                         <TextView
                             android:layout_width="match_parent"
@@ -210,7 +210,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        android:background="@drawable/white_smoke_12sdp_bg"
+                        android:background="@drawable/white_12sdp_smoke_bg"
                         android:gravity="center"
                         android:orientation="vertical"
                         android:padding="@dimen/_10sdp">
@@ -218,7 +218,7 @@
                         <ImageView
                             android:layout_width="@dimen/_60sdp"
                             android:layout_height="@dimen/_60sdp"
-                            android:src="@drawable/ic_instagram" />
+                            android:src="@drawable/icon_instagram" />
 
                         <TextView
                             android:layout_width="match_parent"
@@ -254,7 +254,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        android:background="@drawable/white_smoke_12sdp_bg"
+                        android:background="@drawable/white_12sdp_smoke_bg"
                         android:gravity="center"
                         android:orientation="vertical"
                         android:padding="@dimen/_10sdp">
@@ -262,7 +262,7 @@
                         <ImageView
                             android:layout_width="@dimen/_60sdp"
                             android:layout_height="@dimen/_60sdp"
-                            android:src="@drawable/ic_chingari" />
+                            android:src="@drawable/chingari_logo" />
 
                         <TextView
                             android:layout_width="match_parent"
@@ -285,7 +285,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        android:background="@drawable/white_smoke_12sdp_bg"
+                        android:background="@drawable/white_12sdp_smoke_bg"
                         android:gravity="center"
                         android:orientation="vertical"
                         android:padding="@dimen/_10sdp">
@@ -293,7 +293,7 @@
                         <ImageView
                             android:layout_width="@dimen/_60sdp"
                             android:layout_height="@dimen/_60sdp"
-                            android:src="@drawable/ic_tiki" />
+                            android:src="@drawable/ic_tiki_logo" />
 
                         <TextView
                             android:layout_width="match_parent"
@@ -316,7 +316,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        android:background="@drawable/white_smoke_12sdp_bg"
+                        android:background="@drawable/white_12sdp_smoke_bg"
                         android:gravity="center"
                         android:orientation="vertical"
                         android:padding="@dimen/_10sdp">
@@ -324,7 +324,7 @@
                         <ImageView
                             android:layout_width="@dimen/_60sdp"
                             android:layout_height="@dimen/_60sdp"
-                            android:src="@drawable/ic_roposo" />
+                            android:src="@drawable/ic_roposo_logo" />
 
                         <TextView
                             android:layout_width="match_parent"
