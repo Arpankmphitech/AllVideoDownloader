@@ -10,17 +10,21 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.allvideodownloaderrevolt.R
+import com.example.allvideodownloaderrevolt.act.AllVideoPlayerAct
 import com.example.allvideodownloaderrevolt.act.ImageListAct
 import com.example.allvideodownloaderrevolt.commonClass.Utils
 import com.example.allvideodownloaderrevolt.modelsClass.GalleyAlbumModel
 import com.makeramen.roundedimageview.RoundedImageView
+import java.io.Serializable
 
-class AdapterGallery(var activity : Activity, var galleryAlbumsList: List<GalleyAlbumModel>) :
+class AdapterGallery(var activity: Activity, var galleryAlbumsList: List<GalleyAlbumModel>) :
     RecyclerView.Adapter<AdapterGallery.MyImage>() {
     override fun onCreateViewHolder(viewGroup: ViewGroup, i: Int): MyImage {
         return MyImage(
             LayoutInflater.from(
-                activity).inflate(R.layout.row_gallery_folder_item, viewGroup, false))
+                activity
+            ).inflate(R.layout.row_gallery_folder_item, viewGroup, false)
+        )
     }
 
     override fun onBindViewHolder(myImage: MyImage, @SuppressLint("RecyclerView") i: Int) {
@@ -34,10 +38,11 @@ class AdapterGallery(var activity : Activity, var galleryAlbumsList: List<Galley
         myImage.itemView.setOnClickListener {
             Utils.displayInter(activity, {
                 activity.startActivity(
-                    Intent(activity,
-                    ImageListAct::class.java).setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
-                    .putExtra("pos", i)
-                    .putExtra("name", galleyAlbumModel.name))
+                    Intent(
+                        activity, ImageListAct::class.java
+                    ).setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP).putExtra("pos", i)
+                        .putExtra("name", galleyAlbumModel.name)
+                )
             }, true)
 
 

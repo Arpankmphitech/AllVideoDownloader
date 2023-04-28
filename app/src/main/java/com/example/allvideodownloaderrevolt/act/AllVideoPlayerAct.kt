@@ -12,7 +12,7 @@ import com.example.allvideodownloaderrevolt.modelsClass.VideoModel
 class AllVideoPlayerAct : BaseAct() {
 
     lateinit var actAlPlayerBinding: ActAllVideoPlayerBinding
-    var videoList: List<VideoModel>? = null
+    private var videoList: List<VideoModel>? = null
     private var position = 0
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -34,7 +34,7 @@ class AllVideoPlayerAct : BaseAct() {
     private fun videoPlayerViewID() {
         if (intent.extras != null) {
             position = intent.getIntExtra("position", 0)
-            val videoList2: List<VideoModel>? = intent.getSerializableExtra("videoList") as List<VideoModel>?
+            val videoList2 : List<VideoModel>? = intent.getSerializableExtra("list") as List<VideoModel>?
             videoList = videoList2
             if (videoList2 == null || videoList2.isEmpty()) {
                 Toast.makeText(

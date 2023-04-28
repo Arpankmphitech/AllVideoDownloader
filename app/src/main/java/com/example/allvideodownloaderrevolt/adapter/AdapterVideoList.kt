@@ -57,7 +57,6 @@ class AdapterVideoList(
                 activity.startActivity(intent)
             }, true)
 
-
         }
     }
 
