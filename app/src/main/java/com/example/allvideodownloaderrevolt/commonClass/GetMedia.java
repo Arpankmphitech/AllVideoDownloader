@@ -9,13 +9,16 @@ import android.net.Uri;
 import android.os.Environment;
 import android.provider.MediaStore;
 import android.util.Log;
+
 import com.example.allvideodownloaderrevolt.modelsClass.AudioModel;
 import com.example.allvideodownloaderrevolt.modelsClass.FolderModel;
 import com.example.allvideodownloaderrevolt.modelsClass.GalleyAlbumModel;
 import com.example.allvideodownloaderrevolt.modelsClass.GalleyPhotosListModel;
 import com.example.allvideodownloaderrevolt.modelsClass.VideoModel;
 import com.google.gson.Gson;
+
 import androidx.constraintlayout.core.motion.utils.TypedValues;
+
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -40,7 +43,8 @@ public class GetMedia {
     }
 
     public ArrayList<FolderModel> getfolderList() {
-        Cursor query = this.context.getContentResolver().query(MediaStore.Video.Media.EXTERNAL_CONTENT_URI, new String[]{"bucket_id"}, (String) null, (String[]) null, (String) null);
+        final String orderBy = MediaStore.Images.Media.DATE_ADDED + " DESC";
+        Cursor query = this.context.getContentResolver().query(MediaStore.Video.Media.EXTERNAL_CONTENT_URI, new String[]{"bucket_id"}, (String) null, (String[]) null, orderBy);
         LinkedHashSet linkedHashSet = new LinkedHashSet();
         linkedHashSet.clear();
         while (query.moveToNext()) {
@@ -69,9 +73,67 @@ public class GetMedia {
         return arrayList2;
     }
 
+
+    public List<GalleyAlbumModel> getImageFolderList(Activity activity) {
+        final String orderBy = MediaStore.Images.Media.DATE_ADDED + " DESC";
+
+        ArrayList arrayList = new ArrayList();
+        ArrayList arrayList2 = new ArrayList();
+        arrayList.clear();
+        arrayList2.clear();
+        Cursor query = activity.getContentResolver().query(MediaStore.Images.Media.EXTERNAL_CONTENT_URI, new String[]{"bucket_display_name", "_data", "_id", "title"}, (String) null, (String[]) null, orderBy);
+        if (query != null && query.getCount() > 0) {
+            if (query.moveToFirst()) {
+                int columnIndex = query.getColumnIndex("bucket_display_name");
+                int columnIndex2 = query.getColumnIndex("_data");
+                int columnIndex3 = query.getColumnIndex("_id");
+                int columnIndex4 = query.getColumnIndex("title");
+                do {
+                    String string = query.getString(columnIndex);
+                    String string2 = query.getString(columnIndex2);
+                    String string3 = query.getString(columnIndex3);
+                    String string4 = query.getString(columnIndex4);
+                    GalleyPhotosListModel galleyPhotosListModel = new GalleyPhotosListModel();
+                    galleyPhotosListModel.setAlbumName(string);
+                    galleyPhotosListModel.setPhotoUri(string2);
+                    galleyPhotosListModel.setId(Integer.valueOf(string3).intValue());
+                    galleyPhotosListModel.setImageName(string4);
+                    if (arrayList2.contains(string)) {
+                        Iterator it = arrayList.iterator();
+                        while (true) {
+                            if (it.hasNext()) {
+                                GalleyAlbumModel galleyAlbumModel = (GalleyAlbumModel) it.next();
+                                if (galleyAlbumModel.getName().equals(string)) {
+                                    galleyAlbumModel.getAlbumPhotos().add(galleyPhotosListModel);
+                                    Log.i("DeviceImageManager", "A photo was added to album => " + string);
+                                    break;
+                                }
+                            } else {
+                                break;
+                            }
+                        }
+                    } else {
+                        GalleyAlbumModel galleyAlbumModel2 = new GalleyAlbumModel();
+                        Log.i("DeviceImageManager", "A new album was created => " + string);
+                        galleyAlbumModel2.setId(galleyPhotosListModel.getId());
+                        galleyAlbumModel2.setName(string);
+                        galleyAlbumModel2.setCoverUri(galleyPhotosListModel.getPhotoUri());
+                        galleyAlbumModel2.getAlbumPhotos().add(galleyPhotosListModel);
+                        Log.i("DeviceImageManager", "A photo was added to album => " + string);
+                        arrayList.add(galleyAlbumModel2);
+                        arrayList2.add(string);
+                    }
+                } while (query.moveToNext());
+            }
+            query.close();
+        }
+        return arrayList;
+    }
+
     public List<VideoModel> getVideoByFolder(String str) {
         String[] strArr = {"_id", "title", "_display_name", "_data", "date_modified", TypedValues.TransitionType.S_DURATION, "resolution", "_size"};
-        Cursor query = this.context.getContentResolver().query(MediaStore.Video.Media.EXTERNAL_CONTENT_URI, strArr, "bucket_id =?", new String[]{str}, "date_modified DESC");
+        final String orderBy = MediaStore.Images.Media.DATE_ADDED + " DESC";
+        Cursor query = this.context.getContentResolver().query(MediaStore.Video.Media.EXTERNAL_CONTENT_URI, strArr, "bucket_id =?", new String[]{str}, orderBy);
         ArrayList arrayList = new ArrayList();
         arrayList.clear();
         while (query.moveToNext()) {
@@ -104,57 +166,6 @@ public class GetMedia {
                 audioModel.setaArtist(string3);
                 audioModel.setaPath(string);
                 arrayList.add(audioModel);
-            }
-            query.close();
-        }
-        return arrayList;
-    }
-
-    public List<GalleyAlbumModel> getImageFolder(Activity activity) {
-        ArrayList arrayList = new ArrayList();
-        ArrayList arrayList2 = new ArrayList();
-        arrayList.clear();
-        arrayList2.clear();
-        Cursor query = activity.getContentResolver().query(MediaStore.Images.Media.EXTERNAL_CONTENT_URI, new String[]{"bucket_display_name", "_data", "_id"}, (String) null, (String[]) null, (String) null);
-        if (query != null && query.getCount() > 0) {
-            if (query.moveToFirst()) {
-                int columnIndex = query.getColumnIndex("bucket_display_name");
-                int columnIndex2 = query.getColumnIndex("_data");
-                int columnIndex3 = query.getColumnIndex("_id");
-                do {
-                    String string = query.getString(columnIndex);
-                    String string2 = query.getString(columnIndex2);
-                    String string3 = query.getString(columnIndex3);
-                    GalleyPhotosListModel galleyPhotosListModel = new GalleyPhotosListModel();
-                    galleyPhotosListModel.setAlbumName(string);
-                    galleyPhotosListModel.setPhotoUri(string2);
-                    galleyPhotosListModel.setId(Integer.valueOf(string3).intValue());
-                    if (arrayList2.contains(string)) {
-                        Iterator it = arrayList.iterator();
-                        while (true) {
-                            if (it.hasNext()) {
-                                GalleyAlbumModel galleyAlbumModel = (GalleyAlbumModel) it.next();
-                                if (galleyAlbumModel.getName().equals(string)) {
-                                    galleyAlbumModel.getAlbumPhotos().add(galleyPhotosListModel);
-                                    Log.i("DeviceImageManager", "A photo was added to album => " + string);
-                                    break;
-                                }
-                            } else {
-                                break;
-                            }
-                        }
-                    } else {
-                        GalleyAlbumModel galleyAlbumModel2 = new GalleyAlbumModel();
-                        Log.i("DeviceImageManager", "A new album was created => " + string);
-                        galleyAlbumModel2.setId(galleyPhotosListModel.getId());
-                        galleyAlbumModel2.setName(string);
-                        galleyAlbumModel2.setCoverUri(galleyPhotosListModel.getPhotoUri());
-                        galleyAlbumModel2.getAlbumPhotos().add(galleyPhotosListModel);
-                        Log.i("DeviceImageManager", "A photo was added to album => " + string);
-                        arrayList.add(galleyAlbumModel2);
-                        arrayList2.add(string);
-                    }
-                } while (query.moveToNext());
             }
             query.close();
         }
@@ -197,7 +208,7 @@ public class GetMedia {
 
             return new SimpleDateFormat("dd MMM").format(new Date(Long.parseLong(str) * 1000));
         } catch (Exception e) {
-            Log.d("10/03",str+"----"+e.getMessage());
+            Log.d("10/03", str + "----" + e.getMessage());
             return "";
         }
     }
@@ -205,7 +216,7 @@ public class GetMedia {
     private String size(String str) {
         DecimalFormat decimalFormat = new DecimalFormat("#.##");
         decimalFormat.setRoundingMode(RoundingMode.FLOOR);
-        Log.d("10/03","size----"+str);
+        Log.d("10/03", "size----" + str);
         double parseDouble;
         if (!Utils.INSTANCE.isValidatEmpty(str)) {
             parseDouble = Double.parseDouble(str) / 1024.0d;

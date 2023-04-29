@@ -12,11 +12,12 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.bumptech.glide.RequestBuilder
 import com.example.allvideodownloaderrevolt.R
-import com.example.allvideodownloaderrevolt.act.AllVideoPlayerAct
 import com.example.allvideodownloaderrevolt.act.FullImageViewAct
 import com.example.allvideodownloaderrevolt.commonClass.Utils
 import com.example.allvideodownloaderrevolt.modelsClass.GalleyPhotosListModel
 import java.io.Serializable
+import java.util.*
+import kotlin.Int
 
 class AdapterImageList(
     var activity: Activity,
@@ -36,13 +37,13 @@ class AdapterImageList(
             .centerCrop() as RequestBuilder<*>).placeholder(
             R.color.colorWhite
         ) as RequestBuilder<*>).into(myImage.imgThum)
-        myImage.tvTitle.text = galleyPhotosListModel.albumName
+        myImage.tvTitle.text = galleyPhotosListModel.imageName
         myImage.itemView.setOnClickListener {
             Utils.displayInter(activity, {
                 val intent = Intent(activity, FullImageViewAct::class.java)
-                intent.addFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP)
-                intent.putExtra("pos", i)
                 intent.putExtra("list", galleryAlbumsList as Serializable)
+                intent.putExtra("pos", i)
+                intent.addFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP)
                 activity.startActivity(intent)
             }, true)
         }

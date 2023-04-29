@@ -35,7 +35,6 @@ class AdapterVideoFolder(
             val textView2 = myFolder.txtCount
             textView2.text = folderModel.videoCount + " Videos"
         }
-//        myFolder.txtSize.text = folderModel.date
         myFolder.itemView.setOnClickListener {
             Log.d("10/03", "" + folderModel.bid)
             Utils.displayInter(activity, {

@@ -13,4 +13,5 @@ class GalleyAlbumModel {
     var coverUri: String? = null
     var id = 0
     var name: String? = null
+    var displayName: String? = null
 }

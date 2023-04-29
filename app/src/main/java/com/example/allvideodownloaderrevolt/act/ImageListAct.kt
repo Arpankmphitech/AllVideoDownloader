@@ -51,7 +51,7 @@ class ImageListAct : BaseAct() {
         }
 
         override fun doInBackground(vararg strArr: String?): List<GalleyPhotosListModel>? {
-            return getMedia!!.getImageFolder(imageAct)[imageAct.intent!!.getIntExtra(
+            return getMedia!!.getImageFolderList(imageAct)[imageAct.intent!!.getIntExtra(
                 "pos", 0
             )].albumPhotos
         }

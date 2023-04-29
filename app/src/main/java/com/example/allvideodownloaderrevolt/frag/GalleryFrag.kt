@@ -47,7 +47,7 @@ class GalleryFrag : Fragment() {
         }
 
         override fun doInBackground(vararg strArr: String?): List<GalleyAlbumModel> {
-            return getMedia?.getImageFolder(galleryActivity)!!
+            return getMedia?.getImageFolderList(galleryActivity)!!
         }
 
         public override fun onPostExecute(list: List<GalleyAlbumModel>) {
